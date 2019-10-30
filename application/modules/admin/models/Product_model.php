@@ -20,14 +20,20 @@
 							$this->column_order[]='description';
 							$this->column_order[]='price';
 							$this->column_order[]='size';
-							$this->column_order[]='image';
+							$this->column_order[]='image1';
+							$this->column_order[]='image2';
+							$this->column_order[]='image3';
+							$this->column_order[]='image4';
 							$this->column_order[]='category_id';
 							$this->column_order[]='subcategory_id';
 							$this->column_search[]='name';
 							$this->column_search[]='description';
 							$this->column_search[]='price';
 							$this->column_search[]='size';
-							$this->column_search[]='image';
+							$this->column_search[]='image1';
+							$this->column_search[]='image2';
+							$this->column_search[]='image3';
+							$this->column_search[]='image4';
 							$this->column_search[]='category_id';
 							$this->column_search[]='subcategory_id';
 							

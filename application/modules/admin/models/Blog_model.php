@@ -19,11 +19,17 @@
 							$this->column_order[]='title';
 							$this->column_order[]='text';
 							$this->column_order[]='image';
-							$this->column_order[]='id_user';
+							$this->column_order[]='slug';
+							$this->column_order[]='created_on';
+							$this->column_order[]='updated_on';
+							$this->column_order[]='user_id';
 							$this->column_search[]='title';
 							$this->column_search[]='text';
 							$this->column_search[]='image';
-							$this->column_search[]='id_user';
+							$this->column_search[]='slug';
+							$this->column_search[]='created_on';
+							$this->column_search[]='updated_on';
+							$this->column_search[]='user_id';
 							
         }
 

@@ -18,6 +18,12 @@
               </div>
               </div>
 						<div class="form-group row">
+              <label for="example-text-input" class="col-sm-2 col-form-label">slug</label>
+              <div class="col-sm-10">
+                <input type="text" name="slug" class="form-control" value="<?php echo $dataedit->slug?>">
+              </div>
+              </div>
+						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">category_id</label>
               <div class="col-sm-10">
                 <input type="text" name="category_id" class="form-control" value="<?php echo $dataedit->category_id?>">

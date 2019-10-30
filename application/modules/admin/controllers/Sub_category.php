@@ -47,6 +47,7 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Sub_category_model->name;
+							$row[] = $Sub_category_model->slug;
 							$row[] = $Sub_category_model->category_id;
 							
               $row[] ="
@@ -100,6 +101,7 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					
 );
@@ -122,6 +124,7 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					
 );
@@ -149,6 +152,7 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
+$this->form_validation->set_rules('slug', 'slug', 'trim|required');
 $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
 
 

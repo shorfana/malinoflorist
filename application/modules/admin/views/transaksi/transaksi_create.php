@@ -6,21 +6,21 @@
         <div class="card-body">
           <form method="post" action="<?php echo base_url().$action ?>" enctype="multipart/form-data">
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">name</label>
+                <label class="col-sm-2 col-form-label">no_invoice</label>
                 <div class="col-sm-10">
-                  <input type="text" name="name" class="form-control">
+                  <input type="text" name="no_invoice" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image</label>
+                <label class="col-sm-2 col-form-label">transaction_date</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image" class="form-control">
+                  <input type="text" name="transaction_date" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">user_id</label>
+                <label class="col-sm-2 col-form-label">id_product</label>
                 <div class="col-sm-10">
-                  <input type="text" name="user_id" class="form-control">
+                  <input type="text" name="id_product" class="form-control">
                 </div>
               </div>
 </div>

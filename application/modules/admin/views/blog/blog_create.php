@@ -24,9 +24,27 @@
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">id_user</label>
+                <label class="col-sm-2 col-form-label">slug</label>
                 <div class="col-sm-10">
-                  <input type="text" name="id_user" class="form-control">
+                  <input type="text" name="slug" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">created_on</label>
+                <div class="col-sm-10">
+                  <input type="text" name="created_on" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">updated_on</label>
+                <div class="col-sm-10">
+                  <input type="text" name="updated_on" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">user_id</label>
+                <div class="col-sm-10">
+                  <input type="text" name="user_id" class="form-control">
                 </div>
               </div>
 </div>

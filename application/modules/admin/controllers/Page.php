@@ -47,9 +47,9 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Page_model->title;
-							$row[] = $Page_model->text;
+							$row[] = $Page_model->content;
 							$row[] = $Page_model->image;
-							$row[] = $Page_model->id_user;
+							$row[] = $Page_model->user_id;
 							
               $row[] ="
               <a href='page/edit/$Page_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -102,9 +102,9 @@ public function create_action()
         } else {
             $data = array(
 					'title' => $this->input->post('title',TRUE),
-					'text' => $this->input->post('text',TRUE),
+					'content' => $this->input->post('content',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -126,9 +126,9 @@ public function create_action()
         } else {
             $data = array(
 					'title' => $this->input->post('title',TRUE),
-					'text' => $this->input->post('text',TRUE),
+					'content' => $this->input->post('content',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -155,9 +155,9 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('title', 'title', 'trim|required');
-$this->form_validation->set_rules('text', 'text', 'trim|required');
+$this->form_validation->set_rules('content', 'content', 'trim|required');
 $this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('id_user', 'id_user', 'trim|required');
+$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

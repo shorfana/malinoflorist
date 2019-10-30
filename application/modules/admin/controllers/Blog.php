@@ -49,7 +49,10 @@
 							$row[] = $Blog_model->title;
 							$row[] = $Blog_model->text;
 							$row[] = $Blog_model->image;
-							$row[] = $Blog_model->id_user;
+							$row[] = $Blog_model->slug;
+							$row[] = $Blog_model->created_on;
+							$row[] = $Blog_model->updated_on;
+							$row[] = $Blog_model->user_id;
 							
               $row[] ="
               <a href='blog/edit/$Blog_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -104,7 +107,10 @@ public function create_action()
 					'title' => $this->input->post('title',TRUE),
 					'text' => $this->input->post('text',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
+					'created_on' => $this->input->post('created_on',TRUE),
+					'updated_on' => $this->input->post('updated_on',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -128,7 +134,10 @@ public function create_action()
 					'title' => $this->input->post('title',TRUE),
 					'text' => $this->input->post('text',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
+					'created_on' => $this->input->post('created_on',TRUE),
+					'updated_on' => $this->input->post('updated_on',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -157,7 +166,10 @@ public function create_action()
 $this->form_validation->set_rules('title', 'title', 'trim|required');
 $this->form_validation->set_rules('text', 'text', 'trim|required');
 $this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('id_user', 'id_user', 'trim|required');
+$this->form_validation->set_rules('slug', 'slug', 'trim|required');
+$this->form_validation->set_rules('created_on', 'created_on', 'trim|required');
+$this->form_validation->set_rules('updated_on', 'updated_on', 'trim|required');
+$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

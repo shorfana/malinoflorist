@@ -48,7 +48,7 @@
               $row[] = $no;
 							$row[] = $Shipping_model->name;
 							$row[] = $Shipping_model->image;
-							$row[] = $Shipping_model->id_user;
+							$row[] = $Shipping_model->user_id;
 							
               $row[] ="
               <a href='shipping/edit/$Shipping_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -102,7 +102,7 @@ public function create_action()
             $data = array(
 					'name' => $this->input->post('name',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -125,7 +125,7 @@ public function create_action()
             $data = array(
 					'name' => $this->input->post('name',TRUE),
 					'image' => $this->input->post('image',TRUE),
-					'id_user' => $this->input->post('id_user',TRUE),
+					'user_id' => $this->input->post('user_id',TRUE),
 					
 );
 
@@ -153,7 +153,7 @@ public function create_action()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
 $this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('id_user', 'id_user', 'trim|required');
+$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

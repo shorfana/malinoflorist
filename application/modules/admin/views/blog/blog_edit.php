@@ -30,9 +30,27 @@
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">id_user</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">slug</label>
               <div class="col-sm-10">
-                <input type="text" name="id_user" class="form-control" value="<?php echo $dataedit->id_user?>">
+                <input type="text" name="slug" class="form-control" value="<?php echo $dataedit->slug?>">
+              </div>
+              </div>
+						<div class="form-group row">
+              <label for="example-text-input" class="col-sm-2 col-form-label">created_on</label>
+              <div class="col-sm-10">
+                <input type="text" name="created_on" class="form-control" value="<?php echo $dataedit->created_on?>">
+              </div>
+              </div>
+						<div class="form-group row">
+              <label for="example-text-input" class="col-sm-2 col-form-label">updated_on</label>
+              <div class="col-sm-10">
+                <input type="text" name="updated_on" class="form-control" value="<?php echo $dataedit->updated_on?>">
+              </div>
+              </div>
+						<div class="form-group row">
+              <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
+              <div class="col-sm-10">
+                <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>">
               </div>
               </div>
 

@@ -1,6 +1,6 @@
 <section class="card">
       <div class="card-header">
-        <h4 class="card-title">Edit shipping</h4>
+        <h4 class="card-title">Edit upload</h4>
       </div>
       <div class="card-content">
         <div class="card-body">
@@ -12,21 +12,15 @@
               </div>
             </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">name</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">image1</label>
               <div class="col-sm-10">
-                <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
+                <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/banner/'.$dataedit->image1?>" name="image1">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">image</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">image2</label>
               <div class="col-sm-10">
-                <input type="text" name="image" class="form-control" value="<?php echo $dataedit->image?>">
-              </div>
-              </div>
-						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
-              <div class="col-sm-10">
-                <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>">
+                <input type="text" name="image2" class="form-control" value="<?php echo $dataedit->image2?>">
               </div>
               </div>
 

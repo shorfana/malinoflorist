@@ -30,9 +30,27 @@
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image</label>
+                <label class="col-sm-2 col-form-label">image1</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image" class="form-control">
+                  <input type="text" name="image1" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">image2</label>
+                <div class="col-sm-10">
+                  <input type="text" name="image2" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">image3</label>
+                <div class="col-sm-10">
+                  <input type="text" name="image3" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">image4</label>
+                <div class="col-sm-10">
+                  <input type="text" name="image4" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">

@@ -3,9 +3,9 @@
     if (!defined('BASEPATH'))
         exit('No direct script access allowed');
 
-    class Page_model extends CI_Model
+    class Upload_model extends CI_Model
     {
-        public $table = 'page';
+        public $table = 'upload_image';
         public $id = 'id';
         public $order = array('id' => 'asc');
         public $select='*';
@@ -16,14 +16,10 @@
             $this->column_order=[];
             $this->column_search=[];
             $this->column_order[]=null;
-							$this->column_order[]='title';
-							$this->column_order[]='content';
-							$this->column_order[]='image';
-							$this->column_order[]='user_id';
-							$this->column_search[]='title';
-							$this->column_search[]='content';
-							$this->column_search[]='image';
-							$this->column_search[]='user_id';
+							$this->column_order[]='image1';
+							$this->column_order[]='image2';
+							$this->column_search[]='image1';
+							$this->column_search[]='image2';
 							
         }
 

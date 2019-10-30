@@ -12,9 +12,9 @@
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">text</label>
+                <label class="col-sm-2 col-form-label">content</label>
                 <div class="col-sm-10">
-                  <input type="text" name="text" class="form-control">
+                  <input type="text" name="content" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
@@ -24,9 +24,9 @@
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">id_user</label>
+                <label class="col-sm-2 col-form-label">user_id</label>
                 <div class="col-sm-10">
-                  <input type="text" name="id_user" class="form-control">
+                  <input type="text" name="user_id" class="form-control">
                 </div>
               </div>
 </div>

@@ -1,6 +1,6 @@
 <section class="card">
       <div class="card-header">
-        <h4 class="card-title">Edit page</h4>
+        <h4 class="card-title">Edit transaksi</h4>
       </div>
       <div class="card-content">
         <div class="card-body">
@@ -12,27 +12,21 @@
               </div>
             </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">title</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">no_invoice</label>
               <div class="col-sm-10">
-                <input type="text" name="title" class="form-control" value="<?php echo $dataedit->title?>">
+                <input type="text" name="no_invoice" class="form-control" value="<?php echo $dataedit->no_invoice?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">content</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">transaction_date</label>
               <div class="col-sm-10">
-                <input type="text" name="content" class="form-control" value="<?php echo $dataedit->content?>">
+                <input type="text" name="transaction_date" class="form-control" value="<?php echo $dataedit->transaction_date?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">image</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">id_product</label>
               <div class="col-sm-10">
-                <input type="text" name="image" class="form-control" value="<?php echo $dataedit->image?>">
-              </div>
-              </div>
-						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
-              <div class="col-sm-10">
-                <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>">
+                <input type="text" name="id_product" class="form-control" value="<?php echo $dataedit->id_product?>">
               </div>
               </div>
 

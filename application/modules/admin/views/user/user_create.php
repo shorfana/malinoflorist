@@ -29,6 +29,12 @@
                   <input type="text" name="email" class="form-control">
                 </div>
               </div>
+						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">phone</label>
+                <div class="col-sm-10">
+                  <input type="text" name="phone" class="form-control">
+                </div>
+              </div>
 </div>
         <div class="col-12">
           <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect

@@ -50,7 +50,10 @@
 							$row[] = $Product_model->description;
 							$row[] = $Product_model->price;
 							$row[] = $Product_model->size;
-							$row[] = $Product_model->image;
+							$row[] = $Product_model->image1;
+							$row[] = $Product_model->image2;
+							$row[] = $Product_model->image3;
+							$row[] = $Product_model->image4;
 							$row[] = $Product_model->category_id;
 							$row[] = $Product_model->subcategory_id;
 							
@@ -108,7 +111,10 @@ public function create_action()
 					'description' => $this->input->post('description',TRUE),
 					'price' => $this->input->post('price',TRUE),
 					'size' => $this->input->post('size',TRUE),
-					'image' => $this->input->post('image',TRUE),
+					'image1' => $this->input->post('image1',TRUE),
+					'image2' => $this->input->post('image2',TRUE),
+					'image3' => $this->input->post('image3',TRUE),
+					'image4' => $this->input->post('image4',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
 					
@@ -135,7 +141,10 @@ public function create_action()
 					'description' => $this->input->post('description',TRUE),
 					'price' => $this->input->post('price',TRUE),
 					'size' => $this->input->post('size',TRUE),
-					'image' => $this->input->post('image',TRUE),
+					'image1' => $this->input->post('image1',TRUE),
+					'image2' => $this->input->post('image2',TRUE),
+					'image3' => $this->input->post('image3',TRUE),
+					'image4' => $this->input->post('image4',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
 					
@@ -167,7 +176,10 @@ $this->form_validation->set_rules('name', 'name', 'trim|required');
 $this->form_validation->set_rules('description', 'description', 'trim|required');
 $this->form_validation->set_rules('price', 'price', 'trim|required');
 $this->form_validation->set_rules('size', 'size', 'trim|required');
-$this->form_validation->set_rules('image', 'image', 'trim|required');
+$this->form_validation->set_rules('image1', 'image1', 'trim|required');
+$this->form_validation->set_rules('image2', 'image2', 'trim|required');
+$this->form_validation->set_rules('image3', 'image3', 'trim|required');
+$this->form_validation->set_rules('image4', 'image4', 'trim|required');
 $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
 $this->form_validation->set_rules('subcategory_id', 'subcategory_id', 'trim|required');
 

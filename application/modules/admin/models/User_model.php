@@ -20,10 +20,12 @@
 							$this->column_order[]='username';
 							$this->column_order[]='password';
 							$this->column_order[]='email';
+							$this->column_order[]='phone';
 							$this->column_search[]='name';
 							$this->column_search[]='username';
 							$this->column_search[]='password';
 							$this->column_search[]='email';
+							$this->column_search[]='phone';
 							
         }
 

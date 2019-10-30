@@ -17,8 +17,10 @@
             $this->column_search=[];
             $this->column_order[]=null;
 							$this->column_order[]='name';
+							$this->column_order[]='slug';
 							$this->column_order[]='category_id';
 							$this->column_search[]='name';
+							$this->column_search[]='slug';
 							$this->column_search[]='category_id';
 							
         }

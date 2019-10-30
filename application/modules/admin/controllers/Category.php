@@ -47,6 +47,7 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Category_model->name;
+							$row[] = $Category_model->slug;
 							
               $row[] ="
               <a href='category/edit/$Category_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -99,6 +100,7 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
 					
 );
 
@@ -120,6 +122,7 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
+					'slug' => $this->input->post('slug',TRUE),
 					
 );
 
@@ -146,6 +149,7 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
+$this->form_validation->set_rules('slug', 'slug', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

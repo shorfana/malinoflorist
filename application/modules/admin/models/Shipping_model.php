@@ -18,10 +18,10 @@
             $this->column_order[]=null;
 							$this->column_order[]='name';
 							$this->column_order[]='image';
-							$this->column_order[]='id_user';
+							$this->column_order[]='user_id';
 							$this->column_search[]='name';
 							$this->column_search[]='image';
-							$this->column_search[]='id_user';
+							$this->column_search[]='user_id';
 							
         }
 

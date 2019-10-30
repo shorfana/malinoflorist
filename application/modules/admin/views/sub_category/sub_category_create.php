@@ -12,6 +12,12 @@
                 </div>
               </div>
 						<div class="form-group row">
+                <label class="col-sm-2 col-form-label">slug</label>
+                <div class="col-sm-10">
+                  <input type="text" name="slug" class="form-control">
+                </div>
+              </div>
+						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">category_id</label>
                 <div class="col-sm-10">
                   <input type="text" name="category_id" class="form-control">

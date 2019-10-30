@@ -50,6 +50,7 @@
 							$row[] = $User_model->username;
 							$row[] = $User_model->password;
 							$row[] = $User_model->email;
+							$row[] = $User_model->phone;
 							
               $row[] ="
               <a href='user/edit/$User_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -105,6 +106,7 @@ public function create_action()
 					'username' => $this->input->post('username',TRUE),
 					'password' => $this->input->post('password',TRUE),
 					'email' => $this->input->post('email',TRUE),
+					'phone' => $this->input->post('phone',TRUE),
 					
 );
 
@@ -129,6 +131,7 @@ public function create_action()
 					'username' => $this->input->post('username',TRUE),
 					'password' => $this->input->post('password',TRUE),
 					'email' => $this->input->post('email',TRUE),
+					'phone' => $this->input->post('phone',TRUE),
 					
 );
 
@@ -158,6 +161,7 @@ $this->form_validation->set_rules('name', 'name', 'trim|required');
 $this->form_validation->set_rules('username', 'username', 'trim|required');
 $this->form_validation->set_rules('password', 'password', 'trim|required');
 $this->form_validation->set_rules('email', 'email', 'trim|required');
+$this->form_validation->set_rules('phone', 'phone', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
