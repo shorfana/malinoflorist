@@ -49,7 +49,7 @@
 							$row[] = $Sub_category_model->name;
 							$row[] = $Sub_category_model->slug;
 							$row[] = $Sub_category_model->category_id;
-							
+
               $row[] ="
               <a href='sub_category/edit/$Sub_category_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Sub_category_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -68,13 +68,15 @@
 
 
         public function create(){
+           $data_category=$this->Sub_category_model->get_all_category();//panggil ke modell
            $data = array(
              'content'=>'admin/sub_category/sub_category_create',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/sub_category/create_action',
              'module'=>'admin',
              'titlePage'=>'sub_category',
-             'controller'=>'sub_category'
+             'controller'=>'sub_category',
+             'data_category' => $data_category,
             );
           $this->template->load($data);
         }
@@ -99,11 +101,27 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            $slug = slug($this->input->post('name',TRUE));
+            $number = 2;
+            $checkcategory = $this->Sub_category_model->check_where_by_slug($slug);
+            $getcategory = $this->Sub_category_model->get_where_by_slug($slug);
+            //var_dump($check_category1->slug);
+            if ($checkcategory>=1) {
+              echo slug($getcategory->slug." ".$number);
+              echo "Sudah Ada";
+            }elseif ($checkcategory<1) {
+              echo "Belum Ada";
+              echo "<br>";
+              echo substr("testers", -1);
+              echo "<br>";
+              echo slug($this->input->post('name',TRUE));
+            }
+            die();
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'slug' => $this->input->post('slug',TRUE),
+					'slug' => slug($this->input->post('name',TRUE)),
 					'category_id' => $this->input->post('category_id',TRUE),
-					
+
 );
 
             $this->Sub_category_model->insert($data);
@@ -124,9 +142,10 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'slug' => $this->input->post('slug',TRUE),
+					'slug' => slug($this->input->post('name',TRUE)),
+          //'slug' => $this->input->post('slug',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
-					
+
 );
 
             $this->Sub_category_model->update($this->input->post('id', TRUE), $data);
@@ -152,7 +171,7 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
-$this->form_validation->set_rules('slug', 'slug', 'trim|required');
+//$this->form_validation->set_rules('slug', 'slug', 'trim|required');
 $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
 
 

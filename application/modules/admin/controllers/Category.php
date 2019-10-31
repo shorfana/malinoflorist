@@ -48,7 +48,7 @@
               $row[] = $no;
 							$row[] = $Category_model->name;
 							$row[] = $Category_model->slug;
-							
+
               $row[] ="
               <a href='category/edit/$Category_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Category_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -100,8 +100,7 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'slug' => $this->input->post('slug',TRUE),
-					
+					'slug' => slug($this->input->post('name',TRUE)),
 );
 
             $this->Category_model->insert($data);
@@ -123,7 +122,7 @@ public function create_action()
             $data = array(
 					'name' => $this->input->post('name',TRUE),
 					'slug' => $this->input->post('slug',TRUE),
-					
+
 );
 
             $this->Category_model->update($this->input->post('id', TRUE), $data);
@@ -149,7 +148,7 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
-$this->form_validation->set_rules('slug', 'slug', 'trim|required');
+//$this->form_validation->set_rules('slug', 'slug', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

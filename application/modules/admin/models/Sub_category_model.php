@@ -22,7 +22,7 @@
 							$this->column_search[]='name';
 							$this->column_search[]='slug';
 							$this->column_search[]='category_id';
-							
+
         }
 
         // get all
@@ -30,6 +30,27 @@
         {
             $this->db->order_by($this->id, 'DESC');
             return $this->db->get($this->table)->result();
+        }
+
+        // get category list for combobox
+        function get_all_category(){
+                  return $this->db->get('category')->result();
+        }
+
+        // check if slug already used by another sub category
+        function check_where_by_slug($slug)
+        {
+            $this->db->get('sub_category');
+            $this->db->FROM('sub_category');
+            $this->db->where('slug',$slug);
+            return $this->db->get()->num_rows();
+        }
+        function get_where_by_slug($slug)
+        {
+            $this->db->get('sub_category');
+            $this->db->FROM('sub_category');
+            $this->db->where('slug',$slug);
+            return $this->db->get()->row();
         }
 
         function getDataTable(){
