@@ -16,6 +16,9 @@
             //     redirect(base_url('login'));
             //   }
             // }
+            if($this->session->userdata('status')!='login'){
+              redirect(redirect('login'));
+            }
         }
 
         public function index()
@@ -56,7 +59,7 @@
 							$row[] = $Product_model->image4;
 							$row[] = $Product_model->category_id;
 							$row[] = $Product_model->subcategory_id;
-							
+
               $row[] ="
               <a href='product/edit/$Product_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Product_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -75,11 +78,17 @@
 
 
         public function create(){
+          $category_data = $this->Product_model->get_category();
+          $sub_category_data = $this->Product_model->get_subcategory();
            $data = array(
              'content'=>'admin/product/product_create',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/product/create_action',
+             'css'=>'admin/product/css',
+             'js'=>'admin/product/js',
              'module'=>'admin',
+             'category_data' => $category_data,
+             'sub_category_data' => $sub_category_data,
              'titlePage'=>'product',
              'controller'=>'product'
             );
@@ -92,6 +101,8 @@
              'content'=>'admin/product/product_edit',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/product/update_action',
+             'css'=>'admin/product/css',
+             'js'=>'admin/product/js',
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'product',
@@ -111,14 +122,30 @@ public function create_action()
 					'description' => $this->input->post('description',TRUE),
 					'price' => $this->input->post('price',TRUE),
 					'size' => $this->input->post('size',TRUE),
-					'image1' => $this->input->post('image1',TRUE),
-					'image2' => $this->input->post('image2',TRUE),
-					'image3' => $this->input->post('image3',TRUE),
-					'image4' => $this->input->post('image4',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-					
-);
+
+        );
+        $image1=upload('image1','product','image',TRUE);
+        if($image1){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image1']=$image1['file_name'];
+        }
+        $image2=upload('image2','product','image',TRUE);
+        if($image2){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image2']=$image2['file_name'];
+        }
+        $image3=upload('image3','product','image',TRUE);
+        if($image3){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image3']=$image3['file_name'];
+        }
+        $image4=upload('image4','product','image',TRUE);
+        if($image4){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image4']=$image4['file_name'];
+        }
 
             $this->Product_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -141,14 +168,30 @@ public function create_action()
 					'description' => $this->input->post('description',TRUE),
 					'price' => $this->input->post('price',TRUE),
 					'size' => $this->input->post('size',TRUE),
-					'image1' => $this->input->post('image1',TRUE),
-					'image2' => $this->input->post('image2',TRUE),
-					'image3' => $this->input->post('image3',TRUE),
-					'image4' => $this->input->post('image4',TRUE),
 					'category_id' => $this->input->post('category_id',TRUE),
 					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-					
-);
+
+        );
+        $image1=upload('image1','product','image',TRUE);
+        if($image1){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image1']=$image1['file_name'];
+        }
+        $image2=upload('image2','product','image',TRUE);
+        if($image2){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image2']=$image2['file_name'];
+        }
+        $image3=upload('image3','product','image',TRUE);
+        if($image3){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image3']=$image3['file_name'];
+        }
+        $image4=upload('image4','product','image',TRUE);
+        if($image4){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image4']=$image4['file_name'];
+        }
 
             $this->Product_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -176,12 +219,12 @@ $this->form_validation->set_rules('name', 'name', 'trim|required');
 $this->form_validation->set_rules('description', 'description', 'trim|required');
 $this->form_validation->set_rules('price', 'price', 'trim|required');
 $this->form_validation->set_rules('size', 'size', 'trim|required');
-$this->form_validation->set_rules('image1', 'image1', 'trim|required');
-$this->form_validation->set_rules('image2', 'image2', 'trim|required');
-$this->form_validation->set_rules('image3', 'image3', 'trim|required');
-$this->form_validation->set_rules('image4', 'image4', 'trim|required');
-$this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
-$this->form_validation->set_rules('subcategory_id', 'subcategory_id', 'trim|required');
+// $this->form_validation->set_rules('image1', 'image1', 'trim|required');
+// $this->form_validation->set_rules('image2', 'image2', 'trim|required');
+// $this->form_validation->set_rules('image3', 'image3', 'trim|required');
+// $this->form_validation->set_rules('image4', 'image4', 'trim|required');
+// $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
+// $this->form_validation->set_rules('subcategory_id', 'subcategory_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

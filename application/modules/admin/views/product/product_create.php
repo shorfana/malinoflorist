@@ -6,63 +6,73 @@
         <div class="card-body">
           <form method="post" action="<?php echo base_url().$action ?>" enctype="multipart/form-data">
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">name</label>
+                <label class="col-sm-2 col-form-label">Nama Produk</label>
                 <div class="col-sm-10">
                   <input type="text" name="name" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">description</label>
+                <label class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
                   <input type="text" name="description" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">price</label>
+                <label class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
                   <input type="text" name="price" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">size</label>
+                <label class="col-sm-2 col-form-label">Ukuran</label>
                 <div class="col-sm-10">
                   <input type="text" name="size" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image1</label>
+                <label class="col-sm-2 col-form-label">Gambar 1</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image1" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image1">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image2</label>
+                <label class="col-sm-2 col-form-label">Gambar 2</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image2" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image2">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image3</label>
+                <label class="col-sm-2 col-form-label">Gambar 3</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image3" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image3">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image4</label>
+                <label class="col-sm-2 col-form-label">Gambar 4</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image4" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image4">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">category_id</label>
+                <label class="col-sm-2 col-form-label">Kategori</label>
                 <div class="col-sm-10">
-                  <input type="text" name="category_id" class="form-control">
+                  <select class="form-control" name="category_id" id="id_category">
+                      <option value="">Please Select</option>
+                      <?php foreach ($category_data as $d ): ?>
+                        <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                      <?php endforeach; ?>
+  							    </select>
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">subcategory_id</label>
+                <label class="col-sm-2 col-form-label">Sub Kategori</label>
                 <div class="col-sm-10">
-                  <input type="text" name="subcategory_id" class="form-control">
+                  <select class="form-control" name="subcategory_id" id="id_category">
+                      <option value="">Please Select</option>
+                      <?php foreach ($sub_category_data as $d ): ?>
+                        <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                      <?php endforeach; ?>
+  							    </select>
                 </div>
               </div>
 </div>

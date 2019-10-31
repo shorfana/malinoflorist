@@ -6,27 +6,27 @@
         <div class="card-body">
           <form method="post" action="<?php echo base_url().$action ?>" enctype="multipart/form-data">
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">title</label>
+                <label class="col-sm-2 col-form-label">Judul</label>
                 <div class="col-sm-10">
                   <input type="text" name="title" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">content</label>
+                <label class="col-sm-2 col-form-label">Konten</label>
                 <div class="col-sm-10">
                   <input type="text" name="content" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image</label>
+                <label class="col-sm-2 col-form-label">Gambar</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image">
                 </div>
               </div>
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">user_id</label>
                 <div class="col-sm-10">
-                  <input type="text" name="user_id" class="form-control">
+                  <input type="text" name="user_id" value="<?php echo $this->session->userdata('id_user'); ?>" readonly class="form-control">
                 </div>
               </div>
 </div>

@@ -16,6 +16,9 @@
             //     redirect(base_url('login'));
             //   }
             // }
+            if($this->session->userdata('status')!='login'){
+              redirect(redirect('login'));
+            }
         }
 
         public function index()
@@ -50,7 +53,8 @@
 							$row[] = $Page_model->content;
 							$row[] = $Page_model->image;
 							$row[] = $Page_model->user_id;
-							
+							$row[] = $Page_model->slug;
+
               $row[] ="
               <a href='page/edit/$Page_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Page_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -73,6 +77,8 @@
              'content'=>'admin/page/page_create',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/page/create_action',
+             'css'=>'admin/page/css',
+             'js'=>'admin/page/js',
              'module'=>'admin',
              'titlePage'=>'page',
              'controller'=>'page'
@@ -86,6 +92,8 @@
              'content'=>'admin/page/page_edit',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/page/update_action',
+             'css'=>'admin/page/css',
+             'js'=>'admin/page/js',
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'page',
@@ -102,11 +110,16 @@ public function create_action()
         } else {
             $data = array(
 					'title' => $this->input->post('title',TRUE),
+					'slug' => slug($this->input->post('title',TRUE)),
 					'content' => $this->input->post('content',TRUE),
-					'image' => $this->input->post('image',TRUE),
 					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+
+          );
+          $image=upload('image','page','image',TRUE);
+          if($image){
+            //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+            $data['image']=$image['file_name'];
+          }
 
             $this->Page_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -127,10 +140,14 @@ public function create_action()
             $data = array(
 					'title' => $this->input->post('title',TRUE),
 					'content' => $this->input->post('content',TRUE),
-					'image' => $this->input->post('image',TRUE),
 					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+
+          );
+          $image=upload('image','page','image',TRUE);
+          if($image){
+            //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+            $data['image']=$image['file_name'];
+          }
 
             $this->Page_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -156,8 +173,8 @@ public function create_action()
     {
 $this->form_validation->set_rules('title', 'title', 'trim|required');
 $this->form_validation->set_rules('content', 'content', 'trim|required');
-$this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
+// $this->form_validation->set_rules('image', 'image', 'trim|required');
+// $this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

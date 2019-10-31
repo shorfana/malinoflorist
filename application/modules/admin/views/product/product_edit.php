@@ -38,25 +38,25 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image1</label>
               <div class="col-sm-10">
-                <input type="text" name="image1" class="form-control" value="<?php echo $dataedit->image1?>">
+                <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/product/'.$dataedit->image1?>" name="image1">
               </div>
               </div>
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image2</label>
               <div class="col-sm-10">
-                <input type="text" name="image2" class="form-control" value="<?php echo $dataedit->image2?>">
+                <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/product/'.$dataedit->image2?>" name="image2">
               </div>
               </div>
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image3</label>
               <div class="col-sm-10">
-                <input type="text" name="image3" class="form-control" value="<?php echo $dataedit->image3?>">
+                <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/product/'.$dataedit->image3?>" name="image3">
               </div>
               </div>
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image4</label>
               <div class="col-sm-10">
-                <input type="text" name="image4" class="form-control" value="<?php echo $dataedit->image4?>">
+                <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/product/'.$dataedit->image4?>" name="image4">
               </div>
               </div>
 						<div class="form-group row">

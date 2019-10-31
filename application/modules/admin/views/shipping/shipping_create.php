@@ -14,13 +14,13 @@
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">image</label>
                 <div class="col-sm-10">
-                  <input type="text" name="image" class="form-control">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" name="image">
                 </div>
               </div>
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">user_id</label>
                 <div class="col-sm-10">
-                  <input type="text" name="user_id" class="form-control">
+                  <input type="text" name="user_id" value="<?php echo $this->session->userdata('id_user'); ?>" class="form-control" readonly>
                 </div>
               </div>
 </div>

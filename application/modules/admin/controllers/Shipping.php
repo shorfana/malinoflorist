@@ -16,6 +16,9 @@
             //     redirect(base_url('login'));
             //   }
             // }
+            if($this->session->userdata('status')!='login'){
+              redirect(redirect('login'));
+            }
         }
 
         public function index()
@@ -49,7 +52,7 @@
 							$row[] = $Shipping_model->name;
 							$row[] = $Shipping_model->image;
 							$row[] = $Shipping_model->user_id;
-							
+
               $row[] ="
               <a href='shipping/edit/$Shipping_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Shipping_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -72,6 +75,8 @@
              'content'=>'admin/shipping/shipping_create',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/shipping/create_action',
+             'css'=>'admin/shipping/css',
+             'js'=>'admin/shipping/js',
              'module'=>'admin',
              'titlePage'=>'shipping',
              'controller'=>'shipping'
@@ -85,6 +90,8 @@
              'content'=>'admin/shipping/shipping_edit',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/shipping/update_action',
+             'css'=>'admin/shipping/css',
+             'js'=>'admin/shipping/js',
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'shipping',
@@ -100,11 +107,14 @@ public function create_action()
             $this->create();
         } else {
             $data = array(
-					'name' => $this->input->post('name',TRUE),
-					'image' => $this->input->post('image',TRUE),
-					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+  					'name' => $this->input->post('name',TRUE),
+  					'user_id' => $this->input->post('user_id',TRUE),
+          );
+          $image=upload('image','shipping','image',TRUE);
+          if($image){
+            //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+            $data['image']=$image['file_name'];
+          }
 
             $this->Shipping_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -124,10 +134,14 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'image' => $this->input->post('image',TRUE),
 					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+
+        );
+        $image=upload('image','shipping','image',TRUE);
+        if($image){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image']=$image['file_name'];
+        }
 
             $this->Shipping_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -152,8 +166,8 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
-$this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
+// $this->form_validation->set_rules('image', 'image', 'trim|required');
+// $this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

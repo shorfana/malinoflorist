@@ -137,7 +137,7 @@ public function create_action()
         } else {
             $data = array(
 					'image1' => $this->input->post('image1',TRUE),
-					'image2' => $this->input->post('image2',TRUE),
+					'age' => $this->input->post('image2',TRUE),
 
 );
 

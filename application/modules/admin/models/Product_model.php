@@ -36,7 +36,7 @@
 							$this->column_search[]='image4';
 							$this->column_search[]='category_id';
 							$this->column_search[]='subcategory_id';
-							
+
         }
 
         // get all
@@ -147,6 +147,17 @@
         {
             $this->db->from($this->table);
             return $this->db->count_all_results();
+        }
+
+
+        public function get_category(){
+            $query = $this->db->get('category');
+            return $query->result();
+        }
+
+        public function get_subcategory(){
+            $query = $this->db->get('sub_category');
+            return $query->result();
         }
 
     }

@@ -10,9 +10,10 @@
         // if($this->session->userdata('status')!='login'){
         //   redirect(base_url('login'));
         // }
-        // if($this->session->userdata('role')!=1){
-        //   redirect(redirect($_SERVER['HTTP_REFERER']));
-        // }
+        if($this->session->userdata('status')!='login'){
+          redirect(redirect('login'));
+        }
+
       }
 
       function index()

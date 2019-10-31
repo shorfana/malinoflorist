@@ -37,7 +37,7 @@ Gunaka class ini untuk Form Edit, dan ubah default URL nya
 
  function upload($formname,$pathFolder,$type='image',$encrypt=FALSE){//default untuk image
     $ci =& get_instance();//$ci untuk pengganti $this->
-    $config['upload_path']          = './upload/'.$pathFolder;
+    $config['upload_path']          = './xfile/'.$pathFolder;
     if($type=='file'){
       $config['allowed_types']        = 'pdf';
       //$config['max_size']             = 100;
