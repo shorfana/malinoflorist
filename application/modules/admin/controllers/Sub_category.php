@@ -101,32 +101,63 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+            $name = $this->input->post('name',TRUE);
             $slug = slug($this->input->post('name',TRUE));
-            $number = 2;
-            $checkcategory = $this->Sub_category_model->check_where_by_slug($slug);
-            $getcategory = $this->Sub_category_model->get_where_by_slug($slug);
-            //var_dump($check_category1->slug);
-            if ($checkcategory>=1) {
-              echo slug($getcategory->slug." ".$number);
-              echo "Sudah Ada";
-            }elseif ($checkcategory<1) {
-              echo "Belum Ada";
-              echo "<br>";
-              echo substr("testers", -1);
-              echo "<br>";
-              echo slug($this->input->post('name',TRUE));
+            $category_id = $this->input->post('category_id',TRUE);
+
+            $check_category = $this->Sub_category_model->check_where_by_slug($slug,$category_id);
+            $check_row = $this->Sub_category_model->check_row($slug,$category_id);
+            $get_category = $this->Sub_category_model->get_where_by_slug($slug,$category_id);
+            //var_dump($check_category);
+
+            if ($check_category<1) {
+              echo $name_value = $name;
+              echo $slug_value = $slug;
+            }elseif ($check_category>=1) {
+               // var_dump($get_category);
+               // die();
+              if (($check_row==1)) {
+                // echo $get_category2->slug;
+                // die();
+                $number = 2;
+                echo $name_value = $name." ".$number;
+                echo $slug_value = slug($name_value);
+              }elseif ($check_row>1) {
+                $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
+                $next_num = $last_num+1;
+                $slug_title = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
+                echo $slug = $slug_title."-".$next_num;
+                //GET ONLY NUMBER, NOT INCLUDE THE TITLE
+                // $kalimat="hallo word";
+                // $posisi=substr($kalimat,strrpos($kalimat,"o"));
+                // echo $posisi; // hasil 7
+
+                //GET ONLY TITLE, NOT INCLUDE THE NUMBER
+                // echo $s = "This_is_a_string-233718";
+                // echo "<br>";
+                // echo $text = substr($s, 0, strrpos($s, "_"));
+              }
             }
+
             die();
-            $data = array(
-					'name' => $this->input->post('name',TRUE),
-					'slug' => slug($this->input->post('name',TRUE)),
-					'category_id' => $this->input->post('category_id',TRUE),
+            // var_dump($check_category);
+            // die();
 
-);
-
-            $this->Sub_category_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('admin/sub_category'));
+            //AATERNATIF
+            // if ($check_category>=1) {
+            //   $message = "Maaf, Sub category sudah terdaftar";
+            //   $this->session->set_flashdata('message', $message);
+            //   redirect(site_url('admin/sub_category'));
+            // }elseif ($check_category<1){
+            //   $data = array(
+      			// 		'name' => $name,
+      			// 		'slug' => $slug,
+      			// 		'category_id' => $category_id,
+            //   );
+            //   $this->Sub_category_model->insert($data);
+            //   $this->session->set_flashdata('message', 'Create Record Success');
+            //   redirect(site_url('admin/sub_category'));
+            // }
         }
     }
 
