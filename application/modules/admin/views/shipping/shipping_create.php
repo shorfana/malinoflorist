@@ -6,13 +6,13 @@
         <div class="card-body">
           <form method="post" action="<?php echo base_url().$action ?>" enctype="multipart/form-data">
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">name</label>
+                <label class="col-sm-2 col-form-label">Nama Jasa Pengiriman</label>
                 <div class="col-sm-10">
                   <input type="text" name="name" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image</label>
+                <label class="col-sm-2 col-form-label">Gambar</label>
                 <div class="col-sm-10">
                   <input type="file" id="input-file-now-custom-1" class="dropify" name="image">
                 </div>

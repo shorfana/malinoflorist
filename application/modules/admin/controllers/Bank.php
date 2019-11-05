@@ -48,7 +48,7 @@
               $row[] = $no;
 							$row[] = $Bank_model->name;
 							$row[] = $Bank_model->image;
-							
+
               $row[] ="
               <a href='bank/edit/$Bank_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Bank_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -70,6 +70,8 @@
            $data = array(
              'content'=>'admin/bank/bank_create',
              'sidebar'=>'admin/sidebar',
+             'css'=>'admin/bank/css',
+             'js'=>'admin/bank/js',
              'action'=>'admin/bank/create_action',
              'module'=>'admin',
              'titlePage'=>'bank',
@@ -84,6 +86,8 @@
              'content'=>'admin/bank/bank_edit',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/bank/update_action',
+             'css'=>'admin/bank/css',
+             'js'=>'admin/bank/js',
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'bank',
@@ -100,9 +104,12 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'image' => $this->input->post('image',TRUE),
-					
-);
+        );
+        $image=upload('image','bank','image',TRUE);
+        if($image){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image']=$image['file_name'];
+        }
 
             $this->Bank_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -122,9 +129,13 @@ public function create_action()
         } else {
             $data = array(
 					'name' => $this->input->post('name',TRUE),
-					'image' => $this->input->post('image',TRUE),
-					
-);
+
+        );
+        $image=upload('image','bank','image',TRUE);
+        if($image){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image']=$image['file_name'];
+        }
 
             $this->Bank_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
@@ -149,7 +160,7 @@ public function create_action()
     public function _rules()
     {
 $this->form_validation->set_rules('name', 'name', 'trim|required');
-$this->form_validation->set_rules('image', 'image', 'trim|required');
+// $this->form_validation->set_rules('image', 'image', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');
