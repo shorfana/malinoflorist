@@ -19,7 +19,7 @@
         }
 
         public function index()
-        {$databank=$this->Bank_model->getDataTable();//panggil ke modell
+        {$databank=$this->Bank_model->get_all();//panggil ke modell
           $datafield=$this->Bank_model->get_field();//panggil ke modell
 
            $data = array(

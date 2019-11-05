@@ -40,35 +40,46 @@
         // check if slug already used by another sub category
         function check_where_by_slug($slug,$category_id)
         {
-            $this->db->get('sub_category');
-            $this->db->FROM('sub_category');
-            $this->db->where('slug',$slug,'after');
+            $this->db->get($this->table);
+            $this->db->FROM($this->table);
+            //$this->db->where('slug',$slug,'after');
             $this->db->where('category_id',$category_id);
             $this->db->where('slug',$slug);
             return $this->db->get()->num_rows();
         }
         function check_row($slug,$category_id)
         {
-            $this->db->get('sub_category');
+            $this->db->get($this->table);
             $this->db->select('*');
-            $this->db->FROM('sub_category');
-            //$this->db->where('category_id',$category_id);
+            $this->db->FROM($this->table);
+            $this->db->where('category_id',$category_id);
             $this->db->like('slug',$slug,'after');
             return $this->db->get()->num_rows();
         }
         //GET DATA IF THERE IS MORE THAN 1 SAME ITEM
-        function get_where_by_slug($slug,$category_id)
+        function get_where_by_slug($slug_param,$category_id)
         {
-            $this->db->get('sub_category');
+            $this->db->get($this->table);
             $this->db->select('*');
             $this->db->select('SUBSTRING_INDEX(TRIM(slug), "-", -1) AS "category_number"');
-            $this->db->FROM('sub_category');
+            $this->db->FROM($this->table);
             $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
             $this->db->where('category_id',$category_id);
-            $this->db->like('slug',$slug,'after');
+            $this->db->like('slug',$slug_param,'after');
             $this->db->order_by('CAST(category_number as int)', 'DESC');
             return $this->db->get()->row();
         }
+
+        function check_next_row($slug_value,$category_id)
+        {
+            $this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->FROM($this->table);
+            $this->db->where('category_id',$category_id);
+            $this->db->where('slug',$slug_value);
+            return $this->db->get()->num_rows();
+        }
+
         function getDataTable(){
             $this->db->select($this->select);
             $this->db->order_by($this->id, 'DESC');

@@ -14,9 +14,11 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item"><a href="<?= base_url()?>admin/blog"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="">Blog</span></a>
-                </li>
                 <li class="nav-item"><a href="<?= base_url()?>admin/shipping"><i class="feather icon-truck"></i><span class="menu-title" data-i18n="">Shipping</span></a>
+                </li>
+                <li class="nav-item"><a href="<?= base_url()?>admin/bank"><i class="feather icon-dollar-sign"></i><span class="menu-title" data-i18n="">Bank</span></a>
+                </li>
+                <li class="nav-item"><a href="<?= base_url()?>admin/blog"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="">Blog</span></a>
                 </li>
                 <li class=" nav-item"><a href="<?= base_url()?>admin/page"><i class="feather icon-help-circle"></i><span class="menu-title" data-i18n="">Pages</span></a>
                 </li>

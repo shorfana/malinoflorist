@@ -33,7 +33,7 @@
                 <select class="form-control" name="category_id" id="category_id">
                     <option value="">Please Select</option>
                     <?php foreach ($data_category as $d ): ?>
-                      <option value="<?php echo $d->id ?>"><?php echo $d->slug ?></option>
+                      <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
                     <?php endforeach; ?>
 							    </select>
               </div>

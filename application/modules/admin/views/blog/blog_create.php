@@ -14,39 +14,40 @@
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">text</label>
                 <div class="col-sm-10">
-                  <input type="text" name="text" class="form-control">
+                  <!-- <input type="text" name="text" class="form-control"> -->
+                  <textarea type="text" name="text" class="form-control"></textarea>
                 </div>
               </div>
-						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">image</label>
-                <div class="col-sm-10">
-                  <input type="text" name="image" class="form-control">
-                </div>
-              </div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label">slug</label>
                 <div class="col-sm-10">
                   <input type="text" name="slug" class="form-control">
                 </div>
-              </div>
-						<div class="form-group row">
+              </div> -->
+              <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">image</label>
+                  <div class="col-sm-10">
+                    <input type="text" name="image" class="form-control">
+                  </div>
+                </div>
+						<!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label">created_on</label>
                 <div class="col-sm-10">
                   <input type="text" name="created_on" class="form-control">
                 </div>
-              </div>
-						<div class="form-group row">
+              </div> -->
+						<!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label">updated_on</label>
                 <div class="col-sm-10">
                   <input type="text" name="updated_on" class="form-control">
                 </div>
-              </div>
-						<div class="form-group row">
+              </div> -->
+						<!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label">user_id</label>
                 <div class="col-sm-10">
                   <input type="text" name="user_id" class="form-control">
                 </div>
-              </div>
+              </div> -->
 </div>
         <div class="col-12">
           <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect

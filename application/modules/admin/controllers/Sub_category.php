@@ -83,6 +83,7 @@
 
         public function edit($id){
           $dataedit=$this->Sub_category_model->get_by_id($id);
+          $data_category=$this->Sub_category_model->get_all_category();//panggil ke modell
            $data = array(
              'content'=>'admin/sub_category/sub_category_edit',
              'sidebar'=>'admin/sidebar',
@@ -90,7 +91,8 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'sub_category',
-             'controller'=>'sub_category'
+             'controller'=>'sub_category',
+             'data_category' => $data_category,
             );
           $this->template->load($data);
         }
@@ -103,30 +105,75 @@ public function create_action()
         } else {
             $name = $this->input->post('name',TRUE);
             $slug = slug($this->input->post('name',TRUE));
+            $plain = substr($slug,0,strrpos($slug,"-"));
             $category_id = $this->input->post('category_id',TRUE);
-
             $check_category = $this->Sub_category_model->check_where_by_slug($slug,$category_id);
             $check_row = $this->Sub_category_model->check_row($slug,$category_id);
-            $get_category = $this->Sub_category_model->get_where_by_slug($slug,$category_id);
-            //var_dump($check_category);
 
+            if (!empty($plain)) {
+              $slug_param = $plain;
+            }elseif (empty($plain)) {
+              $slug_param = $slug;
+            }
+            $get_category = $this->Sub_category_model->get_where_by_slug($slug_param,$category_id);
+            //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
             if ($check_category<1) {
               echo $name_value = $name;
               echo $slug_value = $slug;
-            }elseif ($check_category>=1) {
-               // var_dump($get_category);
-               // die();
-              if (($check_row==1)) {
-                // echo $get_category2->slug;
-                // die();
-                $number = 2;
-                echo $name_value = $name." ".$number;
-                echo $slug_value = slug($name_value);
-              }elseif ($check_row>1) {
-                $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
-                $next_num = $last_num+1;
-                $slug_title = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
-                echo $slug = $slug_title."-".$next_num;
+              $data = array(
+        					'name' => $name_value,
+        					'slug' => $slug_value,
+        					'category_id' => $category_id,
+                );
+            //IF DATA INPUTED ALREADY ON DATABASE, AND THE DATA INPUTED NOT INCLUDE NUMBERING AT LAST TEXT
+            }elseif ($check_category==1 && !is_numeric(substr($slug, -1)) ) {
+              $number = 2;
+              echo $name_value = $name." ".$number;
+              echo $slug_value = slug($name_value);
+              $next_row = $this->Sub_category_model->check_next_row($slug_value,$category_id);
+              //IF THE NEXT ROW IS < 2
+              //THEN INSERT "SLUG TITLE - 2"
+                if ($next_row<1) {
+                  $data = array(
+            					'name' => $name_value,
+            					'slug' => $slug_value,
+            					'category_id' => $category_id,
+                    );
+                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+              }elseif ($next_row>=1) {
+                  $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
+                  $get_category->category_number;
+                  $next_num = $last_num+1;
+                  $name = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
+                  echo $name_value = $name." ".$next_num;
+                  echo $slug_value = $name."-".$next_num;
+                  $data = array(
+                      'name' => $name_value,
+                      'slug' => $slug_value,
+                      'category_id' => $category_id,
+                    );
+                }
+
+            }
+            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
+            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+            elseif ($check_row>=1 && is_numeric(substr($slug, -1)) ) {
+              $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
+              $get_category->category_number;
+              $next_num = $last_num+1;
+              $name = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
+              echo $name_value = $name." ".$next_num;
+              echo $slug_value = $name."-".$next_num;
+              $data = array(
+        					'name' => $name_value,
+        					'slug' => $slug_value,
+        					'category_id' => $category_id,
+                );
+            }
+            $this->Sub_category_model->insert($data);
+            $this->session->set_flashdata('message', 'Create Record Success');
+            redirect(site_url('admin/sub_category'));
+
                 //GET ONLY NUMBER, NOT INCLUDE THE TITLE
                 // $kalimat="hallo word";
                 // $posisi=substr($kalimat,strrpos($kalimat,"o"));
@@ -136,12 +183,6 @@ public function create_action()
                 // echo $s = "This_is_a_string-233718";
                 // echo "<br>";
                 // echo $text = substr($s, 0, strrpos($s, "_"));
-              }
-            }
-
-            die();
-            // var_dump($check_category);
-            // die();
 
             //AATERNATIF
             // if ($check_category>=1) {
@@ -161,9 +202,6 @@ public function create_action()
         }
     }
 
-
-
-
     public function update_action()
     {
         $this->_rules();
@@ -171,20 +209,26 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->edit($this->input->post('id', TRUE));
         } else {
+          $name = $this->input->post('name',TRUE);
+          $slug = slug($this->input->post('name',TRUE));
+          $category_id = $this->input->post('category_id',TRUE);
+          $check_category = $this->Sub_category_model->check_where_by_slug($slug,$category_id);
+          if ($check_category>=1) {
+            $message = "Maaf, Sub category sudah terdaftar";
+            $this->session->set_flashdata('message', $message);
+            redirect(site_url('admin/sub_category'));die();
+          }elseif ($check_category<1){
             $data = array(
-					'name' => $this->input->post('name',TRUE),
-					'slug' => slug($this->input->post('name',TRUE)),
-          //'slug' => $this->input->post('slug',TRUE),
-					'category_id' => $this->input->post('category_id',TRUE),
-
-);
-
+          		'name' => $name,
+          		'slug' => $slug,
+          		'category_id' => $category_id,
+            );
             $this->Sub_category_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('admin/sub_category'));
+          }
         }
     }
-
     public function delete($id)
     {
         $row = $this->Sub_category_model->get_by_id($id);

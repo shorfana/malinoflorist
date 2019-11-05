@@ -26,7 +26,20 @@
                                            <th>aksi</th>
                                        </tr>
                                      </thead>
-                                     <tbody></tbody>
+                                     <tbody>
+                                       <?php foreach ($databank as $d): ?>
+                                         <tr>
+                                           <?php foreach ($datafield as $df): ?>
+                                             <td><?php echo $d->$df ?></td>
+                                           <?php endforeach; ?>
+                                           <td>
+                                             <a href="<?php echo base_url().$module?>/bank/edit/<?php echo $d->id ?>"><i class="m-1 feather icon-edit-2"></i></a>
+                                             <a class="modalDelete" data-toggle="modal" data-target="#responsive-modal" value="<?php echo $d->id ?>" href="#"><i class="feather icon-trash"></i></a>
+                                           </td>
+
+                                         </tr>
+                                       <?php endforeach; ?>
+                                       </tbody>
                                      <tfoot>
                                        <tr>
                                            <?php foreach ($datafield as $d): ?>

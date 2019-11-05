@@ -47,13 +47,13 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Blog_model->title;
+              $row[] = $Blog_model->slug;
 							$row[] = $Blog_model->text;
 							$row[] = $Blog_model->image;
-							$row[] = $Blog_model->slug;
 							$row[] = $Blog_model->created_on;
 							$row[] = $Blog_model->updated_on;
 							$row[] = $Blog_model->user_id;
-							
+
               $row[] ="
               <a href='blog/edit/$Blog_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Blog_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -103,16 +103,87 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+          $title = $this->input->post('title',TRUE);
+          $slug = slug($this->input->post('title',TRUE));
+          $plain = substr($slug,0,strrpos($slug,"-"));
+          $created_on = date("Y-m-d h:i:s");
+          $check_unique = $this->Blog_model->check_where_by_slug($slug);
+          $check_row = $this->Blog_model->check_row($slug);
+
+          if (!empty($plain)) {
+            $slug_param = $plain;
+          }elseif (empty($plain)) {
+            $slug_param = $slug;
+          }
+          $get_slug = $this->Blog_model->get_where_by_slug($slug_param);
+          //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
+          if ($check_unique<1) {
+            $title_value = $title;
+            $slug_value = $slug;
             $data = array(
-					'title' => $this->input->post('title',TRUE),
-					'text' => $this->input->post('text',TRUE),
-					'image' => $this->input->post('image',TRUE),
-					'slug' => $this->input->post('slug',TRUE),
-					'created_on' => $this->input->post('created_on',TRUE),
-					'updated_on' => $this->input->post('updated_on',TRUE),
-					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+    					'title' => $title_value,
+              'slug' => $slug_value,
+              'text' => $this->input->post('text',TRUE),
+    					'image' => $this->input->post('image',TRUE),
+    					'created_on' => $created_on,
+    					//'updated_on' => $this->input->post('updated_on',TRUE),
+    					'user_id' => $this->session->userdata['id_user'],
+            );
+          }elseif ($check_unique==1 && !is_numeric(substr($slug, -1)) ) {
+              $number = 2;
+              $title_value = $title." ".$number;
+              $slug_value = slug($title_value);
+              $next_row = $this->Blog_model->check_next_row($slug_value);
+              //IF THE NEXT ROW IS < 2
+              //THEN INSERT "SLUG TITLE - 2"
+                if ($next_row<1) {
+                  $data = array(
+                    'title' => $title_value,
+                    'slug' => $slug_value,
+                    'text' => $this->input->post('text',TRUE),
+          					'image' => $this->input->post('image',TRUE),
+          					'created_on' => $created_on,
+          					//'updated_on' => $this->input->post('updated_on',TRUE),
+          					'user_id' => $this->session->userdata['id_user'],
+                    );
+                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+              }elseif ($next_row>=1) {
+                  $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
+                  $get_slug->category_number;
+                  $next_num = $last_num+1;
+                  $title = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
+                  $title_value = $title." ".$next_num;
+                  $slug_value = $title."-".$next_num;
+                  $data = array(
+                    'title' => $title_value,
+                    'slug' => $slug_value,
+                    'text' => $this->input->post('text',TRUE),
+          					'image' => $this->input->post('image',TRUE),
+          					'created_on' => $created_on,
+          					//'updated_on' => $this->input->post('updated_on',TRUE),
+          					'user_id' => $this->session->userdata['id_user'],
+                    );
+                }
+            }
+            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
+            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+            elseif ($check_row>=1 && is_numeric(substr($slug, -1)) ) {
+              $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
+              $get_slug->category_number;
+              $next_num = $last_num+1;
+              $title = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
+              $title_value = $title." ".$next_num;
+              $slug_value = $title."-".$next_num;
+              $data = array(
+                'title' => $title_value,
+                'slug' => $slug_value,
+                'text' => $this->input->post('text',TRUE),
+      					'image' => $this->input->post('image',TRUE),
+      					'created_on' => $created_on,
+      					//'updated_on' => $this->input->post('updated_on',TRUE),
+      					'user_id' => $this->session->userdata['id_user'],
+                );
+            }
 
             $this->Blog_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
@@ -130,23 +201,33 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->edit($this->input->post('id', TRUE));
         } else {
-            $data = array(
-					'title' => $this->input->post('title',TRUE),
-					'text' => $this->input->post('text',TRUE),
-					'image' => $this->input->post('image',TRUE),
-					'slug' => $this->input->post('slug',TRUE),
-					'created_on' => $this->input->post('created_on',TRUE),
-					'updated_on' => $this->input->post('updated_on',TRUE),
-					'user_id' => $this->input->post('user_id',TRUE),
-					
-);
+            $title = $this->input->post('title',TRUE);
+            $slug = slug($this->input->post('title',TRUE));
+            $updated_on = date("Y-m-d h:i:s");
+            $check_unique = $this->Blog_model->check_where_by_slug($slug);
+            //var_dump($check_unique);die();
 
-            $this->Blog_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('admin/blog'));
+            if ($check_unique>=1) {
+                $message = "Maaf, Category sudah terdaftar";
+                $this->session->set_flashdata('message', $message);
+                redirect(site_url('admin/sub_category'));die();
+            }elseif ($check_unique<1){
+              $data = array(
+                'title' => $title,
+                'slug' => $slug,
+      					'text' => $this->input->post('text',TRUE),
+      					'image' => $this->input->post('image',TRUE),
+      					// 'created_on' => $this->input->post('created_on',TRUE),
+      					'updated_on' => $updated_on,
+      					'user_id' => $this->session->userdata['id_user'],
+              );
+              //var_dump($data);
+              $this->Blog_model->update($this->input->post('id', TRUE), $data);
+              $this->session->set_flashdata('message', 'Update Record Success');
+              redirect(site_url('admin/blog'));
+            }
         }
     }
-
     public function delete($id)
     {
         $row = $this->Blog_model->get_by_id($id);
@@ -166,10 +247,10 @@ public function create_action()
 $this->form_validation->set_rules('title', 'title', 'trim|required');
 $this->form_validation->set_rules('text', 'text', 'trim|required');
 $this->form_validation->set_rules('image', 'image', 'trim|required');
-$this->form_validation->set_rules('slug', 'slug', 'trim|required');
-$this->form_validation->set_rules('created_on', 'created_on', 'trim|required');
-$this->form_validation->set_rules('updated_on', 'updated_on', 'trim|required');
-$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
+//$this->form_validation->set_rules('slug', 'slug', 'trim|required');
+//$this->form_validation->set_rules('created_on', 'created_on', 'trim|required');
+//$this->form_validation->set_rules('updated_on', 'updated_on', 'trim|required');
+//$this->form_validation->set_rules('user_id', 'user_id', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

@@ -14,13 +14,14 @@
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">Deskripsi</label>
                 <div class="col-sm-10">
-                  <input type="text" name="description" class="form-control">
+                  <textarea type="text" name="description" class="form-control"></textarea>
+                  <!-- <input type="text" name="description" class="form-control"> -->
                 </div>
               </div>
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">Harga</label>
                 <div class="col-sm-10">
-                  <input type="text" name="price" class="form-control">
+                  <input type="number" name="price" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">

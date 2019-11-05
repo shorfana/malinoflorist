@@ -20,8 +20,47 @@
 							$this->column_order[]='slug';
 							$this->column_search[]='name';
 							$this->column_search[]='slug';
-							
+
         }
+
+        // check if slug already used by another sub category
+        function check_where_by_slug($slug)
+        {
+            $this->db->get($this->table);
+            $this->db->FROM($this->table);
+            $this->db->where('slug',$slug);
+            return $this->db->get()->num_rows();
+        }
+        function check_row($slug)
+        {
+            $this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->FROM($this->table);
+            $this->db->like('slug',$slug,'after');
+            return $this->db->get()->num_rows();
+        }
+        //GET DATA IF THERE IS MORE THAN 1 SAME ITEM
+        function get_where_by_slug($slug_param)
+        {
+            $this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->select('SUBSTRING_INDEX(TRIM(slug), "-", -1) AS "category_number"');
+            $this->db->FROM($this->table);
+            $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
+            $this->db->like('slug',$slug_param,'after');
+            $this->db->order_by('CAST(category_number as int)', 'DESC');
+            return $this->db->get()->row();
+        }
+
+        function check_next_row($slug_value)
+        {
+            $this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->FROM($this->table);
+            $this->db->where('slug',$slug_value);
+            return $this->db->get()->num_rows();
+        }
+
 
         // get all
         function get_all()

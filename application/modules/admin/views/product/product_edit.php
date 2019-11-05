@@ -59,18 +59,28 @@
                 <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/product/'.$dataedit->image4?>" name="image4">
               </div>
               </div>
-						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">category_id</label>
-              <div class="col-sm-10">
-                <input type="text" name="category_id" class="form-control" value="<?php echo $dataedit->category_id?>">
-              </div>
-              </div>
-						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">subcategory_id</label>
-              <div class="col-sm-10">
-                <input type="text" name="subcategory_id" class="form-control" value="<?php echo $dataedit->subcategory_id?>">
-              </div>
-              </div>
+              <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Kategori</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" name="category_id" id="id_category" required>
+                        <option value="">Please Select</option>
+                        <?php foreach ($category_data as $d ): ?>
+                          <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                        <?php endforeach; ?>
+    							    </select>
+                  </div>
+                </div>
+  						<div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Sub Kategori</label>
+                  <div class="col-sm-10">
+                    <select class="form-control" name="subcategory_id" id="id_category" required>
+                        <option value="">Please Select</option>
+                        <?php foreach ($sub_category_data as $d ): ?>
+                          <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                        <?php endforeach; ?>
+    							    </select>
+                  </div>
+                </div>
 
         </div>
         <input type="hidden" id="deleteFiles" name="deleteFiles">

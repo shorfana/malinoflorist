@@ -14,13 +14,19 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">title</label>
               <div class="col-sm-10">
-                <input type="text" name="title" class="form-control" value="<?php echo $dataedit->title?>">
+                <input type="text" name="title" class="form-control" value="<?php echo $dataedit->title?>" required>
               </div>
               </div>
+            <!-- <div class="form-group row">
+              <label for="example-text-input" class="col-sm-2 col-form-label">slug</label>
+              <div class="col-sm-10">
+                <input type="text" name="slug" class="form-control" value="<?php echo $dataedit->slug?>">
+              </div>
+              </div> -->
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">text</label>
               <div class="col-sm-10">
-                <input type="text" name="text" class="form-control" value="<?php echo $dataedit->text?>">
+                <input type="text" name="text" class="form-control" value="<?php echo $dataedit->text?>" required>
               </div>
               </div>
 						<div class="form-group row">
@@ -29,30 +35,24 @@
                 <input type="text" name="image" class="form-control" value="<?php echo $dataedit->image?>">
               </div>
               </div>
-						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">slug</label>
-              <div class="col-sm-10">
-                <input type="text" name="slug" class="form-control" value="<?php echo $dataedit->slug?>">
-              </div>
-              </div>
-						<div class="form-group row">
+						<!-- <div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">created_on</label>
               <div class="col-sm-10">
                 <input type="text" name="created_on" class="form-control" value="<?php echo $dataedit->created_on?>">
               </div>
-              </div>
-						<div class="form-group row">
+              </div> -->
+						<!-- <div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">updated_on</label>
               <div class="col-sm-10">
                 <input type="text" name="updated_on" class="form-control" value="<?php echo $dataedit->updated_on?>">
               </div>
-              </div>
-						<div class="form-group row">
+              </div> -->
+						<!-- <div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
               <div class="col-sm-10">
                 <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>">
               </div>
-              </div>
+              </div> -->
 
         </div>
         <input type="hidden" id="deleteFiles" name="deleteFiles">

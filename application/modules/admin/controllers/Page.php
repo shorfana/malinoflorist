@@ -50,10 +50,10 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Page_model->title;
+              $row[] = $Page_model->slug;
 							$row[] = $Page_model->content;
 							$row[] = $Page_model->image;
 							$row[] = $Page_model->user_id;
-							$row[] = $Page_model->slug;
 
               $row[] ="
               <a href='page/edit/$Page_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -108,13 +108,76 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->create();
         } else {
+          $title = $this->input->post('title',TRUE);
+          $slug = slug($this->input->post('title',TRUE));
+          $plain = substr($slug,0,strrpos($slug,"-"));
+          $created_on = date("Y-m-d h:i:s");
+          $check_unique = $this->Page_model->check_where_by_slug($slug);
+          $check_row = $this->Page_model->check_row($slug);
+          if (!empty($plain)) {
+            $slug_param = $plain;
+          }elseif (empty($plain)) {
+            $slug_param = $slug;
+          }
+          $get_slug = $this->Page_model->get_where_by_slug($slug_param);
+          //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
+          if ($check_unique<1) {
+            $title_value = $title;
+            $slug_value = $slug;
             $data = array(
-					'title' => $this->input->post('title',TRUE),
-					'slug' => slug($this->input->post('title',TRUE)),
-					'content' => $this->input->post('content',TRUE),
-					'user_id' => $this->input->post('user_id',TRUE),
+    					'title' => $title_value,
+              'slug' => $slug_value,
+              'content' => $this->input->post('content',TRUE),
+    					'user_id' => $this->session->userdata['id_user'],
+            );
+          }elseif ($check_unique==1 && !is_numeric(substr($slug, -1)) ) {
+              $number = 2;
+              $title_value = $title." ".$number;
+              $slug_value = slug($title_value);
+              $next_row = $this->Page_model->check_next_row($slug_value);
+              //IF THE NEXT ROW IS < 2
+              //THEN INSERT "SLUG TITLE - 2"
+                if ($next_row<1) {
+                  $data = array(
+                    'title' => $title_value,
+                    'slug' => $slug_value,
+                    'content' => $this->input->post('content',TRUE),
+                    'user_id' => $this->session->userdata['id_user'],
+                    );
+                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+              }elseif ($next_row>=1) {
+                  $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
+                  $get_slug->category_number;
+                  $next_num = $last_num+1;
+                  $title = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
+                  $title_value = $title." ".$next_num;
+                  $slug_value = $title."-".$next_num;
+                  $data = array(
+                    'title' => $title_value,
+                    'slug' => $slug_value,
+                    'content' => $this->input->post('content',TRUE),
+                    'user_id' => $this->session->userdata['id_user'],
+                    );
+                }
+            }
 
-          );
+            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
+            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
+            elseif ($check_row>=1 && is_numeric(substr($slug, -1)) ) {
+              $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
+              $get_slug->category_number;
+              $next_num = $last_num+1;
+              $title = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
+              $title_value = $title." ".$next_num;
+              $slug_value = $title."-".$next_num;
+              $data = array(
+                'title' => $title_value,
+                'slug' => $slug_value,
+                'content' => $this->input->post('content',TRUE),
+                'user_id' => $this->session->userdata['id_user'],
+                );
+            }
+
           $image=upload('image','page','image',TRUE);
           if($image){
             //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
@@ -137,21 +200,34 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->edit($this->input->post('id', TRUE));
         } else {
-            $data = array(
-					'title' => $this->input->post('title',TRUE),
-					'content' => $this->input->post('content',TRUE),
-					'user_id' => $this->input->post('user_id',TRUE),
+          $title = $this->input->post('title',TRUE);
+          $slug = slug($this->input->post('title',TRUE));
+          $updated_on = date("Y-m-d h:i:s");
+          $check_unique = $this->Page_model->check_where_by_slug($slug);
+          //var_dump($check_unique);die();
 
-          );
-          $image=upload('image','page','image',TRUE);
-          if($image){
-            //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
-            $data['image']=$image['file_name'];
-          }
+          if ($check_unique>=1) {
+              $message = "Maaf, Judul Halaman Sudah Terdaftar";
+              $this->session->set_flashdata('message', $message);
+              redirect(site_url('admin/sub_category'));die();
+          }elseif ($check_unique<1){
+            $data = array(
+              'title' => $title,
+              'slug' => $slug,
+              'content' => $this->input->post('content',TRUE),
+              'user_id' => $this->session->userdata['id_user'],
+            );
+
+            $image=upload('image','page','image',TRUE);
+            if($image){
+              //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+              $data['image']=$image['file_name'];
+            }
 
             $this->Page_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('admin/page'));
+          }
         }
     }
 
