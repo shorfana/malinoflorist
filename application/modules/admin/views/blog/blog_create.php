@@ -25,11 +25,17 @@
                 </div>
               </div> -->
               <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">Gambar</label>
+                  <div class="col-sm-10">
+                    <input type="file" id="input-file-now-custom-1" class="dropify" name="image">
+                  </div>
+                </div>
+              <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label">image</label>
                   <div class="col-sm-10">
                     <input type="text" name="image" class="form-control">
                   </div>
-                </div>
+                </div> -->
 						<!-- <div class="form-group row">
                 <label class="col-sm-2 col-form-label">created_on</label>
                 <div class="col-sm-10">

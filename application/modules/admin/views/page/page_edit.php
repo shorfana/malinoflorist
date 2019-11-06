@@ -32,7 +32,7 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
               <div class="col-sm-10">
-                <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>">
+                <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>" readonly>
               </div>
               </div>
 

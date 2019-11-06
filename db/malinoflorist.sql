@@ -1,93 +1,126 @@
-/*
-SQLyog Ultimate v11.11 (64 bit)
-MySQL - 5.5.5-10.1.13-MariaDB : Database - malinoflorist
-*********************************************************************
-*/
+-- phpMyAdmin SQL Dump
+-- version 4.8.5
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Nov 06, 2019 at 03:23 AM
+-- Server version: 8.0.13-4
+-- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
-/*!40101 SET NAMES utf8 */;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
 
-/*!40101 SET SQL_MODE=''*/;
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`malinoflorist` /*!40100 DEFAULT CHARACTER SET latin1 */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-USE `malinoflorist`;
+--
+-- Database: `LOrUqLMvec`
+--
 
-/*Table structure for table `bank` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `bank`;
+--
+-- Table structure for table `bank`
+--
 
 CREATE TABLE `bank` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(10) NOT NULL,
-  `image` varchar(80) NOT NULL,
-  PRIMARY KEY (`id`)
+  `image` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `bank` */
+--
+-- Dumping data for table `bank`
+--
 
-/*Table structure for table `blog` */
+INSERT INTO `bank` (`id`, `name`, `image`) VALUES
+(4, 'BNI', '4610d3236d76ab5212c85192833c1b81.png'),
+(5, 'Mandiri', '868e86fe4fa1d6ec86dbbe3a0588fdbe.png'),
+(6, 'BRI', '972dd78cc1b9fcc42984f2e8ff8dcc9c.png');
 
-DROP TABLE IF EXISTS `blog`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `blog`
+--
 
 CREATE TABLE `blog` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `title` varchar(30) NOT NULL,
+  `slug` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `text` text NOT NULL,
   `image` varchar(80) NOT NULL,
-  `slug` varchar(255) NOT NULL,
   `created_on` datetime NOT NULL,
   `updated_on` datetime NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user` (`user_id`),
-  CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `blog` */
+--
+-- Dumping data for table `blog`
+--
 
-/*Table structure for table `category` */
+INSERT INTO `blog` (`id`, `title`, `slug`, `text`, `image`, `created_on`, `updated_on`, `user_id`) VALUES
+(2, 'Manfaat Bunga Bagi Kesehatan P', 'manfaat-bunga-bagi-kesehatan-psikologis', 'lorem ipsum', 'f19cc3169eaac424d68bcd19fe44c8d0.jpg', '2019-11-06 09:59:13', '0000-00-00 00:00:00', 1);
 
-DROP TABLE IF EXISTS `category`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `category`
+--
 
 CREATE TABLE `category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `slug` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
-
-/*Data for the table `category` */
-
-insert  into `category`(`id`,`name`,`slug`) values (3,'Bunga Papan','bunga-papan'),(4,'MAKAN EnaK','makan-enak'),(5,'Pengen AYAm GEpreK *&*@@*#&!','pengen-ayam-geprek');
-
-/*Table structure for table `page` */
-
-DROP TABLE IF EXISTS `page`;
-
-CREATE TABLE `page` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(30) NOT NULL,
-  `content` text NOT NULL,
-  `image` varchar(80) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user` (`user_id`),
-  CONSTRAINT `page_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  `id` int(11) NOT NULL,
+  `name` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `slug` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `page` */
+--
+-- Dumping data for table `category`
+--
 
-/*Table structure for table `product` */
+INSERT INTO `category` (`id`, `name`, `slug`) VALUES
+(1, 'Bunga Papan', 'bunga-papan'),
+(2, 'Hand Bouquet', 'hand-bouquet'),
+(4, 'Table Flower', 'table-flower'),
+(6, 'Kaktus', 'kaktus');
 
-DROP TABLE IF EXISTS `product`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `page`
+--
+
+CREATE TABLE `page` (
+  `id` int(11) NOT NULL,
+  `title` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `slug` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `content` text NOT NULL,
+  `image` varchar(80) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `page`
+--
+
+INSERT INTO `page` (`id`, `title`, `slug`, `content`, `image`, `user_id`) VALUES
+(3, 'Cara Belanja', 'cara-belanja', 'Cara Berbelanja yang baik dan benar', 'f97233f3ebe4911f55b8faae298e1dc0.jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product`
+--
 
 CREATE TABLE `product` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `slug` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `description` text NOT NULL,
   `price` double NOT NULL,
   `size` varchar(20) NOT NULL,
@@ -96,83 +129,281 @@ CREATE TABLE `product` (
   `image3` varchar(130) NOT NULL,
   `image4` varchar(130) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `subcategory_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`),
-  KEY `subcategory_id` (`subcategory_id`),
-  CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
-  CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategory_id`) REFERENCES `sub_category` (`id`)
+  `subcategory_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `product` */
+-- --------------------------------------------------------
 
-/*Table structure for table `shipping` */
-
-DROP TABLE IF EXISTS `shipping`;
+--
+-- Table structure for table `shipping`
+--
 
 CREATE TABLE `shipping` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `name` varchar(80) NOT NULL,
   `image` varchar(80) NOT NULL,
-  `user_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id_user` (`user_id`),
-  CONSTRAINT `shipping_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+  `user_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `shipping` */
+--
+-- Dumping data for table `shipping`
+--
 
-/*Table structure for table `sub_category` */
+INSERT INTO `shipping` (`id`, `name`, `image`, `user_id`) VALUES
+(3, 'JNE', '4dce230f58c8fd670d1dcb2a500e6cb4.jpg', 1),
+(5, 'J&T', 'b1eea515a8bfd58e38a7d2f49286c493.jpg', 1),
+(6, 'TIKI', '1d22a4117cb0f1f1ad93fb0adefc5e88.png', 1),
+(7, 'Pos Indonesia', 'd3baa22c3d771cf3b19bdd555af16de5.png', 1);
 
-DROP TABLE IF EXISTS `sub_category`;
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sub_category`
+--
 
 CREATE TABLE `sub_category` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `slug` varchar(100) NOT NULL,
-  `category_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `category_id` (`category_id`),
-  CONSTRAINT `sub_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL,
+  `name` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `slug` varchar(150) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `category_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `sub_category` */
+--
+-- Dumping data for table `sub_category`
+--
 
-insert  into `sub_category`(`id`,`name`,`slug`,`category_id`) values (1,'melati','melati',3),(3,'sdasd','sdasd',3),(4,'Makan PAS Udah Laper Aja &(*&#','makan-pas-udah-laper-aja',3),(8,'Bunga Papan Gantung','bunga-papan-gantung',3),(9,'Bunga Papan Gantung 2','bunga-papan-gantung-2',3),(12,'rarqwq sdfsdASDASW 2131!23113#','rarqwq-sdfsdasdasw-2131-23113-qwe',3),(13,'Makan PAS Udah Laper Aja &(*&#','makan-pas-udah-laper-aja',3),(14,'Makan PAS Udah Laper Aja &(*&#','makan-pas-udah-laper-aja',3),(15,'mawar','mawar',4),(16,'Makan PAS Udah Laper Aja &(*&#','makan-pas-udah-laper-aja',4),(20,'Bunga Papan Gantung 3','bunga-papan-gantung-3',3),(21,'Bunga Papan Gantung 4','bunga-papan-gantung-4',3),(22,'Bunga Papan Gantung 6','bunga-papan-gantung-6',3),(24,'mawar 2','mawar-2',4),(25,'mawar 3','mawar-3',4);
+INSERT INTO `sub_category` (`id`, `name`, `slug`, `category_id`) VALUES
+(1, 'Happy Wedding', 'happy-wedding', 1),
+(2, 'Congratulations', 'congratulations', 1),
+(3, 'Turut Berduka Cita', 'turut-berduka-cita', 1);
 
-/*Table structure for table `transaksi` */
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `transaksi`;
+--
+-- Table structure for table `testimoni`
+--
+
+CREATE TABLE `testimoni` (
+  `id` int(11) NOT NULL,
+  `image` varchar(100) NOT NULL,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `title` varchar(80) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `description` text NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaksi`
+--
 
 CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `no_invoice` varchar(20) NOT NULL,
   `transaction_date` datetime NOT NULL,
-  `id_product` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `id_product` (`id_product`),
-  CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`)
+  `id_product` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `transaksi` */
+-- --------------------------------------------------------
 
-/*Table structure for table `user` */
-
-DROP TABLE IF EXISTS `user`;
+--
+-- Table structure for table `user`
+--
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(30) NOT NULL,
-  `username` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL,
+  `name` varchar(80) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `username` varchar(80) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `password` varchar(120) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `phone` varchar(13) NOT NULL,
-  PRIMARY KEY (`id`)
+  `phone` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*Data for the table `user` */
+--
+-- Dumping data for table `user`
+--
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`, `phone`) VALUES
+(1, 'admin', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997', 'admin@admin.com', '089635625');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `blog`
+--
+ALTER TABLE `blog`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`user_id`);
+
+--
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `page`
+--
+ALTER TABLE `page`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`user_id`);
+
+--
+-- Indexes for table `product`
+--
+ALTER TABLE `product`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`),
+  ADD KEY `subcategory_id` (`subcategory_id`);
+
+--
+-- Indexes for table `shipping`
+--
+ALTER TABLE `shipping`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_user` (`user_id`);
+
+--
+-- Indexes for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `category_id` (`category_id`);
+
+--
+-- Indexes for table `testimoni`
+--
+ALTER TABLE `testimoni`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id_product` (`id_product`);
+
+--
+-- Indexes for table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `blog`
+--
+ALTER TABLE `blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `page`
+--
+ALTER TABLE `page`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `product`
+--
+ALTER TABLE `product`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `shipping`
+--
+ALTER TABLE `shipping`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `testimoni`
+--
+ALTER TABLE `testimoni`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `blog`
+--
+ALTER TABLE `blog`
+  ADD CONSTRAINT `blog_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `page`
+--
+ALTER TABLE `page`
+  ADD CONSTRAINT `page_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `product`
+--
+ALTER TABLE `product`
+  ADD CONSTRAINT `product_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`),
+  ADD CONSTRAINT `product_ibfk_2` FOREIGN KEY (`subcategory_id`) REFERENCES `sub_category` (`id`);
+
+--
+-- Constraints for table `shipping`
+--
+ALTER TABLE `shipping`
+  ADD CONSTRAINT `shipping_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`);
+
+--
+-- Constraints for table `sub_category`
+--
+ALTER TABLE `sub_category`
+  ADD CONSTRAINT `sub_category_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
+
+--
+-- Constraints for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

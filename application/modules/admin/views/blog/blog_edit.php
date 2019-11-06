@@ -29,10 +29,10 @@
                 <input type="text" name="text" class="form-control" value="<?php echo $dataedit->text?>" required>
               </div>
               </div>
-						<div class="form-group row">
+            <div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image</label>
               <div class="col-sm-10">
-                <input type="text" name="image" class="form-control" value="<?php echo $dataedit->image?>">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/page/'.$dataedit->image?>" name="image">
               </div>
               </div>
 						<!-- <div class="form-group row">

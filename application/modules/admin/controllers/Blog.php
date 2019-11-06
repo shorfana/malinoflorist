@@ -76,6 +76,8 @@
              'content'=>'admin/blog/blog_create',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/blog/create_action',
+             'css'=>'admin/page/css',
+             'js'=>'admin/page/js',
              'module'=>'admin',
              'titlePage'=>'blog',
              'controller'=>'blog'
@@ -89,6 +91,8 @@
              'content'=>'admin/blog/blog_edit',
              'sidebar'=>'admin/sidebar',
              'action'=>'admin/blog/update_action',
+             'css'=>'admin/page/css',
+             'js'=>'admin/page/js',
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'blog',
@@ -124,7 +128,6 @@ public function create_action()
     					'title' => $title_value,
               'slug' => $slug_value,
               'text' => $this->input->post('text',TRUE),
-    					'image' => $this->input->post('image',TRUE),
     					'created_on' => $created_on,
     					//'updated_on' => $this->input->post('updated_on',TRUE),
     					'user_id' => $this->session->userdata['id_user'],
@@ -141,7 +144,6 @@ public function create_action()
                     'title' => $title_value,
                     'slug' => $slug_value,
                     'text' => $this->input->post('text',TRUE),
-          					'image' => $this->input->post('image',TRUE),
           					'created_on' => $created_on,
           					//'updated_on' => $this->input->post('updated_on',TRUE),
           					'user_id' => $this->session->userdata['id_user'],
@@ -158,7 +160,6 @@ public function create_action()
                     'title' => $title_value,
                     'slug' => $slug_value,
                     'text' => $this->input->post('text',TRUE),
-          					'image' => $this->input->post('image',TRUE),
           					'created_on' => $created_on,
           					//'updated_on' => $this->input->post('updated_on',TRUE),
           					'user_id' => $this->session->userdata['id_user'],
@@ -178,13 +179,16 @@ public function create_action()
                 'title' => $title_value,
                 'slug' => $slug_value,
                 'text' => $this->input->post('text',TRUE),
-      					'image' => $this->input->post('image',TRUE),
       					'created_on' => $created_on,
       					//'updated_on' => $this->input->post('updated_on',TRUE),
       					'user_id' => $this->session->userdata['id_user'],
                 );
             }
-
+            $image=upload('image','blog','image',TRUE);
+            if($image){
+              //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+              $data['image']=$image['file_name'];
+            }
             $this->Blog_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('admin/blog'));
@@ -216,7 +220,6 @@ public function create_action()
                 'title' => $title,
                 'slug' => $slug,
       					'text' => $this->input->post('text',TRUE),
-      					'image' => $this->input->post('image',TRUE),
       					// 'created_on' => $this->input->post('created_on',TRUE),
       					'updated_on' => $updated_on,
       					'user_id' => $this->session->userdata['id_user'],
@@ -246,7 +249,7 @@ public function create_action()
     {
 $this->form_validation->set_rules('title', 'title', 'trim|required');
 $this->form_validation->set_rules('text', 'text', 'trim|required');
-$this->form_validation->set_rules('image', 'image', 'trim|required');
+//$this->form_validation->set_rules('image', 'image', 'trim|required');
 //$this->form_validation->set_rules('slug', 'slug', 'trim|required');
 //$this->form_validation->set_rules('created_on', 'created_on', 'trim|required');
 //$this->form_validation->set_rules('updated_on', 'updated_on', 'trim|required');

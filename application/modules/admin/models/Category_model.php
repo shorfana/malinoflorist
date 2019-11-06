@@ -48,7 +48,7 @@
             $this->db->FROM($this->table);
             $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
             $this->db->like('slug',$slug_param,'after');
-            $this->db->order_by('CAST(category_number as int)', 'DESC');
+            $this->db->order_by('CAST(category_number as UNSIGNED)', 'DESC');
             return $this->db->get()->row();
         }
 

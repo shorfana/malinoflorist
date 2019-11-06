@@ -28,7 +28,7 @@
 							$this->column_order[]='category_id';
 							$this->column_order[]='subcategory_id';
 							$this->column_search[]='name';
-              $this->column_search[]='slug';              
+              $this->column_search[]='slug';
 							$this->column_search[]='description';
 							$this->column_search[]='price';
 							$this->column_search[]='size';
@@ -66,7 +66,7 @@
             $this->db->FROM($this->table);
             $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
             $this->db->like('slug',$slug_param,'after');
-            $this->db->order_by('CAST(category_number as int)', 'DESC');
+            $this->db->order_by('CAST(category_number as UNSIGNED)', 'DESC');
             return $this->db->get()->row();
         }
 

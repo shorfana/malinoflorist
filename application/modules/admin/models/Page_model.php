@@ -19,7 +19,7 @@
 							$this->column_order[]='title';
               $this->column_order[]='slug';
 							$this->column_order[]='content';
-							$this->column_order[]='image';
+              $this->column_order[]='image';
 							$this->column_order[]='user_id';
 							$this->column_search[]='title';
               $this->column_search[]='slug';
@@ -53,7 +53,7 @@
             $this->db->FROM($this->table);
             $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
             $this->db->like('slug',$slug_param,'after');
-            $this->db->order_by('CAST(category_number as int)', 'DESC');
+            $this->db->order_by('CAST(category_number as UNSIGNED)', 'DESC');
             return $this->db->get()->row();
         }
 
@@ -65,7 +65,7 @@
             $this->db->where('slug',$slug_value);
             return $this->db->get()->num_rows();
         }
-        
+
         // get all
         function get_all()
         {
