@@ -90,6 +90,8 @@
              'module'=>'admin',
              'category_data' => $category_data,
              'sub_category_data' => $sub_category_data,
+             'category_data_selected' => '',
+             'sub_category_data_selected' => '',
              'titlePage'=>'product',
              'controller'=>'product'
             );
@@ -109,6 +111,8 @@
              'dataedit'=>$dataedit,
              'category_data' => $category_data,
              'sub_category_data' => $sub_category_data,
+             'category_data_selected' => '',
+             'sub_category_data_selected' => '',
              'module'=>'admin',
              'titlePage'=>'product',
              'controller'=>'product'

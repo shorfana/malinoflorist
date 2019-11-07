@@ -63,9 +63,10 @@
                   <label class="col-sm-2 col-form-label">Kategori</label>
                   <div class="col-sm-10">
                     <select class="form-control" name="category_id" id="id_category" required>
-                        <option value="">Please Select</option>
-                        <?php foreach ($category_data as $d ): ?>
-                          <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                        <option value="<?php echo $dataedit->category_id ?>">Please Select</option>
+                        <<?php foreach ($category_data as $d ): ?>
+                          <option <?php echo $category_data_selected == $d->id ? 'selected="selected"' : '' ?>
+                          value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
                         <?php endforeach; ?>
     							    </select>
                   </div>
@@ -73,10 +74,11 @@
   						<div class="form-group row">
                   <label class="col-sm-2 col-form-label">Sub Kategori</label>
                   <div class="col-sm-10">
-                    <select class="form-control" name="subcategory_id" id="id_category" required>
-                        <option value="">Please Select</option>
+                    <select class="form-control" name="subcategory_id" id="id_subcategory" required>
+                        <option value="<?php echo $dataedit->subcategory_id ?>">Please Select</option>
                         <?php foreach ($sub_category_data as $d ): ?>
-                          <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                          <option <?php echo $sub_category_data_selected ? 'selected="selected"' : '' ?>
+                          class="<?php echo $d->category_id ?>"  value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
                         <?php endforeach; ?>
     							    </select>
                   </div>
@@ -91,3 +93,8 @@
       </form>
       </div>
     </section>
+        <script src="<?php echo base_url('assets/js/jquery-1.10.2.min.js') ?>"></script>
+        <script src="<?php echo base_url('assets/js/jquery.chained.min.js') ?>"></script>
+        <script>
+              $("#id_subcategory").chained("#id_category");
+        </script>
