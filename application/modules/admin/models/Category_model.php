@@ -24,6 +24,16 @@
         }
 
         // check if slug already used by another sub category
+        function check_sub_category_id($id)
+        {
+            $this->db->get('sub_category');
+            $this->db->select('*');
+            $this->db->FROM('sub_category');
+            $this->db->where('category_id',$id);
+            return $this->db->get()->num_rows();
+        }
+
+        // check if slug already used by another sub category
         function check_where_by_slug($slug)
         {
             $this->db->get($this->table);

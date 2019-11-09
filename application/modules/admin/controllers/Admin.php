@@ -27,4 +27,8 @@
         $this->template->load($data);
       }
 
+      // function imam(){
+      //   $this->load->view('home');
+      // }
+
     }

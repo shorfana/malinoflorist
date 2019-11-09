@@ -199,11 +199,16 @@ public function create_action()
     public function delete($id)
     {
         $row = $this->Category_model->get_by_id($id);
-
+        $check_sub_cat= $this->Category_model->check_sub_category_id($id);
         if ($row) {
+          if ($check_sub_cat<1) {
             $this->Category_model->delete($id);
             $this->session->set_flashdata('message', 'Delete Record Success');
             redirect(site_url('admin/category'));
+          }elseif($check_sub_cat>=1) {
+            $this->session->set_flashdata('message', 'Gagal Menghapus Karena Kategori Ini Masih Terikat Dengan Sub Kategori');
+            redirect(site_url('admin/category'));
+          }
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('admin/category'));
