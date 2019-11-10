@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Creative Agency Home</title>
+    <title>Plaza Bunga</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -66,100 +66,36 @@
             </div>
           </div>
         </div>
-        <div class="div-box">
+        <div class="div-box" style="margin-top: 25px;">
           <div class="home-2-outdoor">
             <div class="container">
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <div class="shortcode-product-wrap product-begreen columns-2">
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-7.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Hot Holiday Naked Cactus</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>55.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                    <?php foreach ($bunga_papan as $k): ?>
+                      <div class="product-item-wrap product-style_1">
+                        <div class="product-item-inner">
+                          <div class="product-thumb">
+                            <div class="product-flash-wrap"></div>
+                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
+                              <div class="product-hover-sign">
+                                <hr/>
+                                <hr/>
+                              </div></a>
+                            <div class="product-info">
+                              <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
+                                <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                            <div class="product-actions">
+                              <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
+                                <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                              </div>
+                              <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-5.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>Cactus quaerat volupta</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-6.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Tall Terrarium Plant</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>52.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-8.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Calvert with Light Plants</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>42.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php endforeach; ?>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
@@ -173,7 +109,7 @@
             </div>
           </div>
         </div>
-        <div class="div-box">
+        <div class="div-box" style="margin-top: 25px;">
           <div class="home-2-indoor">
             <div class="container">
               <div class="row">
@@ -186,194 +122,66 @@
                 </div>
                 <div class="col-md-6 col-sm-6">
                   <div class="shortcode-product-wrap product-begreen columns-2">
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-14.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Hot Holiday Naked Cactus</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>55.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-15.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>Cactus quaerat volupta</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-16.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Tall Terrarium Plant</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>52.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-17.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Calvert with Light Plants</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>42.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                     <?php foreach ($hand_bouquet as $k): ?>
+                       <div class="product-item-wrap product-style_1">
+                         <div class="product-item-inner">
+                           <div class="product-thumb">
+                             <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
+                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
+                               <div class="product-hover-sign">
+                                 <hr/>
+                                 <hr/>
+                               </div></a>
+                             <div class="product-info">
+                               <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
+                                 <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
+                             </div>
+                             <div class="product-actions">
+                               <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
+                                 <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                               </div>
+                               <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     <?php endforeach; ?>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="div-box">
+        <div class="div-box" style="margin-top: 25px;">
           <div class="home-2-outdoor">
             <div class="container">
               <div class="row">
                 <div class="col-md-6 col-sm-6">
                   <div class="shortcode-product-wrap product-begreen columns-2">
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-7.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Hot Holiday Naked Cactus</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>55.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                    <?php foreach ($table_flower as $k): ?>
+                      <div class="product-item-wrap product-style_1">
+                        <div class="product-item-inner">
+                          <div class="product-thumb">
+                            <div class="product-flash-wrap"></div>
+                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
+                              <div class="product-hover-sign">
+                                <hr/>
+                                <hr/>
+                              </div></a>
+                            <div class="product-info">
+                              <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
+                                <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                            <div class="product-actions">
+                              <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
+                                <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                              </div>
+                              <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-5.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>Cactus quaerat volupta</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-6.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Tall Terrarium Plant</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>52.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="product-item-wrap product-style_1">
-                      <div class="product-item-inner">
-                        <div class="product-thumb">
-                          <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
-                          <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-8.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                            <div class="product-hover-sign">
-                              <hr/>
-                              <hr/>
-                            </div></a>
-                          <div class="product-info">
-                            <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                              <h3>The Calvert with Light Plants</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>42.00</span></span>
-                          </div>
-                          <div class="product-actions">
-                            <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                              <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                            </div>
-                            <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <?php endforeach; ?>
                   </div>
                 </div>
                 <div class="col-md-6 col-sm-6">
