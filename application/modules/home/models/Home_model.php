@@ -14,4 +14,11 @@
         return $this->db->get()->result();
       }
 
+      function getProductBySlug($slug){
+        $this->db->FROM('product');
+        $this->db->where('slug', $slug);
+        // $this->db->limit('4');
+        return $this->db->get()->result();
+      }
+
     }

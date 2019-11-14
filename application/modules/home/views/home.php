@@ -325,9 +325,9 @@
                   <div class="home-6-contact-me-form">
                     <h3>Peta Situs</h3>
                     <a href="<?php echo base_url()?>home/about"> <p>Tentang Plaza Bunga</p></a>
-                    <p>Hubungi Kami</p>
+                    <a href="<?php echo base_url()?>home/hubungi_kami"><p>Hubungi Kami</p></a>
                     <a href="<?php echo base_url()?>home/blog"> <p>Blog</p></a>
-                    <p>Karir & Lowongan</p>
+                    <a href="<?php echo base_url()?>home/karir_dan_lowongan"><p>Karir & Lowongan</p></a>
                   </div>
                 </div>
                 <div class="col-md-3 col-sm-12">

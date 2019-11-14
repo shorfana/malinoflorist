@@ -54,4 +54,11 @@
       function about(){
         $this->load->view('about-us');
       }
+      function hubungi_kami(){
+        $this->load->view('hubungi-kami');
+      }
+
+      function karir_dan_lowongan(){
+        $this->load->view('karir-lowongan');
+      }
     }
