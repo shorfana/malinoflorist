@@ -16,6 +16,9 @@
             //     redirect(base_url('login'));
             //   }
             // }
+            if($this->session->userdata('status')!='login'){
+              redirect(redirect('login'));
+            }
         }
 
         public function index()
@@ -49,7 +52,7 @@
 							$row[] = $Transaksi_model->no_invoice;
 							$row[] = $Transaksi_model->transaction_date;
 							$row[] = $Transaksi_model->id_product;
-							
+
               $row[] ="
               <a href='transaksi/edit/$Transaksi_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Transaksi_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -103,7 +106,7 @@ public function create_action()
 					'no_invoice' => $this->input->post('no_invoice',TRUE),
 					'transaction_date' => $this->input->post('transaction_date',TRUE),
 					'id_product' => $this->input->post('id_product',TRUE),
-					
+
 );
 
             $this->Transaksi_model->insert($data);
@@ -126,7 +129,7 @@ public function create_action()
 					'no_invoice' => $this->input->post('no_invoice',TRUE),
 					'transaction_date' => $this->input->post('transaction_date',TRUE),
 					'id_product' => $this->input->post('id_product',TRUE),
-					
+
 );
 
             $this->Transaksi_model->update($this->input->post('id', TRUE), $data);

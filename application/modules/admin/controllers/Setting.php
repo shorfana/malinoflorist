@@ -152,7 +152,7 @@ public function create_action()
 
             $this->Setting_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('admin/setting'));
+            redirect(site_url('admin/setting/edit/1'));
         }
     }
 
@@ -172,15 +172,15 @@ public function create_action()
 
     public function _rules()
     {
-$this->form_validation->set_rules('phone', 'phone', 'trim|required');
-$this->form_validation->set_rules('whatsapp', 'whatsapp', 'trim|required');
-$this->form_validation->set_rules('fb_title', 'fb_title', 'trim|required');
-$this->form_validation->set_rules('fb_link', 'fb_link', 'trim|required');
-$this->form_validation->set_rules('ig_title', 'ig_title', 'trim|required');
-$this->form_validation->set_rules('ig_link', 'ig_link', 'trim|required');
-$this->form_validation->set_rules('address', 'address', 'trim|required');
-$this->form_validation->set_rules('email', 'email', 'trim|required');
-$this->form_validation->set_rules('quote', 'quote', 'trim|required');
+// $this->form_validation->set_rules('phone', 'phone', 'trim|required');
+// $this->form_validation->set_rules('whatsapp', 'whatsapp', 'trim|required');
+// $this->form_validation->set_rules('fb_title', 'fb_title', 'trim|required');
+// $this->form_validation->set_rules('fb_link', 'fb_link', 'trim|required');
+// $this->form_validation->set_rules('ig_title', 'ig_title', 'trim|required');
+// $this->form_validation->set_rules('ig_link', 'ig_link', 'trim|required');
+// $this->form_validation->set_rules('address', 'address', 'trim|required');
+// $this->form_validation->set_rules('email', 'email', 'trim|required');
+// $this->form_validation->set_rules('quote', 'quote', 'trim|required');
 
 
 	$this->form_validation->set_rules('id', 'id', 'trim');

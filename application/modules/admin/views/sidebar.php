@@ -22,7 +22,7 @@
                 </li>
                 <li class=" nav-item"><a href="<?= base_url()?>admin/page"><i class="feather icon-help-circle"></i><span class="menu-title" data-i18n="">Pages</span></a>
                 </li>
-                <li class=" nav-item"><a href="<?= base_url()?>admin/setting"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="">Setting</span></a>
+                <li class=" nav-item"><a href="<?= base_url()?>admin/setting/edit/1"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="">Setting</span></a>
                 </li>
             </ul>
         </div>
