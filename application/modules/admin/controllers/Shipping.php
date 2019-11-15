@@ -34,6 +34,7 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'shipping',
+             'add' => null,
              'controller'=>'shipping'
             );
           $this->template->load($data);
@@ -77,6 +78,7 @@
              'action'=>'admin/shipping/create_action',
              'css'=>'admin/shipping/css',
              'js'=>'admin/shipping/js',
+             'add' => 'tambah shipping',
              'module'=>'admin',
              'titlePage'=>'shipping',
              'controller'=>'shipping'
@@ -95,6 +97,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'shipping',
+             'add'=> 'edit shipping',
              'controller'=>'shipping'
             );
           $this->template->load($data);

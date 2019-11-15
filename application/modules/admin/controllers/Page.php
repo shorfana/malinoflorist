@@ -34,6 +34,7 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'page',
+             'add' => null,
              'controller'=>'page'
             );
           $this->template->load($data);
@@ -80,6 +81,7 @@
              'js'=>'admin/page/js',
              'module'=>'admin',
              'titlePage'=>'page',
+             'add' => 'tambah page',
              'controller'=>'page'
             );
           $this->template->load($data);
@@ -96,6 +98,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'page',
+             'add' => 'edit page',
              'controller'=>'page'
             );
           $this->template->load($data);

@@ -34,7 +34,8 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'category',
-             'controller'=>'category'
+             'controller'=>'category',
+             'add' => null
             );
           $this->template->load($data);
         }
@@ -76,6 +77,7 @@
              'action'=>'admin/category/create_action',
              'module'=>'admin',
              'titlePage'=>'category',
+             'add' => 'tambah category',
              'controller'=>'category'
             );
           $this->template->load($data);
@@ -90,6 +92,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'category',
+             'add' => 'edit category',
              'controller'=>'category'
             );
           $this->template->load($data);

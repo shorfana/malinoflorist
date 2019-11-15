@@ -31,6 +31,7 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'user',
+             'add'=>null,
              'controller'=>'user'
             );
           $this->template->load($data);
@@ -51,7 +52,7 @@
 							$row[] = $User_model->password;
 							$row[] = $User_model->email;
 							$row[] = $User_model->phone;
-							
+
               $row[] ="
               <a href='user/edit/$User_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$User_model->id' href='#'><i class='feather icon-trash'></i></a>";
@@ -76,6 +77,7 @@
              'action'=>'admin/user/create_action',
              'module'=>'admin',
              'titlePage'=>'user',
+             'add'=> 'tambah user',
              'controller'=>'user'
             );
           $this->template->load($data);
@@ -90,6 +92,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'user',
+             'add'=> 'edit user',
              'controller'=>'user'
             );
           $this->template->load($data);
@@ -107,7 +110,7 @@ public function create_action()
 					'password' => $this->input->post('password',TRUE),
 					'email' => $this->input->post('email',TRUE),
 					'phone' => $this->input->post('phone',TRUE),
-					
+
 );
 
             $this->User_model->insert($data);
@@ -132,7 +135,7 @@ public function create_action()
 					'password' => $this->input->post('password',TRUE),
 					'email' => $this->input->post('email',TRUE),
 					'phone' => $this->input->post('phone',TRUE),
-					
+
 );
 
             $this->User_model->update($this->input->post('id', TRUE), $data);

@@ -22,6 +22,9 @@
         $data = array(
           'content'=>'admin/dashboard',
           'data'=>null,
+          'add' => null,
+          'titlePage' => 'admin',
+          'controller' => '',
           'sidebar'=>'admin/sidebar'
          );
         $this->template->load($data);

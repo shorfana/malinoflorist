@@ -34,7 +34,8 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'bank',
-             'controller'=>'bank'
+             'controller'=>'bank',
+             'add' => null
             );
           $this->template->load($data);
         }
@@ -78,6 +79,7 @@
              'action'=>'admin/bank/create_action',
              'module'=>'admin',
              'titlePage'=>'bank',
+             'add' => 'tambah bank',
              'controller'=>'bank'
             );
           $this->template->load($data);
@@ -94,6 +96,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'bank',
+             'add' => 'edit bank',
              'controller'=>'bank'
             );
           $this->template->load($data);

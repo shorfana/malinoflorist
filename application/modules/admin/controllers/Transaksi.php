@@ -34,6 +34,7 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'transaksi',
+             'add' => null,
              'controller'=>'transaksi'
             );
           $this->template->load($data);

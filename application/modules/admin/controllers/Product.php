@@ -33,6 +33,7 @@
              'dataproduct'=>$dataproduct,
              'datafield'=>$datafield,
              'module'=>'admin',
+             'add' => null,
              'titlePage'=>'product',
              'controller'=>'product'
             );
@@ -88,6 +89,7 @@
              'css'=>'admin/product/css',
              'js'=>'admin/product/js',
              'module'=>'admin',
+             'add' => 'tambah produk',
              'category_data' => $category_data,
              'sub_category_data' => $sub_category_data,
              'category_data_selected' => '',
@@ -115,6 +117,7 @@
              'sub_category_data_selected' => '',
              'module'=>'admin',
              'titlePage'=>'product',
+             'add' => 'edit product',
              'controller'=>'product'
             );
           $this->template->load($data);

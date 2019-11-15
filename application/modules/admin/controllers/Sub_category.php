@@ -34,6 +34,7 @@
              'datafield'=>$datafield,
              'module'=>'admin',
              'titlePage'=>'sub_category',
+             'add' => null,
              'controller'=>'sub_category'
             );
           $this->template->load($data);
@@ -79,6 +80,7 @@
              'module'=>'admin',
              'titlePage'=>'sub_category',
              'controller'=>'sub_category',
+             'add'=> 'tambah sub category',
              'data_category' => $data_category,
             );
           $this->template->load($data);
@@ -95,6 +97,7 @@
              'module'=>'admin',
              'titlePage'=>'sub_category',
              'controller'=>'sub_category',
+             'add'=> 'edit sub category',
              'data_category' => $data_category,
             );
           $this->template->load($data);

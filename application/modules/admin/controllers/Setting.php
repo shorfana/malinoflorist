@@ -97,6 +97,7 @@
              'dataedit'=>$dataedit,
              'module'=>'admin',
              'titlePage'=>'setting',
+             'add' => 'edit setting',
              'controller'=>'setting'
             );
           $this->template->load($data);
