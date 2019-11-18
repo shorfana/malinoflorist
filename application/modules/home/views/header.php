@@ -66,16 +66,34 @@
                 <nav id="primary-menu" class="main-nav">
                   <ul class="nav">
                     <li class=""><a href="<?php echo base_url() ?>home">Home</a></li>
-                    <li class="menu-item menu-blog"><a href="<?php echo base_url() ?>home/product">Bunga Papan</a>
+                    <!-- <li class="menu-item menu-blog"><a href="<?php echo base_url() ?>home/product">Bunga Papan</a>
                       <ul class="sub-menu">
                         <li><a href="<?php echo base_url() ?>home/product">Happy Wedding</a></li>
                         <li><a href="<?php echo base_url() ?>home/product">Congratulations</a></li>
                         <li><a href="<?php echo base_url() ?>home/product">Turut Berduka Cita</a></li>
                       </ul>
-                    </li>
-                    <li class="menu-item menu-project"><a href="<?php echo base_url() ?>home/product">Hand Bouquet</a></li>
-                    <li class="menu-item menu-shop"><a href="<?php echo base_url() ?>home/product">Table Flower</a></li>
-                    <li class="menu-item menu-blog"><a href="<?php echo base_url() ?>home/product">Kaktus</a></li>
+                    </li> -->
+                    <?php
+                        $this->load->helper('navbar');
+                        foreach (getCatWithSub() as $catsub ):?>
+                      <li class="menu-item menu-blog"><a href="#"><?php echo $catsub->name?></a>
+                        <ul class="sub-menu">
+                          <?php
+                          $catSubName = $catsub->name;
+                          $csName = getSub($catSubName);
+                          foreach ($csName as $csn):?>
+                            <li><a href="<?php echo base_url() ?>home/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
+                          <?php endforeach;
+                          ?>
+                        </ul>
+                      </li>
+
+
+
+                    <?php endforeach;?>
+                    <?php foreach (getCatOnly() as $cat ):?>
+                      <li class="menu-item menu-project"><a href="<?php echo base_url() ?>home/<?php echo $cat->slug?>"><?php echo $cat->name?></a></li>
+                    <?php endforeach; ?>
                   </ul>
                 </nav>
                 <!-- .header-main-nav-->

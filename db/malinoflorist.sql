@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 06, 2019 at 03:23 AM
+-- Generation Time: Nov 15, 2019 at 12:52 PM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -65,7 +65,8 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `slug`, `text`, `image`, `created_on`, `updated_on`, `user_id`) VALUES
-(2, 'Manfaat Bunga Bagi Kesehatan P', 'manfaat-bunga-bagi-kesehatan-psikologis', 'lorem ipsum', 'f19cc3169eaac424d68bcd19fe44c8d0.jpg', '2019-11-06 09:59:13', '0000-00-00 00:00:00', 1);
+(2, 'Manfaat Bunga Bagi Kesehatan P', 'manfaat-bunga-bagi-kesehatan-psikologis', 'lorem ipsum', 'f19cc3169eaac424d68bcd19fe44c8d0.jpg', '2019-11-06 09:59:13', '0000-00-00 00:00:00', 1),
+(3, 'bunga bagus', 'bunga-bagus', 'kasjdaksndkjasnxkjnsajd', '', '2019-11-07 02:58:20', '0000-00-00 00:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -86,8 +87,7 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`, `slug`) VALUES
 (1, 'Bunga Papan', 'bunga-papan'),
 (2, 'Hand Bouquet', 'hand-bouquet'),
-(4, 'Table Flower', 'table-flower'),
-(6, 'Kaktus', 'kaktus');
+(4, 'Table Flower', 'table-flower');
 
 -- --------------------------------------------------------
 
@@ -132,6 +132,50 @@ CREATE TABLE `product` (
   `subcategory_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `product`
+--
+
+INSERT INTO `product` (`id`, `name`, `slug`, `description`, `price`, `size`, `image1`, `image2`, `image3`, `image4`, `category_id`, `subcategory_id`) VALUES
+(23, 'Happy Weddy Fun Flower', 'happy-weddy-fun-flower', 'Bagus', 350000, '8x8', '4e44fe6bda5de46cf723eec593cdbefa.jpg', '', '', '', 1, 1),
+(24, 'Happy Wedding Pink Flowers', 'happy-wedding-pink-flowers', 'Bagus Banget', 350000, '8x8', 'c444de89a59e6befe88af54fce30bd47.jpg', '', '', '', 1, 1),
+(25, 'Bunga Papan Congratulation Exclusive', 'bunga-papan-congratulation-exclusive', 'Bagus Banget', 350000, '8x8', '091f3e6b36ae5e5e9768af84e61adb39.jpg', '', '', '', 1, 2),
+(26, 'Bunga Papan Duka Cita Polos', 'bunga-papan-duka-cita-polos', 'Bagus', 450000, '8x8', '139abf42078bcf366b33e2f772779581.jpg', '', '', '', 1, 3),
+(27, 'Hand Bouquet Artypicial Red', 'hand-bouquet-artypicial-red', 'Bagus', 100000, '8x8', '48efa2a5fe88fe8b6bf7911940bc81f6.jpg', '', '', '', 2, NULL),
+(28, 'Hand Bouquet Flanel Lili Lala', 'hand-bouquet-flanel-lili-lala', 'Bagus', 100000, '8x8', '566732f4add5e721c579db2cee72687a.jpg', '', '', '', 2, NULL),
+(29, 'Hand Bouquet Flanel Mawar Imut', 'hand-bouquet-flanel-mawar-imut', 'Bagus', 100000, '8x8', '21ae77e36c5097d07bcb296dc42b3bda.jpg', '', '', '', 2, NULL),
+(30, 'Hand Bouquet Flanel Rainbow', 'hand-bouquet-flanel-rainbow', 'Bagus', 100000, '8x8', 'b5ea8ef1c85955654335ea6e2e6362ce.jpg', '', '', '', 2, NULL),
+(31, 'Table Flowers Bunga Segar', 'table-flowers-bunga-segar', 'Bagus', 1350000, '8x8', 'beecb772663dca8635d91af4369090b2.jpg', '', '', '', 4, NULL),
+(32, 'Table Flowers Pinky Teratai Imut', 'table-flowers-pinky-teratai-imut', 'bagus', 1350000, '7x7', 'f48e9c09b94b763941b72a4ca42aeff2.jpg', '', '', '', 4, NULL),
+(33, 'Table Flowers Purple Krisan Megah', 'table-flowers-purple-krisan-megah', 'Bagus', 1350000, '7x7', '93b5cb8eb1af38dcaca8c9145104b99c.jpg', '', '', '', 4, NULL),
+(34, 'Table Flowers Red White Lavender', 'table-flowers-red-white-lavender', 'Bagus', 1350000, '8x8', 'c666dffce43b070af7c907d5a584767a.jpg', '', '', '', 4, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `setting`
+--
+
+CREATE TABLE `setting` (
+  `id` int(11) NOT NULL,
+  `phone` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `whatsapp` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fb_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `fb_link` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ig_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `ig_link` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `quote` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `setting`
+--
+
+INSERT INTO `setting` (`id`, `phone`, `whatsapp`, `fb_title`, `fb_link`, `ig_title`, `ig_link`, `address`, `email`, `quote`) VALUES
+(1, '089237737', '01238912389', 'PlazaBunga', 'www.facebook.com/plazabunga', 'PlazaBunga', 'www.instagram.com/plazabunga', 'Jl Makassar 01', 'plazabunga@email.com', 'Quality Is Our Traditions');
+
 -- --------------------------------------------------------
 
 --
@@ -175,7 +219,8 @@ CREATE TABLE `sub_category` (
 INSERT INTO `sub_category` (`id`, `name`, `slug`, `category_id`) VALUES
 (1, 'Happy Wedding', 'happy-wedding', 1),
 (2, 'Congratulations', 'congratulations', 1),
-(3, 'Turut Berduka Cita', 'turut-berduka-cita', 1);
+(3, 'Turut Berduka Cita', 'turut-berduka-cita', 1),
+(4, 'Bunga Indoor', 'bunga-indoor', 4);
 
 -- --------------------------------------------------------
 
@@ -266,6 +311,12 @@ ALTER TABLE `product`
   ADD KEY `subcategory_id` (`subcategory_id`);
 
 --
+-- Indexes for table `setting`
+--
+ALTER TABLE `setting`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shipping`
 --
 ALTER TABLE `shipping`
@@ -312,13 +363,13 @@ ALTER TABLE `bank`
 -- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `page`
@@ -330,7 +381,13 @@ ALTER TABLE `page`
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `setting`
+--
+ALTER TABLE `setting`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `shipping`
@@ -342,7 +399,7 @@ ALTER TABLE `shipping`
 -- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `testimoni`
