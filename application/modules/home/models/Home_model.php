@@ -21,26 +21,17 @@
         return $this->db->get()->result();
       }
 
-      public function getCatOnly(){
-        $this->db->select('category.*');
-        $this->db->FROM('category');
-        $this->db->join('sub_category', 'category.id=sub_category.category_id', 'left outer');
-        $this->db->where('sub_category.category_id',null);
+      function getProductByCat($idCat){
+        $this->db->FROM('product');
+        $this->db->WHERE('category_id',$idCat);
         return $this->db->get()->result();
       }
-      public function getCatWithSub(){
-        $this->db->distinct();
-        $this->db->select('category.name');
-        $this->db->FROM('category');
-        $this->db->join('sub_category', 'category.id=sub_category.category_id', 'inner');
+      function getProductBySubCat($slug){
+        $this->db->select('sub_category.slug,product.*');
+        $this->db->FROM('product,sub_category');
+        $this->db->WHERE('sub_category.id','product.subcategory_id');
+        $this->db->WHERE('sub_category.slug',$slug);
         return $this->db->get()->result();
       }
-      public function getSub($catSubName){
-        $this->db->select('sub_category.*');
-        $this->db->FROM('category,sub_category');
-        $this->db->where('category.id=sub_category.category_id');
-        $this->db->where('category.name',$catSubName);
-        $this->db->order_by('sub_category.name','ASC');
-        return $this->db->get()->result();
-      }
+
     }

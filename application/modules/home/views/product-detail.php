@@ -47,6 +47,7 @@
             <figure><img src="<?php echo base_url() ?>assets-front/images/background/bg-banner.jpg" alt="bg-banner"/></figure>
             <div class="banner-subpage-content">
               <h2>Hand Bouquet</h2>
+              <!-- <?php var_dump($show_detail);die;?> -->
             </div>
           </div>
         </div>

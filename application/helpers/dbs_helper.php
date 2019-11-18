@@ -40,3 +40,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $ci->db->where($where);
     $ci->db->delete($from);
   }
+
+  function getSetting(){
+    $ci =& get_instance();//$ci untuk pengganti $this->
+    $ci->load->database();
+    $ci->db->select('*');
+    $ci->db->FROM('setting');
+    return $ci->db->get()->row();
+  }

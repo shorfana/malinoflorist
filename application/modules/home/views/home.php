@@ -77,14 +77,16 @@
                         <div class="product-item-inner">
                           <div class="product-thumb">
                             <div class="product-flash-wrap"></div>
-                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                              <div class="product-hover-sign">
-                                <hr/>
-                                <hr/>
-                              </div></a>
+                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
+                              <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                                <div class="product-hover-sign">
+                                  <hr/>
+                                  <hr/>
+                                </div>
+                              </a>
                             <div class="product-info">
-                              <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                                <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
+                              <a href="asdasd.php"><h3><?php echo $k->name ?></h3></a>
+                              <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
                             <div class="product-actions">
                               <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
@@ -127,14 +129,14 @@
                          <div class="product-item-inner">
                            <div class="product-thumb">
                              <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
-                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
+                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="<?php echo $k->slug?>" class="product-link">
                                <div class="product-hover-sign">
                                  <hr/>
                                  <hr/>
                                </div></a>
                              <div class="product-info">
-                               <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                                 <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
+                               <a href="#"><h3><?php echo $k->name ?></h3></a>
+                               <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                              </div>
                              <div class="product-actions">
                                <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
@@ -163,14 +165,14 @@
                         <div class="product-item-inner">
                           <div class="product-thumb">
                             <div class="product-flash-wrap"></div>
-                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
+                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="<?php echo $k->slug?>" class="product-link">
                               <div class="product-hover-sign">
                                 <hr/>
                                 <hr/>
                               </div></a>
                             <div class="product-info">
-                              <div class="star-rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></div><a href="#">
-                                <h3><?php echo $k->name ?></h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
+                              <a href="#"><h3><?php echo $k->name ?></h3></a>
+                              <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
                             <div class="product-actions">
                               <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
@@ -341,7 +343,10 @@
                 <div class="col-md-3 col-sm-12">
                     <div class="home-6-contact-me-form">
                       <h3>CV. Plaza Bunga</h3>
-                      <p>Jl. Bontolangkasa (Landak Baru) No. 7 <br>Makassar Sulawesi Selatan, Indonesia <br>Telpon : (0411) 854 115 <br>Email : cs@malinoflorist.com</p>
+                      <p><?php echo getSetting()->address; ?>
+                         <br>Telpon : <?php echo getSetting()->phone;?>
+                         <br>Email : <?php echo getSetting()->email;?>
+                      </p>
                     </div>
                 </div>
               </div>

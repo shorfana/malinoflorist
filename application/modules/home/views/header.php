@@ -1,4 +1,8 @@
 <header class="header yolo-header-style-10">
+  <?php
+      $this->load->helper('navbar');
+      $this->load->helper('dbs');
+  ?>
         <div class="yolo-top-bar">
           <div class="container">
             <div class="row">
@@ -12,9 +16,13 @@
               <div class="top-sidebar top-bar-right col-md-8">
                 <aside id="text-6" class="widget widget_text">
                   <div class="textwidget">
-                    <a href="#"><i style="margin-left: 15px" class="fa fa-instagram"></i> Plaza Bunga</a>
-                    <a href="#"><i style="margin-left: 15px" class="fa fa-facebook"></i> Plaza Bunga</a>
-                    <a href="#"><i style="margin-left: 15px" class="fa fa-whatsapp"></i> Hubungi Kami +62-852-9921-4300</a>
+                    <a href="<?php echo getSetting()->ig_link?>">
+                      <i style="margin-left: 15px" class="fa fa-instagram"></i> <?php echo getSetting()->ig_title?>
+                    </a>
+                    <a href="<?php echo getSetting()->fb_link?>">
+                      <i style="margin-left: 15px" class="fa fa-facebook"></i> <?php echo getSetting()->fb_title?>
+                    </a>
+                    <a href="#"><i style="margin-left: 15px" class="fa fa-whatsapp"></i> Hubungi Kami <?php echo getSetting()->whatsapp?></a>
                   </div>
                 </aside>
               </div>
@@ -82,7 +90,7 @@
                           $catSubName = $catsub->name;
                           $csName = getSub($catSubName);
                           foreach ($csName as $csn):?>
-                            <li><a href="<?php echo base_url() ?>home/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
+                            <li><a href="<?php echo base_url() ?>home/category/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
                           <?php endforeach;
                           ?>
                         </ul>

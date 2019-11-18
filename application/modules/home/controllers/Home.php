@@ -22,104 +22,42 @@
         $bunga_papan = $this->Home_model->getProductById('1');
         $hand_bouquet = $this->Home_model->getProductById('2');
         $table_flower = $this->Home_model->getProductById('4');
-        //$this->load->helper('navbar_helper');
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
         $data = array(
           'bunga_papan' => $bunga_papan,
           'hand_bouquet' => $hand_bouquet,
           'table_flower' => $table_flower,
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
         );
         $this->load->view('home',$data);
       }
       function product(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('product');
       }
       function product_detail(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('product-detail');
       }
       function blog(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('blog');
       }
       function blog_detail(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('blog-detail');
       }
       function cara_belanja(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('cara-belanja');
       }
       function kebijakan_transaksi(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('kebijakan-transaksi');
       }
       function metode_pembayaran(){
-        $cat_only = $this->Home_model->getCatOnly();
-        $cat_sub = $this->Home_model->getCatWithSub();
-        $data = array(
-          'cat_only' => $cat_only,
-          'cat_sub'=>$cat_sub,
-        );
         $this->load->view('metode-pembayaran');
       }
-      function about(){$cat_only = $this->Home_model->getCatOnly();
-      $cat_sub = $this->Home_model->getCatWithSub();
-      $data = array(
-        'cat_only' => $cat_only,
-        'cat_sub'=>$cat_sub,
-      );
+      function about(){
         $this->load->view('about-us');
       }
-      function hubungi_kami(){$cat_only = $this->Home_model->getCatOnly();
-      $cat_sub = $this->Home_model->getCatWithSub();
-      $data = array(
-        'cat_only' => $cat_only,
-        'cat_sub'=>$cat_sub,
-      );
+      function hubungi_kami(){
         $this->load->view('hubungi-kami');
       }
 
-      function karir_dan_lowongan(){$cat_only = $this->Home_model->getCatOnly();
-      $cat_sub = $this->Home_model->getCatWithSub();
-      $data = array(
-        'cat_only' => $cat_only,
-        'cat_sub'=>$cat_sub,
-      );
+      function karir_dan_lowongan(){
         $this->load->view('karir-lowongan');
       }
     }

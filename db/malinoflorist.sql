@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 15, 2019 at 12:52 PM
+-- Generation Time: Nov 18, 2019 at 12:41 PM
 -- Server version: 8.0.13-4
 -- PHP Version: 7.2.24-0ubuntu0.18.04.1
 
@@ -51,7 +51,7 @@ INSERT INTO `bank` (`id`, `name`, `image`) VALUES
 
 CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
-  `title` varchar(30) NOT NULL,
+  `title` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `slug` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `text` text NOT NULL,
   `image` varchar(80) NOT NULL,
@@ -164,9 +164,9 @@ CREATE TABLE `setting` (
   `fb_link` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ig_title` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `ig_link` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `address` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `address` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `quote` varchar(50) COLLATE utf8_unicode_ci NOT NULL
+  `quote` varchar(150) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -174,7 +174,7 @@ CREATE TABLE `setting` (
 --
 
 INSERT INTO `setting` (`id`, `phone`, `whatsapp`, `fb_title`, `fb_link`, `ig_title`, `ig_link`, `address`, `email`, `quote`) VALUES
-(1, '089237737', '01238912389', 'PlazaBunga', 'www.facebook.com/plazabunga', 'PlazaBunga', 'www.instagram.com/plazabunga', 'Jl Makassar 01', 'plazabunga@email.com', 'Quality Is Our Traditions');
+(1, '(0411) 854 115 ', '085299214300', 'PlazaBunga', 'www.facebook.com/plazabunga', 'PlazaBunga', 'www.instagram.com/plazabunga', 'Jl. Bontolangkasa (Landak Baru) No. 7 Makassar Sulawesi Selatan, Indonesia', 'cs@malinoflorist.com', 'Berbagai Koleksi Bunga Hias Bisa Anda Pilih Sebagai Hiasan Interior Rumah Atau Kantor');
 
 -- --------------------------------------------------------
 
@@ -369,7 +369,7 @@ ALTER TABLE `blog`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `page`
