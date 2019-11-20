@@ -71,18 +71,21 @@
     							    </select>
                   </div>
                 </div>
-  						<div class="form-group row">
-                  <label class="col-sm-2 col-form-label">Sub Kategori</label>
-                  <div class="col-sm-10">
-                    <select class="form-control" name="subcategory_id" id="id_subcategory" required>
-                        <option value="<?php echo $dataedit->subcategory_id ?>">Please Select</option>
-                        <?php foreach ($sub_category_data as $d ): ?>
-                          <option <?php echo $sub_category_data_selected ? 'selected="selected"' : '' ?>
-                          class="<?php echo $d->category_id ?>"  value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
-                        <?php endforeach; ?>
-    							    </select>
-                  </div>
-                </div>
+                <?php if ($dataedit->subcategory_id != null): ?>
+                  <div class="form-group row">
+                      <label class="col-sm-2 col-form-label">Sub Kategori</label>
+                      <div class="col-sm-10">
+                        <select class="form-control" name="subcategory_id" id="id_subcategory">
+                            <option value="<?php echo $dataedit->subcategory_id ?>">Please Select</option>
+                            <?php foreach ($sub_category_data as $d ): ?>
+                              <option <?php echo $sub_category_data_selected ? 'selected="selected"' : '' ?>
+                              class="<?php echo $d->category_id ?>"  value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
+                            <?php endforeach; ?>
+        							    </select>
+                      </div>
+                    </div>
+                <?php endif; ?>
+
 
         </div>
         <input type="hidden" id="deleteFiles" name="deleteFiles">

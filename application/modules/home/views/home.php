@@ -166,13 +166,15 @@
                         <div class="product-item-inner">
                           <div class="product-thumb">
                             <div class="product-flash-wrap"></div>
-                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="<?php echo $k->slug?>" class="product-link">
-                              <div class="product-hover-sign">
-                                <hr/>
-                                <hr/>
-                              </div></a>
+                            <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
+                              <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                                <div class="product-hover-sign">
+                                  <hr/>
+                                  <hr/>
+                                </div>
+                              </a>
                             <div class="product-info">
-                            <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                              <a href="asdasd.php"><h3><?php echo $k->name ?></h3></a>
                               <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
                             <div class="product-actions">
@@ -190,7 +192,7 @@
                 <div class="col-md-6 col-sm-6">
                   <div class="banner-shortcode-wrap style_4">
                     <div class="banner-content title_left">
-                      <h3 class="banner-title title_left">Table Flower</h3><span class="banner-label label_left">Bright light plant</span><img src="<?php echo base_url() ?>assets-front/images/demo/banner3-h4.jpg" alt="Outdoor"/>
+                      <h3 class="banner-title title_left">Bunga Papan</h3><span class="banner-label label_left">Bright light plant</span><img src="<?php echo base_url() ?>assets-front/images/demo/banner3-h4.jpg" alt="Outdoor"/>
                     </div>
                   </div>
                 </div>

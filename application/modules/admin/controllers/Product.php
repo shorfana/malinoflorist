@@ -257,15 +257,27 @@ public function create_action()
             $this->session->set_flashdata('message', $message);
             redirect(site_url('admin/sub_category'));die();
           }elseif ($check_unique<=1){
-            $data = array(
-              'name' => $name,
-              'slug' => $slug,
-              'description' => $this->input->post('description',TRUE),
-              'price' => $this->input->post('price',TRUE),
-              'size' => $this->input->post('size',TRUE),
-              'category_id' => $this->input->post('category_id',TRUE),
-              'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-            );
+            if($this->input->post('subcategory_id') == null){
+              $data = array(
+                'name' => $name,
+                'slug' => $slug,
+                'description' => $this->input->post('description',TRUE),
+                'price' => $this->input->post('price',TRUE),
+                'size' => $this->input->post('size',TRUE),
+                'category_id' => $this->input->post('category_id',TRUE),
+              );
+            }else{
+              $data = array(
+                'name' => $name,
+                'slug' => $slug,
+                'description' => $this->input->post('description',TRUE),
+                'price' => $this->input->post('price',TRUE),
+                'size' => $this->input->post('size',TRUE),
+                'category_id' => $this->input->post('category_id',TRUE),
+                'subcategory_id' => $this->input->post('subcategory_id',TRUE),
+              );
+            }
+
 
             $image1=upload('image1','product','image',TRUE);
             if($image1){
