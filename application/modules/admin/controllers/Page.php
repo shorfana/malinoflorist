@@ -208,11 +208,11 @@ public function create_action()
           $check_unique = $this->Page_model->check_where_by_slug($slug);
           //var_dump($check_unique);die();
 
-          if ($check_unique>=1) {
+          if ($check_unique>1) {
               $message = "Maaf, Judul Halaman Sudah Terdaftar";
               $this->session->set_flashdata('message', $message);
-              redirect(site_url('admin/sub_category'));die();
-          }elseif ($check_unique<1){
+              redirect(site_url('admin/page'));die();
+          }elseif ($check_unique<=1){
             $data = array(
               'title' => $title,
               'slug' => $slug,

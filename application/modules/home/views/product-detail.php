@@ -47,7 +47,7 @@
             <figure><img src="<?php echo base_url() ?>assets-front/images/background/bg-banner.jpg" alt="bg-banner"/></figure>
             <div class="banner-subpage-content">
               <h2>Hand Bouquet</h2>
-              <!-- <?php var_dump($show_detail);die;?> -->
+
             </div>
           </div>
         </div>
@@ -58,30 +58,54 @@
                 <div class="single-product-slider">
                   <div id="sync1" class="owl-carousel owl-template">
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-5.jpg" alt="slide" width="1080" height="768"/></figure>
+                        <?php if ($detail->image1!=null) {
+                          echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                          }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
+                        }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-2.jpg" alt="slide" width="1080" height="768"/></figure>
+                      <?php if ($detail->image2!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
+                      }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-3.jpg" alt="slide" width="1080" height="768"/></figure>
+                      <?php if ($detail->image3!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
+                      }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-4.jpg" alt="slide" width="1080" height="768"/></figure>
+                      <?php if ($detail->image4!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
+                      }?>
                     </div>
                   </div>
                   <div id="sync2" class="owl-carousel owl-template">
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-5-b.jpg" alt="slide" width="180" height="130"/></figure>
+                      <?php if ($detail->image1!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
+                      }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-2-b.jpg" alt="slide" width="180" height="130"/></figure>
+                      <?php if ($detail->image2!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
+                      }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-3-b.jpg" alt="slide" width="180" height="130"/></figure>
+                      <?php if ($detail->image3!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
+                      }?>
                     </div>
                     <div class="item">
-                      <figure><img src="<?php echo base_url() ?>assets-front/images/demo/product-4-b.jpg" alt="slide" width="180" height="130"/></figure>
+                      <?php if ($detail->image4!=null) {
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
+                      }?>
                     </div>
                   </div>
                 </div>
@@ -89,21 +113,17 @@
               <div class="col-md-7">
                 <div class="single-product-content">
                   <div class="summary-product entry-summary">
-                    <h2 class="product_title mb-45">Hand Bouquet Fresh Krisan White</h2>
+                    <h2 class="product_title mb-45"><?php echo strtoupper($detail->name);?></h2>
                     <div>
-                      <p class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp.</span> 150.000</span></p>
+                      <p class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp.</span> <?php echo number_format($detail->price)?></span></p>
                     </div>
                     <div class="product-single-short-description">
                       <label>Deskripsi: </label>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                      </p>
+                      <p><?php echo $detail->description?></p>
                     </div>
                     <div class="product_meta" style="margin-top:10px;">
                       <span class="product-stock-status-wrapper">
-                        <label>Size:</label><p>0 x 0 M</p>
+                        <label>Size:</label><p><?php echo $detail->size;?></p>
                       </span>
                     </div>
                     <p style="margin-top:25px;"><a href="#" class="btn btn-1">Pesan Sekarang</a></p>
@@ -116,83 +136,25 @@
         <div class="div-box mb">
           <div class="container">
             <div class="title-style title-style-2 text-center mb-20">
-              <h2>Related Projects </h2>
+              <h2>Related Flower </h2>
             </div>
+            <?php //var_dump($other);?>
             <div data-number="4" data-margin="0" data-loop="no" data-navcontrol="yes" class="shortcode-product-wrap product-begreen begreen-owl-carousel">
+
+              <?php foreach ($other as $o): ?>
               <div class="product-item-wrap product-style_1">
                 <div class="product-item-inner">
                   <div class="product-thumb">
-                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-7.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                      <div class="product-hover-sign">
-                        <hr/>
-                        <hr/>
-                      </div></a>
+                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>xfile/product/<?php echo $o->image1?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
+                    <a href="<?php echo base_url()?>home/product_detail/<?php echo $o->slug?>" class="product-link"><div class="product-hover-sign"><hr/><hr/></div></a>
                     <div class="product-info">
-                        <h3>The Ezra with Low Light Plants</h3></a><span class="price">
-                        <span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></span>
+                        <h3><?php echo $o->name?></h3></a><span class="price">
+                        <span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp.</span><?php echo number_format($o->price)?></span></span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="product-item-wrap product-style_1">
-                <div class="product-item-inner">
-                  <div class="product-thumb">
-                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-8.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                      <div class="product-hover-sign">
-                        <hr/>
-                        <hr/>
-                      </div></a>
-                    <div class="product-info">
-                        <h3>The Tall Terrarium Plant Collection</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item-wrap product-style_1">
-                <div class="product-item-inner">
-                  <div class="product-thumb">
-                    <div class="product-flash-wrap"></div>
-                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-9.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                      <div class="product-hover-sign">
-                        <hr/>
-                        <hr/>
-                      </div></a>
-                    <div class="product-info">
-                        <h3>The Calvert with Succulents</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>33.00</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item-wrap product-style_1">
-                <div class="product-item-inner">
-                  <div class="product-thumb">
-                    <div class="product-flash-wrap"></div>
-                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-10.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                      <div class="product-hover-sign">
-                        <hr/>
-                        <hr/>
-                      </div></a>
-                    <div class="product-info">
-                        <h3>The Succulent Collection</h3></a><span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>44.00</span></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="product-item-wrap product-style_1">
-                <div class="product-item-inner">
-                  <div class="product-thumb">
-                    <div class="product-thumb-primary"><img src="<?php echo base_url() ?>assets-front/images/demo/product-11.jpg" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="#" class="product-link">
-                      <div class="product-hover-sign">
-                        <hr/>
-                        <hr/>
-                      </div></a>
-                    <div class="product-info">
-                        <h3>The Ezra with Low Light Plants</h3></a><span class="price">
-                        <del><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>49.00</span></del><ins><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">$</span>40.00</span></ins></span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <?php endforeach;?>
             </div>
           </div>
         </div>

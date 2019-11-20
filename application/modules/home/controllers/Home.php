@@ -22,42 +22,133 @@
         $bunga_papan = $this->Home_model->getProductById('1');
         $hand_bouquet = $this->Home_model->getProductById('2');
         $table_flower = $this->Home_model->getProductById('4');
+        $testimoni = $this->Home_model->getTestimoni();
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
         $data = array(
           'bunga_papan' => $bunga_papan,
           'hand_bouquet' => $hand_bouquet,
           'table_flower' => $table_flower,
+          'testimoni' => $testimoni,
+          'shipping' => $shipping,
+          'bank' => $bank,
         );
         $this->load->view('home',$data);
       }
-      function product(){
-        $this->load->view('product');
+      function sub_category($slug){
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $subcategory = $this->Home_model->getProductBySubCat($slug);
+        $data = array(
+          'subcategory' => $subcategory,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('product',$data);
       }
-      function product_detail(){
-        $this->load->view('product-detail');
+
+      function category($slug){
+        $category = $this->Home_model->getProductByCat($slug);
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'category' => $category,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('product',$data);
+      }
+
+      function product_detail($slug){
+        $detail = $this->Home_model->getProductBySlug($slug);
+        $pcat = $detail->category_id;
+        $psub = $detail->subcategory_id;
+        $other = $this->Home_model->getOtherProduct($slug,$pcat,$psub);
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'detail' => $detail,
+          'other' => $other,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('product-detail',$data);
       }
       function blog(){
-        $this->load->view('blog');
+        $blog = $this->Home_model->getBlog();
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'blog' => $blog,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('blog',$data);
       }
-      function blog_detail(){
-        $this->load->view('blog-detail');
+      function blog_detail($slug){
+        $blog_detail = $this->Home_model->getBlogDetail($slug);
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'blog_detail' => $blog_detail,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('blog-detail',$data);
       }
       function cara_belanja(){
-        $this->load->view('cara-belanja');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('cara-belanja',$data);
       }
       function kebijakan_transaksi(){
-        $this->load->view('kebijakan-transaksi');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('kebijakan-transaksi',$data);
       }
       function metode_pembayaran(){
-        $this->load->view('metode-pembayaran');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('metode-pembayaran',$data);
       }
       function about(){
-        $this->load->view('about-us');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('about-us',$data);
       }
       function hubungi_kami(){
-        $this->load->view('hubungi-kami');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('hubungi-kami',$data);
       }
 
       function karir_dan_lowongan(){
-        $this->load->view('karir-lowongan');
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('karir-lowongan',$data);
       }
     }

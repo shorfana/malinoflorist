@@ -128,8 +128,9 @@
                        <div class="product-item-wrap product-style_1">
                          <div class="product-item-inner">
                            <div class="product-thumb">
-                             <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div>
-                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div><a href="<?php echo $k->slug?>" class="product-link">
+                             <!-- <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div> -->
+                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
+                             <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
                                <div class="product-hover-sign">
                                  <hr/>
                                  <hr/>
@@ -171,7 +172,7 @@
                                 <hr/>
                               </div></a>
                             <div class="product-info">
-                              <a href="#"><h3><?php echo $k->name ?></h3></a>
+                            <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
                               <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                             </div>
                             <div class="product-actions">
@@ -251,19 +252,27 @@
         <div class="div-box testimonial-carousel mt mb">
           <div class="container">
             <h2 class="title-style title-style-1 text-center mb"><span class="title-left">Test</span><span class="title-right">imonials</span></h2>
-            <div data-number="1" data-margin="0" data-loop="yes" data-navcontrol="yes" class="begreen-owl-carousel">
-              <div class="yolo-testimonial testimonial-carousel-6">
-                <div class="testimonials testimonial-list">
-                  <div class="testimonial-item">
-                    <div class="testimonial-image"><img src="<?php echo base_url() ?>assets-front/images/demo/testimonial-Img2.jpg" alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/></div>
-                    <div class="testimonial-content"><i class="fa fa-quote-right"></i>
-                      <p class="testimonial-excerpt">Saya sangat bangga dengan kesederhanaan design web dari Plaza Bunga</p>
-                      <div class="testimonial-title">Ifah</div>
-                      <div class="testimonial-position">Designer</div>
+            <div data-number="3" data-margin="0" data-loop="yes" data-navcontrol="yes" class="begreen-owl-carousel">
+              <?php foreach ($testimoni as $t) :?>
+                <div class="yolo-testimonial testimonial-carousel-6">
+                  <div class="testimonials testimonial-list">
+                    <div class="testimonial-item">
+                      <div class="testimonial-image">
+                        <?php if ($t->image!=null) {
+                          echo '<img src='.base_url().'xfile/testimoni/'.$t->image.' alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>';
+                        }else{echo '<img src='.base_url().'xfile/no-pic.jpg alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>';
+                        }?>
+                      </div>
+                      <div class="testimonial-content"><i class="fa fa-quote-right"></i>
+                        <p class="testimonial-excerpt"><?php echo $t->description; ?></p>
+                        <div class="testimonial-title"><?php echo $t->name; ?></div>
+                        <div class="testimonial-position"><?php echo $t->title; ?></div>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              <?php endforeach; ?>
+
               <div class="yolo-testimonial testimonial-carousel-6">
                 <div class="testimonials testimonial-list">
                   <div class="testimonial-item">
@@ -291,68 +300,8 @@
             </div>
           </div>
         </div>
-        <div class="div-box">
-            <div class="slider-clients">
-              <div class="container">
-                <div class="col-md-6">
-                  <h3 align="center">Jasa Pengiriman</h3>
-                    <div align="center" style="margin-top: 50px;" data-number="3"  data-margin="10" data-loop="no" data-navcontrol="yes"  class="begreen-owl-carousel">
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/jne.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/pos.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/tiki.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                      </div>
-                </div>
-                <div class="col-md-6">
-                    <h3 align="center">Bank Transfer</h3>
-                    <div align="center" style="margin-top: 50px;" data-number="3"  data-margin="10" data-loop="no" data-navcontrol="yes"  class="begreen-owl-carousel">
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_bri.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_mandiri.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_bni.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                      </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
 
 
-        <div class="div-box mb" style="margin-top: 50px;">
-          <div class="home-7-contact-me">
-            <div class="container">
-              <div class="row">
-              <div class="col-md-3 col-sm-12">
-                    <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-logo.jpeg" alt="logo" height="180px"/>
-                  </div>
-                <div class="col-md-3 col-sm-12">
-                  <div class="home-6-contact-me-form">
-                    <h3>Peta Situs</h3>
-                    <a href="<?php echo base_url()?>home/about"> <p>Tentang Plaza Bunga</p></a>
-                    <a href="<?php echo base_url()?>home/hubungi_kami"><p>Hubungi Kami</p></a>
-                    <a href="<?php echo base_url()?>home/blog"> <p>Blog</p></a>
-                    <a href="<?php echo base_url()?>home/karir_dan_lowongan"><p>Karir & Lowongan</p></a>
-                  </div>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="home-6-contact-me-form">
-                      <h3>FAQ Customer</h3>
-                      <a href="<?php echo base_url()?>home/cara_belanja"> <p>Cara Berbelanja</p></a>
-                      <a href="<?php echo base_url()?>home/kebijakan_transaksi"> <p>Kebijakan Transaksi</p></a>
-                      <a href="<?php echo base_url()?>home/metode_pembayaran"> <p>Metode Pembayaran</p></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-12">
-                    <div class="home-6-contact-me-form">
-                      <h3>CV. Plaza Bunga</h3>
-                      <p><?php echo getSetting()->address; ?>
-                         <br>Telpon : <?php echo getSetting()->phone;?>
-                         <br>Email : <?php echo getSetting()->email;?>
-                      </p>
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <?php $this->load->view('footer'); ?>
 

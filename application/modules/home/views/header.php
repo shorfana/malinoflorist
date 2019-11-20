@@ -16,7 +16,7 @@
               <div class="top-sidebar top-bar-right col-md-8">
                 <aside id="text-6" class="widget widget_text">
                   <div class="textwidget">
-                    <a href="<?php echo getSetting()->ig_link?>">
+                    <a href="../../../<?php echo getSetting()->ig_link?>">
                       <i style="margin-left: 15px" class="fa fa-instagram"></i> <?php echo getSetting()->ig_title?>
                     </a>
                     <a href="<?php echo getSetting()->fb_link?>">
@@ -82,7 +82,6 @@
                       </ul>
                     </li> -->
                     <?php
-                        $this->load->helper('navbar');
                         foreach (getCatWithSub() as $catsub ):?>
                       <li class="menu-item menu-blog"><a href="#"><?php echo $catsub->name?></a>
                         <ul class="sub-menu">
@@ -90,17 +89,14 @@
                           $catSubName = $catsub->name;
                           $csName = getSub($catSubName);
                           foreach ($csName as $csn):?>
-                            <li><a href="<?php echo base_url() ?>home/category/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
+                            <li><a href="<?php echo base_url() ?>home/sub_category/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
                           <?php endforeach;
                           ?>
                         </ul>
                       </li>
-
-
-
                     <?php endforeach;?>
                     <?php foreach (getCatOnly() as $cat ):?>
-                      <li class="menu-item menu-project"><a href="<?php echo base_url() ?>home/<?php echo $cat->slug?>"><?php echo $cat->name?></a></li>
+                      <li class="menu-item menu-project"><a href="<?php echo base_url() ?>home/category/<?php echo $cat->slug?>"><?php echo $cat->name?></a></li>
                     <?php endforeach; ?>
                   </ul>
                 </nav>
@@ -118,17 +114,19 @@
                 </div>
                 <div class="shopping-cart-wrapper header-customize-item with-price">
                   <div class="widget_shopping_cart_content">
-                    <div class="widget_shopping_cart_icon"><i class="wicon fa fa-shopping-bag"></i><span class="total">0</span></div>
-                    <div class="cart_list_wrapper">
+
+                    <!-- <div class="widget_shopping_cart_icon"><i class="wicon fa fa-shopping-bag"></i><span class="total">0</span></div> -->
+                    <div class="widget_shopping_cart_icon"><a href="<?php echo base_url()?>admin"><i class="wicon fa fa-user"></i></a></div>
+                    <!-- <div class="cart_list_wrapper">
                       <div class="scroll-wrapper cart_list product_list_widget scrollbar-inner">
                         <ul class="cart_list product_list_widget scrollbar-inner scroll-content">
                           <li class="empty">
-                            <h4>An empty cart</h4>
+                            <h4>An empty carts</h4>
                             <p>You have no item in your shopping cart</p>
                           </li>
                         </ul>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <div class="header-customize-item canvas-menu-toggle-wrapper"></div>

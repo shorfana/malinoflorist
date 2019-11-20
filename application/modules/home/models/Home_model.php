@@ -18,20 +18,58 @@
         $this->db->FROM('product');
         $this->db->where('slug', $slug);
         // $this->db->limit('4');
+        return $this->db->get()->row();
+      }
+      function getOtherProduct($slug,$pcat,$psub){
+        $this->db->FROM('product');
+        $this->db->where('product.slug!=', $slug);
+        $this->db->where('product.category_id',$pcat);
+        $this->db->where('product.subcategory_id',$psub);
         return $this->db->get()->result();
       }
 
-      function getProductByCat($idCat){
-        $this->db->FROM('product');
-        $this->db->WHERE('category_id',$idCat);
+      function getProductByCat($slug){
+        $this->db->select('category.slug');
+        $this->db->select('product.*');
+        $this->db->FROM('category,product');
+        $this->db->WHERE('category.id=product.category_id');
+        $this->db->WHERE('category.slug',$slug);
         return $this->db->get()->result();
       }
       function getProductBySubCat($slug){
-        $this->db->select('sub_category.slug,product.*');
-        $this->db->FROM('product,sub_category');
-        $this->db->WHERE('sub_category.id','product.subcategory_id');
+        $this->db->select('sub_category.slug');
+        $this->db->select('product.*');
+        $this->db->FROM('sub_category,product');
+        $this->db->WHERE('sub_category.id=product.subcategory_id');
         $this->db->WHERE('sub_category.slug',$slug);
         return $this->db->get()->result();
       }
+      function getTestimoni(){
+        $this->db->select('*');
+        $this->db->FROM('testimoni');
+        return $this->db->get()->result();
+      }
 
+      function getShipping(){
+        $this->db->select('*');
+        $this->db->FROM('shipping');
+        return $this->db->get()->result();
+      }
+      function getBank(){
+        $this->db->select('*');
+        $this->db->FROM('bank');
+        return $this->db->get()->result();
+      }
+
+      function getBlog(){
+        $this->db->select('*');
+        $this->db->FROM('blog');
+        return $this->db->get()->result();
+      }
+      function getBlogDetail($slug){
+        $this->db->select('*');
+        $this->db->FROM('blog');
+        $this->db->where('slug',$slug);
+        return $this->db->get()->row();
+      }
     }

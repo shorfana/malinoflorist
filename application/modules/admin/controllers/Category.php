@@ -186,11 +186,11 @@ public function create_action()
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
           $check_category = $this->Category_model->check_where_by_slug($slug);
-          if ($check_category>=1) {
+          if ($check_category>1) {
             $message = "Maaf, Sub category sudah terdaftar";
             $this->session->set_flashdata('message', $message);
             redirect(site_url('admin/category'));die();
-          }elseif ($check_category<1){
+          }elseif ($check_category<=1){
             $data = array(
           		'name' => $name,
           		'slug' => $slug,

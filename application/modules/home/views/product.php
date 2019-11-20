@@ -47,6 +47,7 @@
             <figure><img src="<?php echo base_url() ?>assets-front/images/background/bg-banner.jpg" alt="bg-banner"/></figure>
             <div class="banner-subpage-content">
               <h2>Hand Bouquet</h2>
+              <!-- <?php var_dump($subcategory);?> -->
               <!-- <div class="desc">
                 <p>Home</p>
                 <p>Products Grid 4 Columns</p>
@@ -63,7 +64,63 @@
                 <button data-filter=".indoor" class="button">Paling Banyak Dilihat</button>
               </div>
               <ul class="grid shortcode-product-wrap product-begreen columns-4">
-                <li data-category="outdoor" class="element-item product-item-wrap product-style_1 featured indoor new seeds">
+                <?php
+                if (isset($subcategory)) {
+                  foreach ($subcategory as $p) :
+                  ?>
+                  <li data-category="outdoor" class="element-item product-item-wrap product-style_1 featured indoor new seeds">
+                    <div class="product-item-inner">
+                      <div class="product-thumb">
+                        <div class="product-flash-wrap"></div>
+                        <div class="product-thumb-primary">
+                          <img src="<?php echo base_url() ?>xfile/product/<?php echo $p->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/>
+                        </div>
+                        <a href="../product_detail/<?php echo $p->slug?>" class="product-link"><div class="product-hover-sign"><hr/><hr/></div></a>
+                        <div class="product-info">
+                          <a href="#"><h3><?php echo $p->name?></h3></a>
+                          <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp. </span><?php echo number_format($p->price)?></span></span>
+                        </div>
+                        <!-- <div class="product-actions">
+                          <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
+                            <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                          </div>
+                          <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                        </div> -->
+                      </div>
+                    </div>
+                  </li>
+                  <?php
+                  endforeach;
+                }elseif (isset($category)) {
+                  foreach ($category as $p) :
+                  ?>
+                  <li data-category="outdoor" class="element-item product-item-wrap product-style_1 featured indoor new seeds">
+                    <div class="product-item-inner">
+                      <div class="product-thumb">
+                        <div class="product-flash-wrap"></div>
+                        <div class="product-thumb-primary">
+                          <img src="<?php echo base_url() ?>xfile/product/<?php echo $p->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/>
+                        </div>
+                        <a href="../product_detail/<?php echo $p->slug?>" class="product-link"><div class="product-hover-sign"><hr/><hr/></div></a>
+                        <div class="product-info">
+                          <a href="#"><h3><?php echo $p->name?></h3></a>
+                          <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp. </span><?php echo number_format($p->price)?></span></span>
+                        </div>
+                        <!-- <div class="product-actions">
+                          <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
+                            <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
+                          </div>
+                          <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+                        </div> -->
+                      </div>
+                    </div>
+                  </li>
+                  <?php
+                  endforeach;
+                }
+
+                ?>
+                <!-- <li data-category="outdoor" class="element-item product-item-wrap product-style_1 featured indoor new seeds">
                   <div class="product-item-inner">
                     <div class="product-thumb">
                       <div class="product-flash-wrap"></div>
@@ -328,71 +385,12 @@
                       </div>
                     </div>
                   </div>
-                </li>
+                </li> -->
               </ul>
             </div>
-            <p class="button-product text-center mt-20"><a class="btn btn-15">Load more</a></p>
+            <!-- <p class="button-product text-center mt-20"><a class="btn btn-15">Load more</a></p> -->
           </div>
         </div>
-
-        <div class="div-box">
-            <div class="slider-clients">
-              <div class="container">
-                <div class="col-md-6">
-                  <h3 align="center">Jasa Pengiriman</h3>
-                    <div align="center" style="margin-top: 50px;" data-number="3"  data-margin="10" data-loop="no" data-navcontrol="yes"  class="begreen-owl-carousel">
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/jne.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/pos.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/shipping/tiki.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                      </div>
-                </div>
-                <div class="col-md-6">
-                    <h3 align="center">Bank Transfer</h3>
-                    <div align="center" style="margin-top: 50px;" data-number="3"  data-margin="10" data-loop="no" data-navcontrol="yes"  class="begreen-owl-carousel">
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_bri.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_mandiri.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                        <div><img src="<?php echo base_url() ?>assets-front/images/bank/bank_bni.png" style="width: 100px; height: 50px;" alt="instagram"/></div>
-                      </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="div-box mb" style="margin-top: 50px;">
-            <div class="home-7-contact-me">
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-3 col-sm-12">
-                    <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-logo.jpeg" alt="logo" height="180px"/>
-                  </div>
-                  <div class="col-md-3 col-sm-12">
-                    <div class="home-6-contact-me-form">
-                      <h3>Peta Situs</h3>
-                      <p>Tentang Plaza Bunga</p>
-                      <p>Hubungi Kami</p>
-                      <p>Info Berita</p>
-                      <p>Karir & Lowongan</p>
-                    </div>
-                  </div>
-                  <div class="col-md-3 col-sm-12">
-                      <div class="home-6-contact-me-form">
-                        <h3>FAQ Customer</h3>
-                        <p>Cara Berbelanja</p>
-                        <p>Kebijakan Transaksi</p>
-                        <p>Metode Pembayaran</p>
-                      </div>
-                  </div>
-                  <div class="col-md-3 col-sm-12">
-                      <div class="home-6-contact-me-form">
-                        <h3>CV. Plaza Bunga</h3>
-                        <p>Jl. Bontolangkasa (Landak Baru) No. 7 <br>Makassar Sulawesi Selatan, Indonesia <br>Telpon : (0411) 854 115 <br>Email : cs@malinoflorist.com</p>
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
 
       <?php $this->load->view('footer'); ?>
 

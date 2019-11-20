@@ -217,11 +217,11 @@ public function create_action()
             $check_unique = $this->Blog_model->check_where_by_slug($slug);
             //var_dump($check_unique);die();
 
-            if ($check_unique>=1) {
+            if ($check_unique>1) {
                 $message = "Maaf, Category sudah terdaftar";
                 $this->session->set_flashdata('message', $message);
-                redirect(site_url('admin/sub_category'));die();
-            }elseif ($check_unique<1){
+                redirect(site_url('admin/blog'));die();
+            }elseif ($check_unique<=1){
               $data = array(
                 'title' => $title,
                 'slug' => $slug,
@@ -231,6 +231,11 @@ public function create_action()
       					'user_id' => $this->session->userdata['id_user'],
               );
               //var_dump($data);
+              $image=upload('image','blog','image',TRUE);
+              if($image){
+                //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+                $data['image']=$image['file_name'];
+              }
               $this->Blog_model->update($this->input->post('id', TRUE), $data);
               $this->session->set_flashdata('message', 'Update Record Success');
               redirect(site_url('admin/blog'));
