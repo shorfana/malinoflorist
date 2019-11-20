@@ -1,0 +1,59 @@
+<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
+ERROR - 2019-10-29 17:31:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:25 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:25 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:35 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:35 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:47 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:31:47 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:12 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:12 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:24 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:24 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:36 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:36 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:52 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:32:52 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:33:02 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 17:33:02 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:47:49 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:47:51 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:48:07 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:48:14 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:48:14 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:48:55 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:48:57 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:49:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:49:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:49:43 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:54:59 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:55:19 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:55:34 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 18:56:02 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:02:04 --> Severity: error --> Exception: syntax error, unexpected ';', expecting ')' C:\xampp\htdocs\malinoflorist\application\modules\latihan\controllers\Upload.php 102
+ERROR - 2019-10-29 19:02:11 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:04:00 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:04:19 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:05:17 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:05:26 --> Severity: Notice --> Undefined variable: photo C:\xampp\htdocs\malinoflorist\application\modules\latihan\controllers\Upload.php 109
+ERROR - 2019-10-29 19:05:43 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:05:45 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:06:31 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:08:31 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:10:10 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:10:21 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:10:39 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:10:44 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:11:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:11:09 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:12:08 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:13:05 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:13:05 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:13:14 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:13:50 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:14:00 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:14:15 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:14:28 --> 404 Page Not Found: /index
+ERROR - 2019-10-29 19:14:37 --> Severity: Notice --> Undefined variable: data C:\xampp\htdocs\malinoflorist\application\modules\latihan\controllers\Upload.php 159
