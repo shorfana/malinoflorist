@@ -48,8 +48,6 @@
               $row = array();
               $row[] = $no;
 							$row[] = $User_model->name;
-							$row[] = $User_model->username;
-							$row[] = $User_model->password;
 							$row[] = $User_model->email;
 							$row[] = $User_model->phone;
 

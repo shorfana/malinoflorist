@@ -52,9 +52,9 @@
               $row[] = $no;
 							$row[] = $Page_model->title;
               $row[] = $Page_model->slug;
-              $row[] = $Page_model->content;
-              $row[] = $Page_model->image;
-              $row[] = $Page_model->user_id;
+              // $row[] = $Page_model->content;
+              // $row[] = $Page_model->image;
+              // $row[] = $Page_model->user_id;
               $row[] ="
               <a href='page/edit/$Page_model->id'><i class='m-1 feather icon-edit-2'></i></a>
               <a class='modalDelete' data-toggle='modal' data-target='#responsive-modal' value='$Page_model->id' href='#'><i class='feather icon-trash'></i></a>";

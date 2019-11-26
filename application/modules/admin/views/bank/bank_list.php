@@ -20,34 +20,26 @@
                                  <table class="table crudtable">
                                      <thead>
                                        <tr>
-                                           <?php foreach ($datafield as $d): ?>
-                                             <th><?php echo str_replace("_"," ",$d) ?></th>
-                                           <?php endforeach; ?>
+                                            <th>No</th>
+                                            <th>Nama Bank</th>
                                            <th>aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody>
-                                       <?php foreach ($databank as $d): ?>
+                                       <?php $no = 1; foreach ($databank as $d): ?>
                                          <tr>
-                                           <?php foreach ($datafield as $df): ?>
-                                             <td><?php echo $d->$df ?></td>
-                                           <?php endforeach; ?>
+                                           <td><?php echo $no ?></td>
+                                           <td><?php echo $d->name ?></td>
                                            <td>
                                              <a href="<?php echo base_url().$module?>/bank/edit/<?php echo $d->id ?>"><i class="m-1 feather icon-edit-2"></i></a>
                                              <a class="modalDelete" data-toggle="modal" data-target="#responsive-modal" value="<?php echo $d->id ?>" href="#"><i class="feather icon-trash"></i></a>
                                            </td>
 
                                          </tr>
+                                         <?php $no++; ?>
                                        <?php endforeach; ?>
                                        </tbody>
                                      <tfoot>
-                                       <tr>
-                                           <?php foreach ($datafield as $d): ?>
-                                             <th><?php echo str_replace("_"," ",$d) ?></th>
-                                           <?php endforeach; ?>
-                                           <th>aksi</th>
-                                       </tr>
-                                     </tfoot>
                                  </table>
                              </div>
                          </div>

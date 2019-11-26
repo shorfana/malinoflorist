@@ -55,12 +55,12 @@
 							$row[] = $Product_model->description;
 							$row[] = $Product_model->price;
 							$row[] = $Product_model->size;
-							$row[] = $Product_model->image1;
-							$row[] = $Product_model->image2;
-							$row[] = $Product_model->image3;
-							$row[] = $Product_model->image4;
-							$row[] = $Product_model->category_id;
-							$row[] = $Product_model->subcategory_id;
+							// $row[] = $Product_model->image1;
+							// $row[] = $Product_model->image2;
+							// $row[] = $Product_model->image3;
+							// $row[] = $Product_model->image4;
+							// $row[] = $Product_model->category_id;
+							// $row[] = $Product_model->subcategory_id;
 
               $row[] ="
               <a href='product/edit/$Product_model->id'><i class='m-1 feather icon-edit-2'></i></a>

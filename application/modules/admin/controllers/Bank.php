@@ -51,7 +51,7 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Bank_model->name;
-							$row[] = $Bank_model->image;
+							// $row[] = $Bank_model->image;
 
               $row[] ="
               <a href='bank/edit/$Bank_model->id'><i class='m-1 feather icon-edit-2'></i></a>

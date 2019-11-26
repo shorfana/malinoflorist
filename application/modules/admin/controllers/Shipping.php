@@ -51,8 +51,8 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Shipping_model->name;
-							$row[] = $Shipping_model->image;
-							$row[] = $Shipping_model->user_id;
+							// $row[] = $Shipping_model->image;
+							// $row[] = $Shipping_model->user_id;
 
               $row[] ="
               <a href='shipping/edit/$Shipping_model->id'><i class='m-1 feather icon-edit-2'></i></a>

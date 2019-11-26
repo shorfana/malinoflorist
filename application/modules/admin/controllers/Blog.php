@@ -52,11 +52,11 @@
               $row[] = $no;
 							$row[] = $Blog_model->title;
               $row[] = $Blog_model->slug;
-							$row[] = $Blog_model->text;
-							$row[] = $Blog_model->image;
+							// $row[] = $Blog_model->text;
+							// $row[] = $Blog_model->image;
 							$row[] = $Blog_model->created_on;
 							$row[] = $Blog_model->updated_on;
-							$row[] = $Blog_model->user_id;
+							// $row[] = $Blog_model->user_id;
 
               $row[] ="
               <a href='blog/edit/$Blog_model->id'><i class='m-1 feather icon-edit-2'></i></a>

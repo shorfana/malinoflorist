@@ -47,11 +47,11 @@
               $no++;
               $row = array();
               $row[] = $no;
-							$row[] = $Testimoni_model->image;
+							// $row[] = $Testimoni_model->image;
 							$row[] = $Testimoni_model->name;
 							$row[] = $Testimoni_model->title;
-							$row[] = $Testimoni_model->description;
-							$row[] = $Testimoni_model->user_id;
+							// $row[] = $Testimoni_model->description;
+							// $row[] = $Testimoni_model->user_id;
 
               $row[] ="
               <a href='testimoni/edit/$Testimoni_model->id'><i class='m-1 feather icon-edit-2'></i></a>
