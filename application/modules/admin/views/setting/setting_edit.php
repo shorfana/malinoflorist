@@ -12,7 +12,7 @@
               </div>
             </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">phone</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">No Telepon</label>
               <div class="col-sm-10">
                 <input type="text" name="phone" class="form-control" value="<?php echo $dataedit->phone?>">
               </div>
@@ -24,37 +24,37 @@
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">fb_title</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Nama Facebook</label>
               <div class="col-sm-10">
                 <input type="text" name="fb_title" class="form-control" value="<?php echo $dataedit->fb_title?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">fb_link</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Link Facebook</label>
               <div class="col-sm-10">
                 <input type="text" name="fb_link" class="form-control" value="<?php echo $dataedit->fb_link?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">ig_title</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Nama Instagram</label>
               <div class="col-sm-10">
                 <input type="text" name="ig_title" class="form-control" value="<?php echo $dataedit->ig_title?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">ig_link</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Link Instagram</label>
               <div class="col-sm-10">
                 <input type="text" name="ig_link" class="form-control" value="<?php echo $dataedit->ig_link?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">address</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Alamat</label>
               <div class="col-sm-10">
                 <input type="text" name="address" class="form-control" value="<?php echo $dataedit->address?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">email</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Email</label>
               <div class="col-sm-10">
                 <input type="text" name="email" class="form-control" value="<?php echo $dataedit->email?>">
               </div>
