@@ -75,7 +75,7 @@
                         <div class="product-thumb-primary">
                           <img src="<?php echo base_url() ?>xfile/product/<?php echo $p->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/>
                         </div>
-                        <a href="../product_detail/<?php echo $p->slug?>" class="product-link"><div class="product-hover-sign"><hr/><hr/></div></a>
+                        <a href="../home/product/product_detail/<?php echo $p->slug?>" class="product-link"><div class="product-hover-sign"><hr/><hr/></div></a>
                         <div class="product-info">
                           <a href="#"><h3><?php echo $p->name?></h3></a>
                           <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp. </span><?php echo number_format($p->price)?></span></span>

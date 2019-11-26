@@ -31,18 +31,18 @@
         <div class="col-md-3 col-sm-12">
           <div class="home-6-contact-me-form">
             <h3>Peta Situs</h3>
-            <a href="<?php echo base_url()?>home/about"> <p>Tentang Plaza Bunga</p></a>
-            <a href="<?php echo base_url()?>home/hubungi_kami"><p>Hubungi Kami</p></a>
+            <a href="<?php echo base_url()?>about"> <p>Tentang Plaza Bunga</p></a>
+            <a href="<?php echo base_url()?>hubungi-kami"><p>Hubungi Kami</p></a>
             <a href="<?php echo base_url()?>home/blog"> <p>Blog</p></a>
-            <a href="<?php echo base_url()?>home/karir_dan_lowongan"><p>Karir & Lowongan</p></a>
+            <a href="<?php echo base_url()?>karir-dan-lowongan"><p>Karir & Lowongan</p></a>
           </div>
         </div>
         <div class="col-md-3 col-sm-12">
             <div class="home-6-contact-me-form">
               <h3>FAQ Customer</h3>
-              <a href="<?php echo base_url()?>home/cara_belanja"> <p>Cara Berbelanja</p></a>
-              <a href="<?php echo base_url()?>home/kebijakan_transaksi"> <p>Kebijakan Transaksi</p></a>
-              <a href="<?php echo base_url()?>home/metode_pembayaran"> <p>Metode Pembayaran</p></a>
+              <a href="<?php echo base_url()?>cara-belanja"> <p>Cara Berbelanja</p></a>
+              <a href="<?php echo base_url()?>kebijakan-transaksi"> <p>Kebijakan Transaksi</p></a>
+              <a href="<?php echo base_url()?>metode-pembayaran"> <p>Metode Pembayaran</p></a>
             </div>
         </div>
         <div class="col-md-3 col-sm-12">

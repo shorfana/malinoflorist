@@ -1,7 +1,7 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Home extends MY_Controller{
+    class Page extends MY_Controller{
 
       public function __construct()
       {
@@ -17,69 +17,64 @@
 
       }
 
-      function index()
-      {
-        $bunga_papan = $this->Home_model->getProductById('1');
-        $hand_bouquet = $this->Home_model->getProductById('2');
-        $table_flower = $this->Home_model->getProductById('4');
-        $testimoni = $this->Home_model->getTestimoni();
+      function kebijakan_transaksi(){
         $shipping = $this->Home_model->getShipping();
         $bank = $this->Home_model->getBank();
         $data = array(
-          'bunga_papan' => $bunga_papan,
-          'hand_bouquet' => $hand_bouquet,
-          'table_flower' => $table_flower,
-          'testimoni' => $testimoni,
           'shipping' => $shipping,
           'bank' => $bank,
         );
-        $this->load->view('home',$data);
-      }
-      function sub_category($slug){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
-        $subcategory = $this->Home_model->getProductBySubCat($slug);
-        $data = array(
-          'subcategory' => $subcategory,
-          'shipping' => $shipping,
-          'bank' => $bank,
-        );
-        $this->load->view('product',$data);
+        $this->load->view('kebijakan-transaksi',$data);
       }
 
-      function category($slug){
-        $category = $this->Home_model->getProductByCat($slug);
+      function cara_belanja(){
         $shipping = $this->Home_model->getShipping();
         $bank = $this->Home_model->getBank();
         $data = array(
-          'category' => $category,
           'shipping' => $shipping,
           'bank' => $bank,
         );
-        $this->load->view('product',$data);
+        $this->load->view('cara-belanja',$data);
       }
 
+      function about(){
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('about-us',$data);
+      }
 
-      function blog(){
-        $blog = $this->Home_model->getBlog();
+      function metode_pembayaran(){
         $shipping = $this->Home_model->getShipping();
         $bank = $this->Home_model->getBank();
         $data = array(
-          'blog' => $blog,
           'shipping' => $shipping,
           'bank' => $bank,
         );
-        $this->load->view('blog',$data);
+        $this->load->view('metode-pembayaran',$data);
       }
-      function blog_detail($slug){
-        $blog_detail = $this->Home_model->getBlogDetail($slug);
+
+      function hubungi_kami(){
         $shipping = $this->Home_model->getShipping();
         $bank = $this->Home_model->getBank();
         $data = array(
-          'blog_detail' => $blog_detail,
           'shipping' => $shipping,
           'bank' => $bank,
         );
-        $this->load->view('blog-detail',$data);
+        $this->load->view('hubungi-kami',$data);
       }
+
+      function karir_dan_lowongan(){
+        $shipping = $this->Home_model->getShipping();
+        $bank = $this->Home_model->getBank();
+        $data = array(
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('karir-lowongan',$data);
+      }
+
     }

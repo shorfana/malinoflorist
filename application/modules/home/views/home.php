@@ -78,7 +78,7 @@
                           <div class="product-thumb">
                             <div class="product-flash-wrap"></div>
                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
-                              <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                              <a href="<?php echo base_url()?>home/product/product_detail/<?php echo $k->slug?>" class="product-link">
                                 <div class="product-hover-sign">
                                   <hr/>
                                   <hr/>
@@ -130,7 +130,7 @@
                            <div class="product-thumb">
                              <!-- <div class="product-flash-wrap"><span class="on-new product-flash">New</span></div> -->
                              <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
-                             <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                             <a href="<?php echo base_url()?>home/product/product_detail/<?php echo $k->slug?>" class="product-link">
                                <div class="product-hover-sign">
                                  <hr/>
                                  <hr/>
@@ -167,7 +167,7 @@
                           <div class="product-thumb">
                             <div class="product-flash-wrap"></div>
                             <div class="product-thumb-primary"><img src="<?= base_url() ?>xfile/product/<?php echo $k->image1 ?>" alt="product1" width="375" height="450" class="attachment-shop_catalog size-shop_catalog wp-post-image"/></div>
-                              <a href="<?php echo base_url()?>home/product_detail/<?php echo $k->slug?>" class="product-link">
+                              <a href="<?php echo base_url()?>home/product/product_detail/<?php echo $k->slug?>" class="product-link">
                                 <div class="product-hover-sign">
                                   <hr/>
                                   <hr/>
