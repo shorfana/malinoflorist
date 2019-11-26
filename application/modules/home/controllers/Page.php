@@ -7,6 +7,7 @@
       {
         parent::__construct();
         $this->load->model(array('Home_model'));
+        $this->load->helper('dbs');
         //KostLab : Write Less Do More
         // if($this->session->userdata('status')!='login'){
         //   redirect(base_url('login'));
@@ -18,8 +19,8 @@
       }
 
       function kebijakan_transaksi(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
@@ -28,8 +29,8 @@
       }
 
       function cara_belanja(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
@@ -38,8 +39,8 @@
       }
 
       function about(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
@@ -48,8 +49,8 @@
       }
 
       function metode_pembayaran(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
@@ -58,8 +59,8 @@
       }
 
       function hubungi_kami(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
@@ -68,13 +69,12 @@
       }
 
       function karir_dan_lowongan(){
-        $shipping = $this->Home_model->getShipping();
-        $bank = $this->Home_model->getBank();
+        $shipping = getShipping();
+        $bank = getBank();
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
         );
         $this->load->view('karir-lowongan',$data);
       }
-
     }

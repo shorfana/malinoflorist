@@ -65,19 +65,19 @@
                     </div>
                     <div class="item">
                       <?php if ($detail->image2!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image2.' alt="slide" width="1080" height="768"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
                       }?>
                     </div>
                     <div class="item">
                       <?php if ($detail->image3!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image3.' alt="slide" width="1080" height="768"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
                       }?>
                     </div>
                     <div class="item">
                       <?php if ($detail->image4!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="1080" height="768"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image4.' alt="slide" width="1080" height="768"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="1080" height="768"/></figure>';
                       }?>
                     </div>
@@ -91,19 +91,19 @@
                     </div>
                     <div class="item">
                       <?php if ($detail->image2!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image2.' alt="slide" width="180" height="130"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
                       }?>
                     </div>
                     <div class="item">
                       <?php if ($detail->image3!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image3.' alt="slide" width="180" height="130"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
                       }?>
                     </div>
                     <div class="item">
                       <?php if ($detail->image4!=null) {
-                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image1.' alt="slide" width="180" height="130"/></figure>';
+                        echo '<figure><img src='.base_url().'xfile/product/'.$detail->image4.' alt="slide" width="180" height="130"/></figure>';
                         }else{echo '<figure><img src='.base_url().'xfile/no-pic.jpg alt="slide" width="180" height="130"/></figure>';
                       }?>
                     </div>

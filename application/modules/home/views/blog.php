@@ -92,7 +92,7 @@
                     <div class="post-item">
                       <div class="entry-wrap">
                         <div class="entry-thumbnail-wrap">
-                          <div class="entry-thumbnail"><a href="<?php echo base_url().'home/blog_detail/'.$b->slug?>" class="entry-thumbnail_overlay">
+                          <div class="entry-thumbnail"><a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>" class="entry-thumbnail_overlay">
                             <?php if ($b->image!=null) {?>
                               <img src="<?php echo base_url().'xfile/blog/'.$b->image ?>" alt="blog" width="420" height="280" class="img-responsive"/></a>
                             <?php }else{?>
@@ -103,7 +103,7 @@
                         </div>
                         <div class="entry-content-wrap">
                           <div class="entry-detail">
-                            <h3 class="entry-title"><a href="<?php echo base_url().'home/blog_detail/'.$b->slug?>"><?php echo $b->title?></a></h3>
+                            <h3 class="entry-title"><a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>"><?php echo $b->title?></a></h3>
                             <div class="entry-post-meta-wrap">
                               <ul class="entry-meta">
                                 <li class="entry-meta-author"><i class="fa fa-pencil-square-o p-color"></i><a href="#">admin</a></li>
@@ -136,7 +136,7 @@
                             <!-- <div class="entry-meta-tag">
                               <label><i class="fa fa-tags"></i>Tags :</label><a href="#">Plant Care</a><a href="#">Plant Of The Month</a>
                             </div> -->
-                            <a href="<?php echo base_url().'home/blog_detail/'.$b->slug?>"class="btn-readmore"><span class="span-text">Read more</span></a>
+                            <a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>"class="btn-readmore"><span class="span-text">Read more</span></a>
                           </div>
                         </div>
                       </div>

@@ -89,14 +89,14 @@
                           $catSubName = $catsub->name;
                           $csName = getSub($catSubName);
                           foreach ($csName as $csn):?>
-                            <li><a href="<?php echo base_url() ?>bunga_papan/<?php echo $csn->slug;?>"><?php echo $csn->name;?></a></li>
+                            <li><a href="<?php echo base_url().$catsub->slug.'/'. $csn->slug;?>"><?php echo $csn->name;?></a></li>
                           <?php endforeach;
                           ?>
                         </ul>
                       </li>
                     <?php endforeach;?>
                     <?php foreach (getCatOnly() as $cat ):?>
-                      <li class="menu-item menu-project"><a href="<?php echo base_url() ?>home/category/<?php echo $cat->slug?>"><?php echo $cat->name?></a></li>
+                      <li class="menu-item menu-project"><a href="<?php echo base_url().$cat->slug?>"><?php echo $cat->name?></a></li>
                     <?php endforeach; ?>
                   </ul>
                 </nav>

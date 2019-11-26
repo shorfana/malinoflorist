@@ -13,7 +13,7 @@ function getCatWithSub(){
   $ci =& get_instance();
   $ci->load->database();
   $ci->db->distinct();
-  $ci->db->select('category.name');
+  $ci->db->select('category.*');
   $ci->db->FROM('category');
   $ci->db->join('sub_category', 'category.id=sub_category.category_id', 'inner');
   return $ci->db->get()->result();

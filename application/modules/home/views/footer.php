@@ -33,7 +33,7 @@
             <h3>Peta Situs</h3>
             <a href="<?php echo base_url()?>about"> <p>Tentang Plaza Bunga</p></a>
             <a href="<?php echo base_url()?>hubungi-kami"><p>Hubungi Kami</p></a>
-            <a href="<?php echo base_url()?>home/blog"> <p>Blog</p></a>
+            <a href="<?php echo base_url()?>blog"> <p>Blog</p></a>
             <a href="<?php echo base_url()?>karir-dan-lowongan"><p>Karir & Lowongan</p></a>
           </div>
         </div>

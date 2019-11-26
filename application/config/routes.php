@@ -54,13 +54,21 @@ $route['movies']='front/movies';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['bunga-papan/congratulations']='home/product/sub_category/congratulations';
+$route['bunga-papan/happy-wedding']='home/product/sub_category/happy-wedding';
+$route['bunga-papan/turut-berduka-cita']='home/product/sub_category/turut-berduka-cita';
 
-$route['bunga_papan/congratulations']='home/sub_category/congratulations';
-$route['bunga_papan/happy-wedding']='home/sub_category/happy-wedding';
-$route['bunga_papan/turut-berduka-cita']='home/sub_category/congratulations';
+$route['hand-bouquet']='home/product/category/hand-bouquet';
+$route['table-flower']='home/product/category/table-flower';
+
+// $bunga = 'bunga-papan-congratulation-exclusive';
+// $route['product/product-detail/'.$bunga]='home/product/product_detail'.$Bunga;
+
 $route['karir-dan-lowongan']='home/page/karir_dan_lowongan';
 $route['cara-belanja']='home/page/cara_belanja';
 $route['metode-pembayaran']='home/page/metode_pembayaran';
 $route['kebijakan-transaksi']='home/page/kebijakan_transaksi';
 $route['about']='home/page/about';
 $route['hubungi-kami']='home/page/hubungi_kami';
+$route['blog']='home/blog';
+//$route['']

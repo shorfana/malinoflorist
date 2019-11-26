@@ -1,12 +1,12 @@
 <?php
     defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class Home extends MY_Controller{
+    class Blog extends MY_Controller{
 
       public function __construct()
       {
         parent::__construct();
-        $this->load->model(array('Home_model'));
+        $this->load->model(array('Blog_model'));
         $this->load->helper('dbs');
         //KostLab : Write Less Do More
         // if($this->session->userdata('status')!='login'){
@@ -18,23 +18,28 @@
 
       }
 
-      function index()
-      {
-        $bunga_papan = $this->Home_model->getProductById('1');
-        $hand_bouquet = $this->Home_model->getProductById('2');
-        $table_flower = $this->Home_model->getProductById('4');
-        $testimoni = $this->Home_model->getTestimoni();
+      function index(){
+        $blog = $this->Blog_model->getBlog();
         $shipping = getShipping();
         $bank = getBank();
         $data = array(
-          'bunga_papan' => $bunga_papan,
-          'hand_bouquet' => $hand_bouquet,
-          'table_flower' => $table_flower,
-          'testimoni' => $testimoni,
+          'blog' => $blog,
           'shipping' => $shipping,
           'bank' => $bank,
         );
-        $this->load->view('home',$data);
+        $this->load->view('blog',$data);
       }
+      function blog_detail($slug){
+        $blog_detail = $this->Blog_model->getBlogDetail($slug);
+        $shipping = getShipping();
+        $bank = getBank();
+        $data = array(
+          'blog_detail' => $blog_detail,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        $this->load->view('blog-detail',$data);
+      }
+
 
     }

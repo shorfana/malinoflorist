@@ -41,6 +41,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     $ci->db->delete($from);
   }
 
+  function getShipping(){
+    $ci =& get_instance();//$ci untuk pengganti $this->
+    $ci->load->database();
+    $ci->db->select('*');
+    $ci->db->FROM('shipping');
+    return $ci->db->get()->result();
+  }
+  function getBank(){
+    $ci =& get_instance();//$ci untuk pengganti $this->
+    $ci->load->database();
+    $ci->db->select('*');
+    $ci->db->FROM('bank');
+    return $ci->db->get()->result();
+  }
+
   function getSetting(){
     $ci =& get_instance();//$ci untuk pengganti $this->
     $ci->load->database();
