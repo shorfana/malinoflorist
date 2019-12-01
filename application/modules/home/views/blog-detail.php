@@ -71,10 +71,11 @@
                                 <?php if ($blog_detail->image!=null) {?>
                                   <img src="<?php echo base_url().'xfile/blog/'.$blog_detail->image ?>" alt="blog" style="height:500px;
                                   display: block;margin-left: auto;margin-right: auto;width: 100%;" class="img-responsive"/>
-                                <?php }else{?>
-                                  <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" style="height:500px;
-                                  display: block;margin-left: auto;margin-right: auto;width: 100%;" class="img-responsive"/>
-                                <?php }?>
+                                <?php }
+                                //else{?>
+                                  <!-- <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" style="height:500px;
+                                  display: block;margin-left: auto;margin-right: auto;width: 100%;" class="img-responsive"/> -->
+                                <?php //}?>
 
                               </div>
                             </div>

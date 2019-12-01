@@ -16,10 +16,10 @@
               <div class="top-sidebar top-bar-right col-md-8">
                 <aside id="text-6" class="widget widget_text">
                   <div class="textwidget">
-                    <a href="../../../<?php echo getSetting()->ig_link?>">
+                    <a href="<?php echo "https://".getSetting()->ig_link?>">
                       <i style="margin-left: 15px" class="fa fa-instagram"></i> <?php echo getSetting()->ig_title?>
                     </a>
-                    <a href="<?php echo getSetting()->fb_link?>">
+                    <a href="<?php echo "https://".getSetting()->fb_link?>">
                       <i style="margin-left: 15px" class="fa fa-facebook"></i> <?php echo getSetting()->fb_title?>
                     </a>
                     <a href="#"><i style="margin-left: 15px" class="fa fa-whatsapp"></i> Hubungi Kami <?php echo getSetting()->whatsapp?></a>

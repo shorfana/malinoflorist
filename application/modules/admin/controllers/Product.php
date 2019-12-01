@@ -280,24 +280,36 @@ public function create_action()
 
 
             $image1=upload('image1','product','image',TRUE);
+            //var_dump($image1);die;
             if($image1){
               //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
               $data['image1']=$image1['file_name'];
+            }elseif(empty($image1)){
+              echo $data['image1']=null;
             }
+
             $image2=upload('image2','product','image',TRUE);
             if($image2){
               //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
               $data['image2']=$image2['file_name'];
+            }elseif(empty($image2)){
+              echo $data['image2']=null;
             }
+
             $image3=upload('image3','product','image',TRUE);
             if($image3){
               //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
               $data['image3']=$image3['file_name'];
+            }elseif(empty($image3)){
+              echo $data['image3']=null;
             }
+
             $image4=upload('image4','product','image',TRUE);
             if($image4){
               //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
               $data['image4']=$image4['file_name'];
+            }elseif(empty($image4)){
+              echo $data['image4']=null;
             }
 
                 $this->Product_model->update($this->input->post('id', TRUE), $data);

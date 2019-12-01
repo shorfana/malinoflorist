@@ -95,9 +95,10 @@
                           <div class="entry-thumbnail"><a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>" class="entry-thumbnail_overlay">
                             <?php if ($b->image!=null) {?>
                               <img src="<?php echo base_url().'xfile/blog/'.$b->image ?>" alt="blog" width="420" height="280" class="img-responsive"/></a>
-                            <?php }else{?>
-                              <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" width="420" height="280" class="img-responsive"/></a>
-                            <?php }?>
+                            <?php }
+                              //else{?>
+                              <!-- <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" width="420" height="280" class="img-responsive"/></a> -->
+                            <?php //}?>
                             <!-- <a href="<?php echo base_url().'xfile/blog/'.$b->image ?>" data-rel="prettyPhoto[gallery1]" class="prettyPhoto"><i class="fa fa-arrows-alt"></i></a> -->
                           </div>
                         </div>

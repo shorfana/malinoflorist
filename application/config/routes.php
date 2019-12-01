@@ -49,10 +49,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
+
+//$this->load->helper('navbar');
+
 $route['default_controller'] = 'home';
 $route['movies']='front/movies';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+
+// foreach (getCatWithSub() as $catsub ):
+//   $catSubName = $catsub->name;
+//   $csName = getSub($catSubName);
+//   foreach ($csName as $csn):
+//     $category =  $catsub->slug;
+//     $subcategory = $csn->slug;
+//     $route['$category/$subcategory']='home/product/sub_category/$subcategory';
+//   endforeach;
+// endforeach;
 
 $route['bunga-papan/congratulations']='home/product/sub_category/congratulations';
 $route['bunga-papan/happy-wedding']='home/product/sub_category/happy-wedding';
@@ -61,6 +74,9 @@ $route['bunga-papan/turut-berduka-cita']='home/product/sub_category/turut-berduk
 $route['hand-bouquet']='home/product/category/hand-bouquet';
 $route['table-flower']='home/product/category/table-flower';
 
+// foreach ($category as $c):
+//
+// endforeach
 // $bunga = 'bunga-papan-congratulation-exclusive';
 // $route['product/product-detail/'.$bunga]='home/product/product_detail'.$Bunga;
 
