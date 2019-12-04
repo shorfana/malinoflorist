@@ -151,6 +151,7 @@ public function create_action()
               'description' => $this->input->post('description',TRUE),
     					'price' => $this->input->post('price',TRUE),
     					'size' => $this->input->post('size',TRUE),
+              'product_created' => date("Y-m-d"),
     					'category_id' => $this->input->post('category_id',TRUE),
     					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
             );
@@ -169,6 +170,7 @@ public function create_action()
                     'description' => $this->input->post('description',TRUE),
           					'price' => $this->input->post('price',TRUE),
           					'size' => $this->input->post('size',TRUE),
+                    'product_created' => date("Y-m-d"),
           					'category_id' => $this->input->post('category_id',TRUE),
           					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
                     );
@@ -186,6 +188,7 @@ public function create_action()
                     'description' => $this->input->post('description',TRUE),
           					'price' => $this->input->post('price',TRUE),
           					'size' => $this->input->post('size',TRUE),
+                    'product_created' => date("Y-m-d"),
           					'category_id' => $this->input->post('category_id',TRUE),
           					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
                     );
