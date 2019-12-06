@@ -14,6 +14,16 @@
         return $this->db->get()->result();
       }
 
+      function update($data,$table,$where,$value){
+         $this->db->where($where,$value);
+         $this->db->update($table,$data);
+         if($this->db->affected_rows()>0){
+           return true;
+         }else{
+           return false;
+         }
+       }
+
       function getProductBySlug($slug){
         $this->db->FROM('product');
         $this->db->where('slug', $slug);

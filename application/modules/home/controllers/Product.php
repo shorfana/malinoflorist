@@ -25,6 +25,12 @@
         $other = $this->Product_model->getOtherProduct($slug,$pcat,$psub);
         $shipping = getShipping();
         $bank = getBank();
+        $id = $detail->id;
+        $data_show = array(
+              'product_show' => $detail->product_show + 1,
+            );
+        $this->Product_model->update($data_show,'product','id',$id);
+        // var_dump($detail);die;
         $data = array(
           'detail' => $detail,
           'other' => $other,
