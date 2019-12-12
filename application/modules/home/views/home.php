@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="images/icon/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" type="image/x-icon">
 
     <!-- Web Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico%7CSource+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;amp;subset=latin-ext,vietnamese" rel="stylesheet">
