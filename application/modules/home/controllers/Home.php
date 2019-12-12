@@ -36,5 +36,23 @@
         );
         $this->load->view('home',$data);
       }
+      function error_404(){
+        $bunga_papan = $this->Home_model->getProductById('1');
+        $hand_bouquet = $this->Home_model->getProductById('2');
+        $table_flower = $this->Home_model->getProductById('4');
+        $testimoni = $this->Home_model->getTestimoni();
+        $shipping = getShipping();
+        $bank = getBank();
+        $data = array(
+          'bunga_papan' => $bunga_papan,
+          'hand_bouquet' => $hand_bouquet,
+          'table_flower' => $table_flower,
+          'testimoni' => $testimoni,
+          'shipping' => $shipping,
+          'bank' => $bank,
+        );
+        //x$this->load->view('home',);
+        $this->load->view('404_notfound.php',$data);
+      }
 
     }

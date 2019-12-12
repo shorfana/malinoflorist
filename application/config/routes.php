@@ -54,29 +54,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'home';
 $route['movies']='front/movies';
-$route['404_override'] = '';
+$route['404_override'] = 'home/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
-// foreach (getCatWithSub() as $catsub ):
-//   $catSubName = $catsub->name;
-//   $csName = getSub($catSubName);
-//   foreach ($csName as $csn):
-//     $category =  $catsub->slug;
-//     $subcategory = $csn->slug;
-//     $route['$category/$subcategory']='home/product/sub_category/$subcategory';
-//   endforeach;
-// endforeach;
+require_once( BASEPATH .'database/DB'. EXT );
+  $db =& DB();
 
-$route['bunga-papan/congratulations']='home/product/sub_category/congratulations';
-$route['bunga-papan/happy-wedding']='home/product/sub_category/happy-wedding';
-$route['bunga-papan/turut-berduka-cita']='home/product/sub_category/turut-berduka-cita';
+$query = $db->query( "SELECT sub_category.*, `category`.`slug` AS cat_slug FROM sub_category,`category` WHERE `sub_category`.`category_id`=`category`.`id`" );
+$result = $query->result();
+foreach( $result as $row )
+{
+    $route[ $row->cat_slug.'/'.$row->slug ]                 = "home/product/sub_category/".$row->slug;
+    $route[ $row->cat_slug.'/'.$row->slug.'/:any' ]         = $row->slug;
+    $route[ $row->cat_slug ]           = 'error404';
+    $route[ $row->cat_slug.'/:any' ]   = 'error404';
+}
 
-$route['hand-bouquet']='home/product/category/hand-bouquet';
-$route['table-flower']='home/product/category/table-flower';
+// foreach( $result2 as $row )
+// {
+//     $route[ $row->slug ]                 = "home/product/sub_category/".$row->slug;
+//     $route[ $row->slug.'/:any' ]         = $row->name;
+//     $route[ $row->name ]           = 'error404';
+//     $route[ $row->name.'/:any' ]   = 'error404';
+// }
 
-// foreach ($category as $c):
+// $route['bunga-papan/congratulations']='home/product/sub_category/congratulations';
+// $route['bunga-papan/happy-wedding']='home/product/sub_category/happy-wedding';
+// $route['bunga-papan/turut-berduka-cita']='home/product/sub_category/turut-berduka-cita';
 //
-// endforeach
+// $route['hand-bouquet']='home/product/category/hand-bouquet';
+// $route['table-flower']='home/product/category/table-flower';
+
 // $bunga = 'bunga-papan-congratulation-exclusive';
 // $route['product/product-detail/'.$bunga]='home/product/product_detail'.$Bunga;
 

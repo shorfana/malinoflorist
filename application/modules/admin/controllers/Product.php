@@ -345,13 +345,13 @@ $this->form_validation->set_rules('size', 'size', 'trim|required');
 // $this->form_validation->set_rules('image2', 'image2', 'trim|required');
 // $this->form_validation->set_rules('image3', 'image3', 'trim|required');
 // $this->form_validation->set_rules('image4', 'image4', 'trim|required');
-// $this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
+$this->form_validation->set_rules('category_id', 'category_id', 'trim|required');
 // $this->form_validation->set_rules('subcategory_id', 'subcategory_id', 'trim|required');
-
-
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
 
+  // $this->session->set_flashdata('failed', 'Fill all empty form!');
+  // redirect(site_url('admin/product/create'));
     }
 
 }
