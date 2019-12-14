@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Des 2019 pada 02.45
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.0.33
+-- Generation Time: 14 Des 2019 pada 20.07
+-- Versi Server: 10.1.13-MariaDB
+-- PHP Version: 5.6.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -19,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `loruqlmvec`
+-- Database: `plazabunga`
 --
 
 -- --------------------------------------------------------
@@ -39,9 +37,9 @@ CREATE TABLE `bank` (
 --
 
 INSERT INTO `bank` (`id`, `name`, `image`) VALUES
-(4, 'BNI', '4610d3236d76ab5212c85192833c1b81.png'),
+(4, 'BNI', '612c3a9e89593443d1f9c5e0eac67b1d.jpg'),
 (5, 'Mandiri', '868e86fe4fa1d6ec86dbbe3a0588fdbe.png'),
-(6, 'BRI', '972dd78cc1b9fcc42984f2e8ff8dcc9c.png');
+(6, 'BRI', '1ed3363e2e27206fe2714601c243c3c1.png');
 
 -- --------------------------------------------------------
 
@@ -65,8 +63,10 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `title`, `slug`, `text`, `image`, `created_on`, `updated_on`, `user_id`) VALUES
-(2, 'Manfaat Bunga Bagi Kesehatan', 'manfaat-bunga-bagi-kesehatan', 'lorem ipsum lorem ipsum 2x', 'f19cc3169eaac424d68bcd19fe44c8d0.jpg', '2019-11-06 09:59:13', '2019-11-26 06:01:45', 1),
-(3, 'bunga bagus', 'bunga-bagus', 'kasjdaksndkjasnxkjnsajd', '', '2019-11-07 02:58:20', '0000-00-00 00:00:00', 1);
+(2, 'Manfaat Bunga Bagi Kesehatan', 'manfaat-bunga-bagi-kesehatan', 'Terlebih bagi kamu yang sedang menjalin <span class="normal">hubungan </span>dengan\r\n pacar. Mungkin bisa menjadi salah satu pilihan untuk menunjukkan bentuk\r\n perasaan kamu kepada dia. Terlebih, bagi penyair bunga dianggap sebagai\r\n ‘tawanya bumi’.', '', '2019-11-06 09:59:13', '2019-12-14 06:19:10', 1),
+(3, 'Bunga Bagus', 'bunga-bagus', '<div align="justify">Bunga mawar (rose) memiliki lebih dari 2830 spesies dengan beragam warna diantaranya merah, putih, kuning, ping, oranye dan hijau.  Nama bunga mawar (rose) ini tentu sudah tidak asing lagi untuk kita kenali. Karena, bunga rose sangat mudah ditemukan di wilayah Asia, salah satunya adalah di Indonesia<br></div>', '', '2019-11-07 02:58:20', '2019-12-14 06:25:10', 1),
+(4, 'Cara Merawat Bunga', 'cara-merawat-bunga', 'Setiap pecinta bunga atau tanaman hias pasti menginginkan tamannya \r\ndipenuhi dengan bunga-bunga cantik beraneka warna dan ragam. Untuk \r\nmendapatkannya, tentu diperlukan usaha dari sang empunya taman. Tips \r\nserta cara merawat bunga agar subur wajib dipahami serta dipraktekkan.', '', '2019-12-12 02:41:09', '2019-12-14 06:26:59', 1),
+(7, 'Tanaman Unik', 'tanaman-unik', '<p>Keren! Tampilan tanaman unik di bawah ini mirip seperti manusia dan hewan. Bentuknya betul-betul bikin yang lihat melongo! Di dunia ini, terdapat sekitar 400 ribu spesies tanaman. Semua tanaman di atas hadir dengan warna dan bentuk yang berbeda. Ukuran\r\n mereka pun beragam, mulai dari algae kecil yang berbentuk seperti \r\nbutiran salju sampai pohon ek yang tingginya bisa mencapai ratusan kaki.</p>', '', '2019-12-12 03:39:46', '2019-12-14 06:28:28', 1);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,12 @@ CREATE TABLE `page` (
 --
 
 INSERT INTO `page` (`id`, `title`, `slug`, `content`, `image`, `user_id`) VALUES
-(3, 'Cara Belanja', 'cara-belanja', 'Cara Berbelanja yang baik dan benar', 'f97233f3ebe4911f55b8faae298e1dc0.jpg', 1);
+(1, 'Tentang Plaza Bunga', 'tentang-plaza-bunga', 'Diisi Dengan Profil Plaza Bunga atau apapun', 'e871e91106e7b50555fb89a489f31bc1.jpeg', 1),
+(2, 'Hubungi Kami', 'hubungi-kami', 'Diisi Dengan kontak yang bisa dihubungi', '', 1),
+(3, 'Karir & Lowongan', 'karir-lowongan', 'Diisi dengan karir dan lowongan yang tersedia', '', 1),
+(4, 'Cara Berbelanja', 'cara-berbelanja', 'diisi dengan langkah langkah cara berbelanja di plaza bunga', '', 1),
+(5, 'Kebijakan Transaksi', 'kebijakan-transaksi', 'Diisi dengan kebijakan transaksi di plaza bunga', '', 1),
+(6, 'Metode Pembayaran', 'metode-pembayaran', 'Diisi dengan metode pembayaran yang bisa digunakan di plaza bunga', '57e15c7d450d60a6d889a68cbc019556.png', 1);
 
 -- --------------------------------------------------------
 
@@ -139,19 +144,19 @@ CREATE TABLE `product` (
 --
 
 INSERT INTO `product` (`id`, `name`, `slug`, `description`, `price`, `size`, `product_created`, `product_show`, `image1`, `image2`, `image3`, `image4`, `category_id`, `subcategory_id`) VALUES
-(23, 'Happy Weddy Fun Flower', 'happy-weddy-fun-flower', 'Bagus Keren', 350000, '8x8', '0000-00-00', 0, '4e44fe6bda5de46cf723eec593cdbefa.jpg', '', '', '', 1, 1),
-(24, 'Happy Wedding Pink Flowers', 'happy-wedding-pink-flowers', 'Bagus Banget', 350000, '8x8', '0000-00-00', 0, 'c444de89a59e6befe88af54fce30bd47.jpg', '', '', '', 1, 1),
-(25, 'Bunga Papan Congratulation Exclusive', 'bunga-papan-congratulation-exclusive', 'Bagus Banget', 350000, '8x8', '0000-00-00', 2, '091f3e6b36ae5e5e9768af84e61adb39.jpg', '', '', '', 1, 2),
-(26, 'Bunga Papan Duka Cita Polos', 'bunga-papan-duka-cita-polos', 'Bagus', 450000, '8x8', '0000-00-00', 0, '139abf42078bcf366b33e2f772779581.jpg', '', '', '', 1, 3),
-(27, 'Hand Bouquet Artypicial Red', 'hand-bouquet-artypicial-red', 'Bagus', 100000, '8x8', '0000-00-00', 1, '48efa2a5fe88fe8b6bf7911940bc81f6.jpg', '', '', '', 2, NULL),
-(28, 'Hand Bouquet Flanel Lili Lala', 'hand-bouquet-flanel-lili-lala', 'Bagus', 100000, '8x8', '0000-00-00', 0, '566732f4add5e721c579db2cee72687a.jpg', '', '', '', 2, NULL),
-(29, 'Hand Bouquet Flanel Mawar Imut', 'hand-bouquet-flanel-mawar-imut', 'Bagus', 100000, '8x8', '0000-00-00', 0, '21ae77e36c5097d07bcb296dc42b3bda.jpg', '', '', '', 2, NULL),
-(30, 'Hand Bouquet Flanel Rainbow', 'hand-bouquet-flanel-rainbow', 'Bagus', 100000, '8x8', '0000-00-00', 0, 'b5ea8ef1c85955654335ea6e2e6362ce.jpg', '', '', '', 2, NULL),
-(31, 'Table Flowers Bunga Segar', 'table-flowers-bunga-segar', 'Bagus', 135000, '8x8', '0000-00-00', 0, 'beecb772663dca8635d91af4369090b2.jpg', '', '', '', 4, NULL),
-(32, 'Table Flowers Pinky Teratai Imut', 'table-flowers-pinky-teratai-imut', 'bagus', 135000, '7x7', '0000-00-00', 0, 'f48e9c09b94b763941b72a4ca42aeff2.jpg', '', '', '', 4, NULL),
-(33, 'Table Flowers Purple Krisan Megah', 'table-flowers-purple-krisan-megah', 'Bagus', 135000, '7x7', '0000-00-00', 0, '93b5cb8eb1af38dcaca8c9145104b99c.jpg', '', '', '', 4, NULL),
-(34, 'Table Flowers Red White Lavender', 'table-flowers-red-white-lavender', 'Bagus', 135000, '8x8', '0000-00-00', 0, 'c666dffce43b070af7c907d5a584767a.jpg', '', '', '', 4, NULL),
-(35, 'Hand Bouquet Artypicial Mix Flowers', 'hand-bouquet-artypicial-mix-flowers', 'Bagus Keren Mantap', 120000, '0x0', '2019-12-04', 0, 'bf62e8708463ed127de74901b00d8666.jpg', '', '', '', 2, NULL);
+(23, 'Happy Weddy Fun Flower', 'happy-weddy-fun-flower', 'Bagus Keren', 350000, '8x8', '2019-12-03', 0, '4e44fe6bda5de46cf723eec593cdbefa.jpg', '', '', '', 1, 1),
+(24, 'Happy Wedding Pink Flowers', 'happy-wedding-pink-flowers', 'Bagus Banget', 350000, '8x8', '2019-11-28', 0, 'c444de89a59e6befe88af54fce30bd47.jpg', '', '', '', 1, 1),
+(25, 'Bunga Papan Congratulation Exclusive', 'bunga-papan-congratulation-exclusive', 'Bagus Banget', 350000, '8x8', '2019-11-30', 39, '091f3e6b36ae5e5e9768af84e61adb39.jpg', '', '', '', 1, 2),
+(26, 'Bunga Papan Duka Cita Polos', 'bunga-papan-duka-cita-polos', 'Bagus', 450000, '8x8', '2019-12-12', 121, '139abf42078bcf366b33e2f772779581.jpg', '', '', '', 1, 3),
+(27, 'Hand Bouquet Artypicial Red', 'hand-bouquet-artypicial-red', 'Bagus', 100000, '8x8', '2019-12-08', 1001, '48efa2a5fe88fe8b6bf7911940bc81f6.jpg', '', '', '', 2, NULL),
+(28, 'Hand Bouquet Flanel Lili Lala', 'hand-bouquet-flanel-lili-lala', 'Bagus', 100000, '8x8', '2019-12-07', 2, '566732f4add5e721c579db2cee72687a.jpg', '', '', '', 2, NULL),
+(29, 'Hand Bouquet Flanel Mawar Imut', 'hand-bouquet-flanel-mawar-imut', 'Bagus', 100000, '8x8', '2019-11-20', 214, '21ae77e36c5097d07bcb296dc42b3bda.jpg', '', '', '', 2, NULL),
+(30, 'Hand Bouquet Flanel Rainbow', 'hand-bouquet-flanel-rainbow', 'Bagus', 100000, '8x8', '2019-11-20', 0, 'b5ea8ef1c85955654335ea6e2e6362ce.jpg', '', '', '', 2, NULL),
+(31, 'Table Flowers Bunga Segar', 'table-flowers-bunga-segar', 'Bagus', 135000, '8x8', '2019-11-19', 0, 'beecb772663dca8635d91af4369090b2.jpg', '', '', '', 4, NULL),
+(32, 'Table Flowers Pinky Teratai Imut', 'table-flowers-pinky-teratai-imut', 'bagus', 135000, '7x7', '2019-11-26', 0, 'f48e9c09b94b763941b72a4ca42aeff2.jpg', '', '', '', 4, NULL),
+(33, 'Table Flowers Purple Krisan Megah', 'table-flowers-purple-krisan-megah', 'Bagus', 135000, '7x7', '2019-11-22', 2, '93b5cb8eb1af38dcaca8c9145104b99c.jpg', '', '', '', 4, NULL),
+(34, 'Table Flowers Red White Lavender', 'table-flowers-red-white-lavender', 'Bagus', 135000, '8x8', '2019-11-25', 0, 'c666dffce43b070af7c907d5a584767a.jpg', '', '', '', 4, NULL),
+(35, 'Hand Bouquet Artypicial Mix Flowers', 'hand-bouquet-artypicial-mix-flowers', 'Bagus Keren Mantap', 120000, '0x0', '2019-12-04', 211, '367f2e8fccbc0eafcd1b0bd1aeb2546e.jpeg', '', '', '', 2, NULL);
 
 -- --------------------------------------------------------
 
@@ -169,15 +174,16 @@ CREATE TABLE `setting` (
   `ig_link` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `quote` varchar(150) COLLATE utf8_unicode_ci NOT NULL
+  `quote` varchar(150) COLLATE utf8_unicode_ci NOT NULL,
+  `minimal_view` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data untuk tabel `setting`
 --
 
-INSERT INTO `setting` (`id`, `phone`, `whatsapp`, `fb_title`, `fb_link`, `ig_title`, `ig_link`, `address`, `email`, `quote`) VALUES
-(1, '(0411) 854 115 ', '085299214300', 'PlazaBunga', 'www.facebook.com/plazabunga', 'PlazaBunga', 'www.instagram.com/plazabunga', 'Jl. Bontolangkasa (Landak Baru) No. 7 Makassar Sulawesi Selatan, Indonesia', 'cs@malinoflorist.com', 'Berbagai Koleksi Bunga Hias Bisa Anda Pilih Sebagai Hiasan Interior Rumah Atau Kantor');
+INSERT INTO `setting` (`id`, `phone`, `whatsapp`, `fb_title`, `fb_link`, `ig_title`, `ig_link`, `address`, `email`, `quote`, `minimal_view`) VALUES
+(1, '(0411) 854 115 ', '+6285299214300', 'PlazaBunga', 'www.facebook.com/plazabunga', 'PlazaBunga', 'www.instagram.com/plazabunga', 'Jl. Bontolangkasa (Landak Baru) No. 7 Makassar Sulawesi Selatan, Indonesia', 'cs@malinoflorist.com', 'Berbagai Koleksi Bunga Hias Bisa Anda Pilih Sebagai Hiasan Interior Rumah Atau Kantor', 100);
 
 -- --------------------------------------------------------
 
@@ -197,7 +203,7 @@ CREATE TABLE `shipping` (
 --
 
 INSERT INTO `shipping` (`id`, `name`, `image`, `user_id`) VALUES
-(3, 'JNE', '4dce230f58c8fd670d1dcb2a500e6cb4.jpg', 1),
+(3, 'JNE', '763ab8406140df66289982162ce3f3a6.jpg', 1),
 (5, 'J&T', 'b1eea515a8bfd58e38a7d2f49286c493.jpg', 1),
 (6, 'TIKI', '1d22a4117cb0f1f1ad93fb0adefc5e88.png', 1),
 (7, 'Pos Indonesia', 'd3baa22c3d771cf3b19bdd555af16de5.png', 1);
@@ -244,7 +250,8 @@ CREATE TABLE `testimoni` (
 --
 
 INSERT INTO `testimoni` (`id`, `image`, `name`, `title`, `description`, `user_id`) VALUES
-(1, '', 'iqbal', 'Programmer', 'Webnya keren dan mudah diakses', 1);
+(1, 'b818cb12144f93dc6132d5b7ea07438b.jpg', 'iqbal', 'Programmer', 'Webnya keren dan mudah diakses', 1),
+(2, 'e7b2890454d8265d2873eb15fb010c04.png', 'Moch. Star Ramadhan', 'Mahasiswa', 'Tempat rekomendasi untuk membeli berbagai macam bunga', 1);
 
 -- --------------------------------------------------------
 
@@ -286,33 +293,33 @@ INSERT INTO `user` (`id`, `name`, `username`, `password`, `email`, `phone`) VALU
 --
 
 --
--- Indeks untuk tabel `bank`
+-- Indexes for table `bank`
 --
 ALTER TABLE `bank`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `blog`
+-- Indexes for table `blog`
 --
 ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`user_id`);
 
 --
--- Indeks untuk tabel `category`
+-- Indexes for table `category`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `page`
+-- Indexes for table `page`
 --
 ALTER TABLE `page`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`user_id`);
 
 --
--- Indeks untuk tabel `product`
+-- Indexes for table `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
@@ -320,114 +327,103 @@ ALTER TABLE `product`
   ADD KEY `subcategory_id` (`subcategory_id`);
 
 --
--- Indeks untuk tabel `setting`
+-- Indexes for table `setting`
 --
 ALTER TABLE `setting`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `shipping`
+-- Indexes for table `shipping`
 --
 ALTER TABLE `shipping`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_user` (`user_id`);
 
 --
--- Indeks untuk tabel `sub_category`
+-- Indexes for table `sub_category`
 --
 ALTER TABLE `sub_category`
   ADD PRIMARY KEY (`id`),
   ADD KEY `category_id` (`category_id`);
 
 --
--- Indeks untuk tabel `testimoni`
+-- Indexes for table `testimoni`
 --
 ALTER TABLE `testimoni`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `transaksi`
+-- Indexes for table `transaksi`
 --
 ALTER TABLE `transaksi`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id_product` (`id_product`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `bank`
+-- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
--- AUTO_INCREMENT untuk tabel `blog`
+-- AUTO_INCREMENT for table `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
--- AUTO_INCREMENT untuk tabel `category`
+-- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
 --
--- AUTO_INCREMENT untuk tabel `page`
+-- AUTO_INCREMENT for table `page`
 --
 ALTER TABLE `page`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
--- AUTO_INCREMENT untuk tabel `product`
+-- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
 --
--- AUTO_INCREMENT untuk tabel `setting`
+-- AUTO_INCREMENT for table `setting`
 --
 ALTER TABLE `setting`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
--- AUTO_INCREMENT untuk tabel `shipping`
+-- AUTO_INCREMENT for table `shipping`
 --
 ALTER TABLE `shipping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
--- AUTO_INCREMENT untuk tabel `sub_category`
+-- AUTO_INCREMENT for table `sub_category`
 --
 ALTER TABLE `sub_category`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
--- AUTO_INCREMENT untuk tabel `testimoni`
+-- AUTO_INCREMENT for table `testimoni`
 --
 ALTER TABLE `testimoni`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT untuk tabel `transaksi`
+-- AUTO_INCREMENT for table `transaksi`
 --
 ALTER TABLE `transaksi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
@@ -468,7 +464,6 @@ ALTER TABLE `sub_category`
 --
 ALTER TABLE `transaksi`
   ADD CONSTRAINT `transaksi_ibfk_1` FOREIGN KEY (`id_product`) REFERENCES `product` (`id`);
-COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

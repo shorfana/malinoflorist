@@ -34,7 +34,7 @@
 							$this->column_search[]='address';
 							$this->column_search[]='email';
 							$this->column_search[]='quote';
-							
+							$this->column_search[]='minimal_view';							
         }
 
         // get all

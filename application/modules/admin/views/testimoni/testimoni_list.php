@@ -23,7 +23,7 @@
                                            <th>No</th>
                                            <th>Nama</th>
                                            <th>Profesi</th>
-                                           <th>aksi</th>
+                                           <th>Aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody></tbody>

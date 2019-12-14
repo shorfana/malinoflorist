@@ -274,31 +274,6 @@
                   </div>
                 </div>
               <?php endforeach; ?>
-
-              <div class="yolo-testimonial testimonial-carousel-6">
-                <div class="testimonials testimonial-list">
-                  <div class="testimonial-item">
-                    <div class="testimonial-image"><img src="<?php echo base_url() ?>assets-front/images/demo/testimonial-Img1.jpg" alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/></div>
-                    <div class="testimonial-content"><i class="fa fa-quote-right"></i>
-                      <p class="testimonial-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat</p>
-                      <div class="testimonial-title">Helen Barbara</div>
-                      <div class="testimonial-position">Designer</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="yolo-testimonial testimonial-carousel-6">
-                <div class="testimonials testimonial-list">
-                  <div class="testimonial-item">
-                    <div class="testimonial-image"><img src="<?php echo base_url() ?>assets-front/images/demo/testimonial-Img4.jpg" alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/></div>
-                    <div class="testimonial-content"><i class="fa fa-quote-right"></i>
-                      <p class="testimonial-excerpt">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat</p>
-                      <div class="testimonial-title">Helen Barbara</div>
-                      <div class="testimonial-position">Designer</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

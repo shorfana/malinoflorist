@@ -58,6 +58,7 @@
 							$row[] = $Setting_model->address;
 							$row[] = $Setting_model->email;
 							$row[] = $Setting_model->quote;
+							$row[] = $Setting_model->minimal_view;
 
               $row[] ="
               <a href='setting/edit/$Setting_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -119,7 +120,7 @@ public function create_action()
 					'address' => $this->input->post('address',TRUE),
 					'email' => $this->input->post('email',TRUE),
 					'quote' => $this->input->post('quote',TRUE),
-
+					'minimal_view' => $this->input->post('minimal_view',TRUE),
 );
 
             $this->Setting_model->insert($data);
@@ -148,7 +149,7 @@ public function create_action()
 					'address' => $this->input->post('address',TRUE),
 					'email' => $this->input->post('email',TRUE),
 					'quote' => $this->input->post('quote',TRUE),
-
+					'minimal_view' => $this->input->post('minimal_view',TRUE),
 );
 
             $this->Setting_model->update($this->input->post('id', TRUE), $data);

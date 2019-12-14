@@ -102,8 +102,21 @@
                         </span>
                       </div>
                       <p style="margin-top:25px;">
+                        <?php
+                        // $s = "alalo";
+                        // $res = "he".substr($s,1);
+                        // echo $res;
+                          $wa1 = substr($noWA->whatsapp, 0, 2);
+                          $wa2 = substr($noWA->whatsapp, 0, 3);
+                          $nomorWA = $noWA->whatsapp;
+                          if (($wa1!='62')&&($wa1=='08')) {
+                            $whatsapp  = '62'.substr($nomorWA,1);
+                          }elseif (($wa2=='+62')) {
+                            $whatsapp  = ''.substr($nomorWA,1);
+                          };
+                        ?>
                         <a href="
-                          <?php echo "https://api.whatsapp.com/send?phone=628999467321&text=Hallo%20Plaza%20Bunga,%20Saya%20ingin%20memesan%20".($detail->name)."%20Yang%20Berharga%20Rp.%20".number_format($detail->price)?>" class="btn btn-1">Pesan Sekarang</a>
+                          <?php echo "https://api.whatsapp.com/send?phone=".$whatsapp."&text=Hallo%20Plaza%20Bunga,%20Saya%20ingin%20memesan%20".($detail->name)."%20Yang%20Berharga%20Rp.%20".number_format($detail->price)?>" class="btn btn-1">Pesan Sekarang</a>
                       </p>
                     </div>
                   </div>

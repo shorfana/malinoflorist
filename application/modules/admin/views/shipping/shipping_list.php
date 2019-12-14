@@ -22,7 +22,7 @@
                                        <tr>
                                            <th>No</th>
                                            <th>Nama Pengiriman</th>
-                                           <th>aksi</th>
+                                           <th>Aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody></tbody>

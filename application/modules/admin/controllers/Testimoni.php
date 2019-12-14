@@ -16,6 +16,9 @@
             //     redirect(base_url('login'));
             //   }
             // }
+            if($this->session->userdata('status')!='login'){
+              redirect(redirect('login'));
+            }
         }
 
         public function index()
@@ -119,8 +122,9 @@ public function create_action()
         if($image){
           //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
           $data['image']=$image['file_name'];
+        }elseif(empty($image)){
+          $data['image']=null;
         }
-
             $this->Testimoni_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('admin/testimoni'));
@@ -152,7 +156,6 @@ public function create_action()
         }elseif(empty($image)){
           $data['image']=null;
         }
-
             $this->Testimoni_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
             redirect(site_url('admin/testimoni'));

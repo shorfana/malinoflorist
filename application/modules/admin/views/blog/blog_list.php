@@ -22,10 +22,10 @@
                                        <tr>
                                            <th>No</th>
                                            <th>Nama Blog</th>
-                                           <th>Slug</th>
+                                           <th>Teks</th>
                                            <th>Tanggal Dibuat</th>
                                            <th>Tanggal Diupdate</th>
-                                           <th>aksi</th>
+                                           <th>Aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody></tbody>

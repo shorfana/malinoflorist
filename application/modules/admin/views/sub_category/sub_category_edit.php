@@ -12,13 +12,13 @@
               </div>
             </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">name</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Nama</label>
               <div class="col-sm-10">
                 <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
               </div>
               </div>
               <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nama Kategori</label>
+                <label class="col-sm-2 col-form-label">Pilih Kategori</label>
                 <div class="col-sm-10">
                   <select class="form-control" name="category_id" id="category_id">
                       <option value="" selected>Please Select</option>

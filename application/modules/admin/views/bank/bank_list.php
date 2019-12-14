@@ -22,7 +22,7 @@
                                        <tr>
                                             <th>No</th>
                                             <th>Nama Bank</th>
-                                           <th>aksi</th>
+                                           <th>Aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody>

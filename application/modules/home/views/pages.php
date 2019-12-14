@@ -62,6 +62,7 @@
               <div class="col-md-8 col-sm-8">
                 <div class="choose-your-content">
                   <h2><?php echo $konten->title;?></h2>
+                  <img src="<?php echo base_url() ?>xfile/page/<?php echo $konten->image?>" style="width:50%; height:50%;"/>
                   <p class="mb-20"><?php echo $konten->content;?> </p>
                 </div>
               </div>

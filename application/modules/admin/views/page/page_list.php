@@ -23,7 +23,7 @@
                                            <th>No</th>
                                            <th>Judul</th>
                                            <th>Slug</th>
-                                           <th>aksi</th>
+                                           <th>Aksi</th>
                                        </tr>
                                      </thead>
                                      <tbody></tbody>

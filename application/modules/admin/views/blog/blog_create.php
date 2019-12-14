@@ -6,13 +6,13 @@
         <div class="card-body">
           <form method="post" action="<?php echo base_url().$action ?>" enctype="multipart/form-data">
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">title</label>
+                <label class="col-sm-2 col-form-label">Judul Blog</label>
                 <div class="col-sm-10">
                   <input type="text" name="title" class="form-control">
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">text</label>
+                <label class="col-sm-2 col-form-label">Teks</label>
                 <div class="col-sm-10">
                   <textarea type="text" name="text" class="form-control summernote"></textarea>
                 </div>

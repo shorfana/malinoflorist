@@ -18,7 +18,7 @@
                 </div>
               </div>
 						<div class="form-group row">
-                <label class="col-sm-2 col-form-label">user_id</label>
+                <label class="col-sm-2 col-form-label">User Id</label>
                 <div class="col-sm-10">
                   <input type="text" name="user_id" value="<?php echo $this->session->userdata('id_user'); ?>" class="form-control" readonly>
                 </div>

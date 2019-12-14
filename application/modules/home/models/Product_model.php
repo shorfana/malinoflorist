@@ -27,6 +27,19 @@
         return $this->db->get()->row();
       }
 
+      function getminView($idSetting){
+        $this->db->select('minimal_view');
+        $this->db->FROM('setting');
+        $this->db->where('id',$idSetting);
+        return $this->db->get()->row();
+      }
+
+      // function getNewProduct(){
+      // $this->db->select('DATEDIFF(CURDATE(),`product_created`) AS tanggal');
+      // $this->db->FROM('product');
+      // return $this->db->get()->row();
+      // }
+
       function update($data,$table,$where,$value){
          $this->db->where($where,$value);
          $this->db->update($table,$data);
@@ -54,6 +67,7 @@
       function getProductByCat($slug){
         $this->db->select('category.slug');
         $this->db->select('product.*');
+        $this->db->select('DATEDIFF(CURDATE(),product.product_created) AS tanggal');
         $this->db->FROM('category,product');
         $this->db->WHERE('category.id=product.category_id');
         $this->db->WHERE('category.slug',$slug);
@@ -62,10 +76,18 @@
       function getProductBySubCat($slug){
         $this->db->select('sub_category.slug');
         $this->db->select('product.*');
+        $this->db->select('DATEDIFF(CURDATE(),product.product_created) AS tanggal');
         $this->db->FROM('sub_category,product');
         $this->db->WHERE('sub_category.id=product.subcategory_id');
         $this->db->WHERE('sub_category.slug',$slug);
         return $this->db->get()->result();
+      }
+
+      function getWA($idSetting){
+        $this->db->select('whatsapp');
+        $this->db->FROM('setting');
+        $this->db->where('id',$idSetting);
+        return $this->db->get()->row();
       }
 
 

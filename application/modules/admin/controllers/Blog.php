@@ -51,8 +51,8 @@
               $row = array();
               $row[] = $no;
 							$row[] = $Blog_model->title;
-              $row[] = $Blog_model->slug;
-							// $row[] = $Blog_model->text;
+              //$row[] = $Blog_model->slug;
+							$row[] = substr_replace($Blog_model->text,"...",35);
 							// $row[] = $Blog_model->image;
 							$row[] = $Blog_model->created_on;
 							$row[] = $Blog_model->updated_on;

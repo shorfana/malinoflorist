@@ -19,6 +19,8 @@
       }
 
       function product_detail($slug){
+        $idSetting = 1;
+        $noWA = $this->Product_model->getWA($idSetting);
         $detail = $this->Product_model->getProductBySlug($slug);
         $pcat = $detail->category_id;
         $psub = $detail->subcategory_id;
@@ -32,6 +34,7 @@
         $this->Product_model->update($data_show,'product','id',$id);
         // var_dump($detail);die;
         $data = array(
+          'noWA' => $noWA,
           'detail' => $detail,
           'other' => $other,
           'shipping' => $shipping,
@@ -40,20 +43,25 @@
         $this->load->view('product-detail',$data);
       }
       function sub_category($slug){
+        $idSetting = 1;
+        $minView = $this->Product_model->getminView($idSetting);
         $contain_title = $this->Product_model->getSCTitle($slug);
+        $subcategory = $this->Product_model->getProductBySubCat($slug);
         $shipping = getShipping();
         $bank = getBank();
-        $subcategory = $this->Product_model->getProductBySubCat($slug);
         $data = array(
           'contain_title' =>$contain_title,
           'subcategory' => $subcategory,
           'shipping' => $shipping,
           'bank' => $bank,
+          'minView' => $minView,
         );
         $this->load->view('product',$data);
       }
 
       function category($slug){
+        $idSetting = 1;
+        $minView = $this->Product_model->getminView($idSetting);
         $contain_title = $this->Product_model->getCTitle($slug);
         $category = $this->Product_model->getProductByCat($slug);
         $shipping = getShipping();
@@ -62,6 +70,7 @@
           'contain_title' =>$contain_title,
           'category' => $category,
           'shipping' => $shipping,
+          'minView' => $minView,
           'bank' => $bank,
         );
         $this->load->view('product',$data);
