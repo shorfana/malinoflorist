@@ -20,8 +20,27 @@
                 </li>
                 <li class="nav-item"><a href="<?= base_url()?>admin/blog"><i class="feather icon-book-open"></i><span class="menu-title" data-i18n="">Blog</span></a>
                 </li>
+                <!-- PAGES pilih yang mana -->
                 <li class=" nav-item"><a href="<?= base_url()?>admin/page"><i class="feather icon-help-circle"></i><span class="menu-title" data-i18n="">Pages</span></a>
                 </li>
+
+                <!-- <li class=" nav-item"><a href="#"><i class="feather icon-help-circle"></i><span class="menu-title" data-i18n="">Pages</span></a>
+                    <ul class="menu-content">
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/1"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">About</span></a>
+                        </li>
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/2"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">Hubungi Kami</span></a>
+                        </li>
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/3"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">Karir & Lowongan</span></a>
+                        </li>
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/4"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">Cara Berbelanja</span></a>
+                        </li>
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/5"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">Kebijakan Transaksi</span></a>
+                        </li>
+                        <li class="nav-item"><a href="<?= base_url()?>admin/page/edit/6"><i class="feather icon-circle"></i><span class="menu-title" data-i18n="nav.sk_starter_kit.fixed_navigation">Metode Pembayaran</span></a>
+                        </li>
+                    </ul>
+                </li> -->
+
                 <li class=" nav-item"><a href="<?= base_url()?>admin/testimoni"><i class="feather icon-check-circle"></i><span class="menu-title" data-i18n="">Testimoni</span></a>
                 </li>
                 <li class=" nav-item"><a href="<?= base_url()?>admin/setting/edit/1"><i class="feather icon-settings"></i><span class="menu-title" data-i18n="">Setting</span></a>

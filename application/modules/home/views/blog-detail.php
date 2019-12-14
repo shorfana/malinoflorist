@@ -65,24 +65,16 @@
                         <div class="entry-wrap">
                           <div class="entry-thumbnail-wrap">
                             <div data-number="1" data-margin="0" data-loop="yes" data-navcontrol="yes" class="begreen-owl-carousel">
-                              <!-- <div><img src="<?php echo base_url() ?>assets-front/images/demo/blog-list-3.jpg" alt="blog" width="800" height="500" class="img-responsive"/></div>
-                              <div><img src="<?php echo base_url() ?>assets-front/images/demo/blog-list-6.jpg" alt="blog" width="800" height="500" class="img-responsive"/></div> -->
                               <div>
                                 <?php if ($blog_detail->image!=null) {?>
-                                  <img src="<?php echo base_url().'xfile/blog/'.$blog_detail->image ?>" alt="blog" style="height:500px;
-                                  display: block;margin-left: auto;margin-right: auto;width: 100%;" class="img-responsive"/>
-                                <?php }
-                                //else{?>
-                                  <!-- <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" style="height:500px;
-                                  display: block;margin-left: auto;margin-right: auto;width: 100%;" class="img-responsive"/> -->
-                                <?php //}?>
-
+                                  <img src="<?php echo base_url().'xfile/blog/'.$blog_detail->image ?>" alt="blog" style="height:30%;width: 30%;" />
+                                <?php }?>
                               </div>
                             </div>
                           </div>
                           <div class="entry-content-wrap">
                             <div class="entry-detail">
-                              <h3 class="entry-title"><a href="blog-detail.html"><?php echo $blog_detail->title?></a></h3>
+                              <h3 class="entry-title"><a href="#"><?php echo $blog_detail->title?></a></h3>
                               <div class="entry-post-meta-wrap">
                                 <ul class="entry-meta">
                                   <li class="entry-meta-author"><i class="fa fa-pencil-square-o p-color"></i><a href="#">admin</a></li>

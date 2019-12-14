@@ -14,22 +14,21 @@
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">text</label>
                 <div class="col-sm-10">
-                  <!-- <input type="text" name="text" class="form-control"> -->
-                  <textarea type="text" name="text" class="form-control"></textarea>
+                  <textarea type="text" name="text" class="form-control summernote"></textarea>
                 </div>
               </div>
-						<!-- <div class="form-group row">
-                <label class="col-sm-2 col-form-label">slug</label>
-                <div class="col-sm-10">
-                  <input type="text" name="slug" class="form-control">
-                </div>
-              </div> -->
               <div class="form-group row">
                   <label class="col-sm-2 col-form-label">Gambar</label>
                   <div class="col-sm-10">
                     <input type="file" id="input-file-now-custom-1" class="dropify" name="image">
                   </div>
                 </div>
+                <!-- <div class="form-group row">
+                <label class="col-sm-2 col-form-label">slug</label>
+                <div class="col-sm-10">
+                <input type="text" name="slug" class="form-control">
+              </div>
+            </div> -->
               <!-- <div class="form-group row">
                   <label class="col-sm-2 col-form-label">image</label>
                   <div class="col-sm-10">

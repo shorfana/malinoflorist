@@ -14,7 +14,7 @@
 						<div class="form-group row">
                 <label class="col-sm-2 col-form-label">Konten</label>
                 <div class="col-sm-10">
-                  <input type="text" name="content" class="form-control">
+                  <textarea name="content" class="form-control summernote" rows="8" cols="80"></textarea>
                 </div>
               </div>
 						<div class="form-group row">

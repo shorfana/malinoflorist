@@ -6,13 +6,13 @@
          <div class="row">
              <div class="col-12">
                  <div class="card">
-                     <div class="card-header">
+                     <!-- <div class="card-header">
                          <h4 class="card-title">Data page</h4>
       		    		<a href="<?= site_url($module.'/page/create') ?>"><button type="button" class="btn btn-primary round waves-effect waves-light">
       	               	 Tambah Data
       	              	</button>
                       </a>
-                     </div>
+                     </div> -->
                      <div class="card-content">
 
                          <div class="card-body card-dashboard">

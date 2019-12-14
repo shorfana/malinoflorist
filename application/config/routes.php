@@ -58,35 +58,22 @@ $route['404_override'] = 'home/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 require_once( BASEPATH .'database/DB'. EXT );
-  $db =& DB();
-
-$query = $db->query( "SELECT sub_category.*, `category`.`slug` AS cat_slug FROM sub_category,`category` WHERE `sub_category`.`category_id`=`category`.`id`" );
-$result = $query->result();
-foreach( $result as $row )
+$db =& DB();
+$query1 = $db->query( "SELECT sub_category.`slug` AS sub_slug, `category`.`slug` AS cat_slug FROM sub_category,`category` WHERE `sub_category`.`category_id`=`category`.`id`" );
+$result1 = $query1->result();
+$query2 = $db->get('category');
+$result2 = $query2->result();
+foreach( $result1 as $row )
 {
-    $route[ $row->cat_slug.'/'.$row->slug ]                 = "home/product/sub_category/".$row->slug;
-    $route[ $row->cat_slug.'/'.$row->slug.'/:any' ]         = $row->slug;
-    $route[ $row->cat_slug ]           = 'error404';
-    $route[ $row->cat_slug.'/:any' ]   = 'error404';
+    $route[ $row->cat_slug.'/'.$row->sub_slug ]                 = "home/product/sub_category/".$row->sub_slug;
+    $route[ $row->cat_slug.'/'.$row->sub_slug.'/:any' ]         = "home/product/sub_category/".$row->sub_slug;
 }
 
-// foreach( $result2 as $row )
-// {
-//     $route[ $row->slug ]                 = "home/product/sub_category/".$row->slug;
-//     $route[ $row->slug.'/:any' ]         = $row->name;
-//     $route[ $row->name ]           = 'error404';
-//     $route[ $row->name.'/:any' ]   = 'error404';
-// }
-
-// $route['bunga-papan/congratulations']='home/product/sub_category/congratulations';
-// $route['bunga-papan/happy-wedding']='home/product/sub_category/happy-wedding';
-// $route['bunga-papan/turut-berduka-cita']='home/product/sub_category/turut-berduka-cita';
-//
-// $route['hand-bouquet']='home/product/category/hand-bouquet';
-// $route['table-flower']='home/product/category/table-flower';
-
-// $bunga = 'bunga-papan-congratulation-exclusive';
-// $route['product/product-detail/'.$bunga]='home/product/product_detail'.$Bunga;
+foreach( $result2 as $row )
+{
+    $route[ $row->slug ]                 = "home/product/category/".$row->slug;
+    $route[ $row->slug.'/:any' ]         = "home/product/category/".$row->slug;
+}
 
 $route['karir-dan-lowongan']='home/page/karir_dan_lowongan';
 $route['cara-belanja']='home/page/cara_belanja';

@@ -47,7 +47,7 @@
             },
             ],
         });
-            
+
       });
     </script>
     <script type="text/javascript">
@@ -62,9 +62,36 @@
     <script src="<?= base_url()?>assets/summernote/summernote.js" charset="utf-8"></script>
     <script type="text/javascript">
     $(document).ready(function() {
-      $('.summernote').summernote({
-        height: 300
+
+      $(".summernote").summernote({
+      placeholder: 'enter directions here...',
+            height: 300,
+            callbacks: {
+            onImageUpload : function(files, editor, welEditable) {
+
+                 for(var i = files.length - 1; i >= 0; i--) {
+                         sendFile(files[i], this);
+                }
+            }
+        }
+        });
       });
+      function sendFile(file, el) {
+      var form_data = new FormData();
+      form_data.append('file', file);
+      $.ajax({
+          data: form_data,
+          type: "POST",
+          url: 'upload.php',
+          cache: false,
+          contentType: false,
+          processData: false,
+          success: function(url) {
+              $(el).summernote('editor.insertImage', url);
+          }
       });
+
+      });
+
+
     </script>
-    

@@ -235,7 +235,10 @@ public function create_action()
               if($image){
                 //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
                 $data['image']=$image['file_name'];
+              }elseif(empty($image)){
+                $data['image']=null;
               }
+
               $this->Blog_model->update($this->input->post('id', TRUE), $data);
               $this->session->set_flashdata('message', 'Update Record Success');
               redirect(site_url('admin/blog'));

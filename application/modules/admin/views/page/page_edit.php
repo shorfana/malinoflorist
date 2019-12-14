@@ -12,25 +12,25 @@
               </div>
             </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">title</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Judul</label>
               <div class="col-sm-10">
                 <input type="text" name="title" class="form-control" value="<?php echo $dataedit->title?>">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">content</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Konten</label>
               <div class="col-sm-10">
-                <input type="text" name="content" class="form-control" value="<?php echo $dataedit->content?>">
+                <textarea name="content" class="form-control summernote" rows="8" cols="80"><?php echo $dataedit->content?></textarea>
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">image</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">Gambar</label>
               <div class="col-sm-10">
                   <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/page/'.$dataedit->image?>" name="image">
               </div>
               </div>
 						<div class="form-group row">
-              <label for="example-text-input" class="col-sm-2 col-form-label">user_id</label>
+              <label for="example-text-input" class="col-sm-2 col-form-label">User Id</label>
               <div class="col-sm-10">
                 <input type="text" name="user_id" class="form-control" value="<?php echo $dataedit->user_id?>" readonly>
               </div>

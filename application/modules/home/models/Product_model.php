@@ -14,6 +14,19 @@
         return $this->db->get()->result();
       }
 
+      function getSCTitle($slug){
+        $this->db->select('name');
+        $this->db->FROM('sub_category');
+        $this->db->where('slug', $slug);
+        return $this->db->get()->row();
+      }
+      function getCTitle($slug){
+        $this->db->select('name');
+        $this->db->FROM('category');
+        $this->db->where('slug', $slug);
+        return $this->db->get()->row();
+      }
+
       function update($data,$table,$where,$value){
          $this->db->where($where,$value);
          $this->db->update($table,$data);

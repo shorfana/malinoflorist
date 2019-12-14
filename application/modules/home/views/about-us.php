@@ -46,29 +46,11 @@
           <div class="banner-subpage">
             <figure><img src="<?php echo base_url() ?>assets-front/images/background/bg-banner.jpg" alt="bg-banner"/></figure>
             <div class="banner-subpage-content">
-              <h2>About Us</h2>
-              <div class="desc">
-                <p>Home </p>
-                <p>About Us</p>
-              </div>
+              <h2><?php echo $konten->title;?></h2>
             </div>
           </div>
         </div>
-        <div class="div-box text-top mt">
-          <div class="container">
-            <div class="text-center mb-20">
-              <h2 class="title-style title-style-1 mb-20"><span class="title-left">Our </span><span class="title-right">Story</span></h2>
-              <p><i>Plaza Bunga Adalah<br/>Ini history</i></p>
-            </div>
-            <div class="text-left mb-20">
-              <h2 class="mb-20">Visi</h2>
-              <p class="mb-20">Isi Visi</p>
-              <h2 class="mb-20">Misi</h2>
-              <p class="mb-20">Isi Misi</p>
-            </div>
-          </div>
-        </div>
-
+      
         <div class="div-box who-we-are">
           <div class="container">
             <div class="row mt-20 mb-45">

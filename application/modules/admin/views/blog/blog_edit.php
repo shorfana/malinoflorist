@@ -26,13 +26,13 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">text</label>
               <div class="col-sm-10">
-                <input type="text" name="text" class="form-control" value="<?php echo $dataedit->text?>" required>
+                <textarea name="text" class="form-control summernote" rows="8" cols="80"><?php echo $dataedit->text?></textarea>
               </div>
               </div>
             <div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">image</label>
               <div class="col-sm-10">
-                  <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/page/'.$dataedit->image?>" name="image">
+                  <input type="file" id="input-file-now-custom-1" class="dropify" data-default-file="<?php echo base_url().'xfile/blog/'.$dataedit->image?>" name="image">
               </div>
               </div>
 						<!-- <div class="form-group row">

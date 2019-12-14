@@ -143,8 +143,15 @@ public function create_action()
 					'title' => $this->input->post('title',TRUE),
 					'description' => $this->input->post('description',TRUE),
 					'user_id' => $this->input->post('user_id',TRUE),
+        );
 
-);
+        $image=upload('image','testimoni','image',TRUE);
+        if($image){
+          //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+          $data['image']=$image['file_name'];
+        }elseif(empty($image)){
+          $data['image']=null;
+        }
 
             $this->Testimoni_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');

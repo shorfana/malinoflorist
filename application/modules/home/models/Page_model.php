@@ -6,6 +6,13 @@
     class Page_model extends CI_Model
     {
 
+      function getPage($id){
+        $this->db->select('*');
+        $this->db->FROM('page');
+        $this->db->where('id', $id);
+        return $this->db->get()->row();
+      }
+
       function getProductById($id){
         // $this->db->get($this->table);
         $this->db->FROM('product');

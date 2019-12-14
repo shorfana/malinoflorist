@@ -40,10 +40,12 @@
         $this->load->view('product-detail',$data);
       }
       function sub_category($slug){
+        $contain_title = $this->Product_model->getSCTitle($slug);
         $shipping = getShipping();
         $bank = getBank();
         $subcategory = $this->Product_model->getProductBySubCat($slug);
         $data = array(
+          'contain_title' =>$contain_title,
           'subcategory' => $subcategory,
           'shipping' => $shipping,
           'bank' => $bank,
@@ -52,10 +54,12 @@
       }
 
       function category($slug){
+        $contain_title = $this->Product_model->getCTitle($slug);
         $category = $this->Product_model->getProductByCat($slug);
         $shipping = getShipping();
         $bank = getBank();
         $data = array(
+          'contain_title' =>$contain_title,
           'category' => $category,
           'shipping' => $shipping,
           'bank' => $bank,

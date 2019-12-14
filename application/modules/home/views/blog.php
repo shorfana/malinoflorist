@@ -95,11 +95,7 @@
                           <div class="entry-thumbnail"><a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>" class="entry-thumbnail_overlay">
                             <?php if ($b->image!=null) {?>
                               <img src="<?php echo base_url().'xfile/blog/'.$b->image ?>" alt="blog" width="420" height="280" class="img-responsive"/></a>
-                            <?php }
-                              //else{?>
-                              <!-- <img src="<?php echo base_url().'xfile/no-pic.jpg' ?>" alt="blog" width="420" height="280" class="img-responsive"/></a> -->
-                            <?php //}?>
-                            <!-- <a href="<?php echo base_url().'xfile/blog/'.$b->image ?>" data-rel="prettyPhoto[gallery1]" class="prettyPhoto"><i class="fa fa-arrows-alt"></i></a> -->
+                            <?php } ?>
                           </div>
                         </div>
                         <div class="entry-content-wrap">
@@ -110,7 +106,7 @@
                                 <li class="entry-meta-author"><i class="fa fa-pencil-square-o p-color"></i><a href="#">admin</a></li>
                                 <li class="entry-meta-date"><i class="fa fa-clock-o p-color"></i>
                                   <?php //echo $b->created_on;
-                                  $updateBlog =$b->updated_on;
+                                  $updateBlog = $b->updated_on;
                                   $updateFormat = date("Y", strtotime($updateBlog));
                                   if ($updateFormat<2000) {
                                     echo date("d M, Y", strtotime($b->created_on));
@@ -126,17 +122,14 @@
                             <div class="entry-excerpt">
                               <p><?php $string = $b->text;
                                     if (strlen($string) > 100) {
-                                      $trimstring = substr($string, 0, 100). ' ...</a>';
-                                    } else {
+                                      $trimstring =  substr_replace($string, "...", 100);
+                                    } elseif(strlen($string) <=100) {
                                       $trimstring = $string;
                                     }
                                     echo $trimstring;
                                 ?>
                               </p>
                             </div>
-                            <!-- <div class="entry-meta-tag">
-                              <label><i class="fa fa-tags"></i>Tags :</label><a href="#">Plant Care</a><a href="#">Plant Of The Month</a>
-                            </div> -->
                             <a href="<?php echo base_url().'home/blog/blog_detail/'.$b->slug?>"class="btn-readmore"><span class="span-text">Read more</span></a>
                           </div>
                         </div>

@@ -46,12 +46,11 @@
           <div class="banner-subpage">
             <figure><img src="<?php echo base_url() ?>assets-front/images/background/bg-banner.jpg" alt="bg-banner"/></figure>
             <div class="banner-subpage-content">
-              <h2>Hand Bouquet</h2>
-              <!-- <?php var_dump($subcategory);?> -->
-              <!-- <div class="desc">
-                <p>Home</p>
-                <p>Products Grid 4 Columns</p>
-              </div> -->
+              <?php if (isset($subcategory)) {
+                echo "<h2>".$contain_title->name."</h2>";
+              }elseif (isset($category)) {
+                echo "<h2>".$contain_title->name."</h2>";
+              }?>
             </div>
           </div>
         </div>
@@ -68,6 +67,7 @@
                 if (isset($subcategory)) {
                   foreach ($subcategory as $p) :
                   ?>
+                  <?php echo $contain_title->name;?>
                   <li data-category="outdoor" class="element-item product-item-wrap product-style_1 featured indoor new seeds">
                     <div class="product-item-inner">
                       <div class="product-thumb">
