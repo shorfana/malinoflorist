@@ -26,7 +26,7 @@
     <div class="container">
       <div class="row">
       <div class="col-md-3 col-sm-12">
-            <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" height="180px"/>
+            <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo"/>
           </div>
         <div class="col-md-3 col-sm-12">
           <div class="home-6-contact-me-form">
@@ -62,7 +62,7 @@
   <footer id="yolo-footer-wrapper">
     <div class="yolo-footer-wrapper footer-3">
       <div class="footer-col">
-        <p class="copyright">BeGreen © Yolo 2016 Copyright, All Right Reserved 2016 Designed by <a href="#">Yolo</a></p>
+        <p class="copyright">Plazabunga © 2019 Copyright, All Right Reserved 2016 Designed by <a href="#">Kostlab</a></p>
       </div>
     </div>
   </footer>
