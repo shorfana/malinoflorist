@@ -26,7 +26,7 @@
     <div class="container">
       <div class="row">
       <div class="col-md-3 col-sm-12">
-            <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-logo.jpeg" alt="logo" height="180px"/>
+            <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" height="180px"/>
           </div>
         <div class="col-md-3 col-sm-12">
           <div class="home-6-contact-me-form">
