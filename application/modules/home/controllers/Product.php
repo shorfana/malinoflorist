@@ -18,7 +18,7 @@
 
       }
 
-      function product_detail($slug){
+      function detail($slug){
         $idSetting = 1;
         $noWA = $this->Product_model->getWA($idSetting);
         $detail = $this->Product_model->getProductBySlug($slug);
@@ -39,9 +39,13 @@
           'other' => $other,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/product/detail',
+          'title'=>'Plaza Bunga Home'
         );
-        $this->load->view('product-detail',$data);
+        $this->template->load_front($data);
       }
+
+
       function sub_category($slug){
         $idSetting = 1;
         $minView = $this->Product_model->getminView($idSetting);
@@ -55,8 +59,10 @@
           'shipping' => $shipping,
           'bank' => $bank,
           'minView' => $minView,
+          'content'=>'home/product/category',
+          'title'=>'Plaza Bunga Home'
         );
-        $this->load->view('product',$data);
+        $this->template->load_front($data);
       }
 
       function category($slug){
@@ -72,8 +78,10 @@
           'shipping' => $shipping,
           'minView' => $minView,
           'bank' => $bank,
+          'content'=>'home/product/category',
+          'title'=>'Plaza Bunga Home'
         );
-        $this->load->view('product',$data);
+        $this->template->load_front($data);
       }
 
     }

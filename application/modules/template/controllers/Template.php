@@ -18,4 +18,8 @@ class Template extends MY_Controller{
 
   }
 
+  function load_front($data=NULL){//untuk front page design
+    $this->load->view('full_front', $data);
+  }
+
 }

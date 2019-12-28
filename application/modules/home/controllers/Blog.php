@@ -26,10 +26,12 @@
           'blog' => $blog,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/blog/list',
+          'title'=>'Blog'
         );
-        $this->load->view('blog',$data);
+        $this->template->load_front($data);
       }
-      function blog_detail($slug){
+      function detail($slug){
         $blog_detail = $this->Blog_model->getBlogDetail($slug);
         $shipping = getShipping();
         $bank = getBank();
@@ -37,8 +39,10 @@
           'blog_detail' => $blog_detail,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/blog/detail',
+          'title'=>$slug
         );
-        $this->load->view('blog-detail',$data);
+        $this->template->load_front($data);
       }
 
 

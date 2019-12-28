@@ -18,6 +18,26 @@
         // }
 
       }
+
+      function error_404(){
+        $bunga_papan = $this->Home_model->getProductById('1');
+        $hand_bouquet = $this->Home_model->getProductById('2');
+        $table_flower = $this->Home_model->getProductById('4');
+        $testimoni = $this->Home_model->getTestimoni();
+        $shipping = getShipping();
+        $bank = getBank();
+        $data = array(
+          'bunga_papan' => $bunga_papan,
+          'hand_bouquet' => $hand_bouquet,
+          'table_flower' => $table_flower,
+          'testimoni' => $testimoni,
+          'shipping' => $shipping,
+          'bank' => $bank,
+          'content'=>'home/page/404'
+        );
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
+      }
       function about(){
         $id = 1;
         $konten = $this->Page_model->getPage($id);
@@ -27,8 +47,9 @@
           'shipping' => $shipping,
           'bank' => $bank,
           'konten' => $konten,
+          'content' =>'home/page/about-us'
         );
-        $this->load->view('pages',$data);
+        $this->template->load_front($data);
       }
 
       function hubungi_kami(){
@@ -40,8 +61,10 @@
           'konten' => $konten,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/page/hubungi-kami'
         );
-        $this->load->view('pages',$data);
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
       }
 
       function karir_dan_lowongan(){
@@ -53,8 +76,10 @@
           'konten' => $konten,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/page/karir-lowongan'
         );
-        $this->load->view('pages',$data);
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
       }
 
       function cara_belanja(){
@@ -66,8 +91,10 @@
           'konten' => $konten,
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/page/cara-belanja'
         );
-        $this->load->view('pages',$data);
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
       }
 
       function kebijakan_transaksi(){
@@ -78,8 +105,10 @@
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/page/kebijakan-transaksi'
         );
-        $this->load->view('kebijakan-transaksi',$data);
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
       }
 
       function metode_pembayaran(){
@@ -90,7 +119,9 @@
         $data = array(
           'shipping' => $shipping,
           'bank' => $bank,
+          'content'=>'home/page/metode-pembayaran'
         );
-        $this->load->view('metode-pembayaran',$data);
+        //x$this->load->view('home',);
+        $this->template->load_front($data);
       }
 }

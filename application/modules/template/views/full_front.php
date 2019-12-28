@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>404 Page</title>
+    <title><?php if(isset($title)){echo $title;}else{echo "Plaza Bunga";} ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -28,6 +28,17 @@
     <!-- Template CSS-->
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets-front/css/main.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url() ?>assets-front/css/home.css">
+    <?php if(isset($css)){$this->load->view($css);} ?>
+    <style media="screen">
+    .logo-footer {
+      height: 150px;
+    }
+    @media only screen and (max-width: 760px) {
+      .logo-footer {
+        height: 100px;
+      }
+    }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries-->
     <!-- WARNING: Respond.js doesn't work if you view the page via file://-->
@@ -37,21 +48,144 @@
 
     -->
   </head>
-  <body class="page page-404">
+  <body class="home creative-agency-home">
     <div id="preloaderKDZ"></div>
     <div class="yolo-site">
-      <?php $this->load->view('header'); ?>
-      <div id="example-wrapper">
-        <div class="div-box">
-          <figure class="img-404"><img src="<?PHP echo base_url()?>assets-front/images/demo/page-404.jpg" alt=""/><a href="<?php echo base_url()?>" class="return-home">Please return to homepage			</a></figure>
-        </div>
+      <header class="header yolo-header-style-1">
+        <?php
+            $this->load->helper('navbar');
+            $this->load->helper('dbs');
+        ?>
+              <div class="yolo-top-bar">
+                <div class="container">
+                  <div class="row">
+                    <div class="top-sidebar top-bar-left col-md-4">
+                      <aside id="text-11" class="widget widget_text">
+                        <div class="textwidget">
+                          <div>Welcome to Plaza Bunga - Toko Bunga Makassar</div>
+                        </div>
+                      </aside>
+                    </div>
+                    <div class="top-sidebar top-bar-right col-md-8">
+                      <aside id="text-6" class="widget widget_text">
+                        <div class="textwidget">
+                          <a href="<?php echo "https://".getSetting()->ig_link?>">
+                            <i style="margin-left: 15px" class="fa fa-instagram"></i> <?php echo getSetting()->ig_title?>
+                          </a>
+                          <a href="<?php echo "https://".getSetting()->fb_link?>">
+                            <i style="margin-left: 15px" class="fa fa-facebook"></i> <?php echo getSetting()->fb_title?>
+                          </a>
+                          <a href="#"><i style="margin-left: 15px" class="fa fa-whatsapp"></i> Hubungi Kami <?php echo getSetting()->whatsapp?></a>
+                        </div>
+                      </aside>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="yolo-header-top yolo-header-top-style-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="header-logo">
+                  <h1><a href="index.html"><img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" width="100"/></a></h1>
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="header-customize header-customize-right">
+                  <div class="custom-text-wrapper header-customize-item">Plaza Bunga</div>
+                  <div class="custom-text-wrapper header-customize-item"><i class="fa fa-truck"></i>Makassar Sulawesi Selatan, Indonesia</div>
 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+              <div class="mobile-menu">
+                <div class="col-3 text-left"><a href="#primary-menu"><i class="fa fa-bars"></i></a></div>
+                <div class="col-3 text-center">
+                  <div class="logo">
+                <h1><a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" height="150px" width="100px"/></a></h1>
+                  </div>
+                </div>
+                <div class="col-3 text-right">
+                  <div class="header-right">
+                    <div class="search-button-wrapper header-customize-item style-default">
+                      <div class="icon-search-menu"><i class="wicon fa fa-search"></i></div>
+                      <div class="yolo-search-wrapper">
+                        <input id="search-ajax" placeholder="Enter keyword to search" type="search"/>
+                        <button class="search"><i class="fa fa-search"></i></button>
+                        <button class="close"><i class="pe-7s-close"></i></button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+              <div class="header-bottom">
+          <div class="container">
+
+            <div class="main-nav-wrapper">
+              <div class="header-left">
+                <nav id="primary-menu" class="main-nav">
+                  <ul class="nav">
+                    <li class=""><a href="<?php echo base_url() ?>">Home</a></li>
+                    <!-- <li class="menu-item menu-blog"><a href="<?php echo base_url() ?>home/product">Bunga Papan</a>
+                      <ul class="sub-menu">
+                        <li><a href="<?php echo base_url() ?>home/product">Happy Wedding</a></li>
+                        <li><a href="<?php echo base_url() ?>home/product">Congratulations</a></li>
+                        <li><a href="<?php echo base_url() ?>home/product">Turut Berduka Cita</a></li>
+                      </ul>
+                    </li> -->
+                    <?php
+                        foreach (getCatWithSub() as $catsub ):?>
+                      <li class="menu-item menu-blog"><a href="#"><?php echo $catsub->name?></a>
+                        <ul class="sub-menu">
+                          <?php
+                          $catSubName = $catsub->name;
+                          $csName = getSub($catSubName);
+                          foreach ($csName as $csn):?>
+                            <li><a href="<?php echo base_url().$catsub->slug.'/'. $csn->slug;?>"><?php echo $csn->name;?></a></li>
+                          <?php endforeach;
+                          ?>
+                        </ul>
+                      </li>
+                    <?php endforeach;?>
+                    <?php foreach (getCatOnly() as $cat ):?>
+                      <li class="menu-item menu-project"><a href="<?php echo base_url().$cat->slug?>"><?php echo $cat->name?></a></li>
+                    <?php endforeach; ?>
+                  </ul>
+                </nav>
+                <!-- .header-main-nav-->
+              </div>
+
+              <div class="header-right">
+                <ul class="header-customize-item header-social-profile-wrapper">
+                  <li><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-skype"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-youtube"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                  <li><a href="#" target="_blank"><i class="fa fa-dribbble"></i></a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+            </header>
+
+      <div id="example-wrapper">
+        <!-- Replace Body Disini -->
+        <?php if(isset($content)){$this->load->view($content);} ?>
+        <!-- Replace Body Disini -->
+        
         <div class="div-box mb" style="margin-top: 50px;">
           <div class="home-7-contact-me">
             <div class="container">
               <div class="row">
               <div class="col-md-3 col-sm-12">
-                    <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-logo.jpeg" alt="logo" height="180px"/>
+                <center>
+                    <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" class="logo-footer" alt="logo"/>
+                  </center>
                   </div>
                 <div class="col-md-3 col-sm-12">
                   <div class="home-6-contact-me-form">
@@ -87,11 +221,12 @@
           <footer id="yolo-footer-wrapper">
             <div class="yolo-footer-wrapper footer-3">
               <div class="footer-col">
-                <p class="copyright">BeGreen © Yolo 2016 Copyright, All Right Reserved 2016 Designed by <a href="#">Yolo</a></p>
+                <p class="copyright">Plazabunga © 2019 Copyright, All Right Reserved Developed by <a href="#">Kostlab</a></p>
               </div>
             </div>
           </footer>
         </div>
+
       </div>
     </div>
     <!-- .mv-site-->
@@ -125,5 +260,7 @@
     <script type="text/javascript" src="<?php echo base_url() ?>assets-front/libs/countdown-timer/js/kinetic.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets-front/libs/owl.carousel.min/owl.carousel.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url() ?>assets-front/js/main.js"></script>
+    <?php if(isset($js)){$this->load->view($js);} ?>
+
   </body>
 </html>

@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['default_controller'] = 'home';
 $route['movies']='front/movies';
-$route['404_override'] = 'home/error_404';
+$route['404_override'] = 'home/page/error_404';
 $route['translate_uri_dashes'] = FALSE;
 
 require_once( BASEPATH .'database/DB'. EXT );
@@ -74,7 +74,8 @@ foreach( $result2 as $row )
     $route[ $row->slug ]                 = "home/product/category/".$row->slug;
     $route[ $row->slug.'/:any' ]         = "home/product/category/".$row->slug;
 }
-
+$route['product/(:any)']='home/product/detail/$1';
+$route['blog/(:any)']='home/blog/detail/$1';
 $route['karir-dan-lowongan']='home/page/karir_dan_lowongan';
 $route['cara-belanja']='home/page/cara_belanja';
 $route['metode-pembayaran']='home/page/metode_pembayaran';
