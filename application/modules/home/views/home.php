@@ -59,7 +59,7 @@
         <div class="col-md-6 col-sm-6">
           <div class="banner-shortcode-wrap style_4">
             <div class="banner-content title_left">
-              <h3 class="banner-title title_left">Bunga Papan</h3><span class="banner-label label_left">Bright light plant</span><img src="<?php echo base_url() ?>assets-front/images/demo/banner3-h4.jpg" alt="Outdoor"/>
+              <a href="<?= base_url() ?>bunga-papan"><h3 class="banner-title title_left">Bunga Papan</h3><span class="banner-label label_left">More Product</span><img src="<?php echo base_url() ?>xfile/banner1.jpg" alt="Outdoor"/></a>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
         <div class="col-md-6 col-sm-6">
           <div class="banner-shortcode-wrap style_4">
             <div class="banner-content title_right">
-              <h3 class="banner-title title_left">Hand Bouquet</h3><span class="banner-label label_left">Bright light plant</span><img src="<?php echo base_url() ?>assets-front/images/demo/banner3-h4.jpg" alt="Outdoor"/>
+              <a href="<?= base_url() ?>hand-bouquet"><h3 class="banner-title title_left">Hand Bouquet</h3><span class="banner-label label_left">More Product</span><img src="<?php echo base_url() ?>xfile/banner2.jpg" alt="Outdoor"/></a>
             </div>
           </div>
         </div>
@@ -148,7 +148,7 @@
         <div class="col-md-6 col-sm-6">
           <div class="banner-shortcode-wrap style_4">
             <div class="banner-content title_left">
-              <h3 class="banner-title title_left">Bunga Papan</h3><span class="banner-label label_left">Bright light plant</span><img src="<?php echo base_url() ?>assets-front/images/demo/banner3-h4.jpg" alt="Outdoor"/>
+              <a href="<?= base_url() ?>table-flower"><h3 class="banner-title title_left">Table Flower</h3><span class="banner-label label_left">More Product</span><img src="<?php echo base_url() ?>xfile/banner1.jpg" alt="Outdoor"/></a>
             </div>
           </div>
         </div>

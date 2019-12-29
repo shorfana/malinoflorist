@@ -8,7 +8,7 @@
     <meta name="author" content="">
 
     <!-- Favicon-->
-    <link rel="shortcut icon" href="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" type="image/x-icon">
+    <link rel="shortcut icon" href="<?php echo base_url() ?>xfile/logo.png" alt="logo" type="image/x-icon">
 
     <!-- Web Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Pacifico%7CSource+Sans+Pro:200,200i,300,300i,400,400i,600,600i,700,700i,900,900i&amp;amp;subset=latin-ext,vietnamese" rel="stylesheet">
@@ -86,16 +86,16 @@
                   </div>
                 </div>
               </div>
-              <div class="yolo-header-top yolo-header-top-style-1">
+              <div class="yolo-header-top yolo-header-top-style-1" style="padding:10px">
           <div class="container">
             <div class="row">
               <div class="col-md-4">
                 <div class="header-logo">
-                  <h1><a href="index.html"><img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" width="100"/></a></h1>
+                  <h1><a href="<?= base_url() ?>"><img src="<?php echo base_url() ?>xfile/logo.png" alt="logo" width="100"/></a></h1>
                 </div>
               </div>
               <div class="col-md-8">
-                <div class="header-customize header-customize-right">
+                <div class="header-customize header-customize-right" style="padding-top:40px">
                   <div class="custom-text-wrapper header-customize-item">Plaza Bunga</div>
                   <div class="custom-text-wrapper header-customize-item"><i class="fa fa-truck"></i>Makassar Sulawesi Selatan, Indonesia</div>
 
@@ -108,7 +108,7 @@
                 <div class="col-3 text-left"><a href="#primary-menu"><i class="fa fa-bars"></i></a></div>
                 <div class="col-3 text-center">
                   <div class="logo">
-                <h1><a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" alt="logo" height="150px" width="100px"/></a></h1>
+                <h1><a href="<?php echo base_url() ?>"><img src="<?php echo base_url() ?>xfile/logo.png" alt="logo"  width="65px"/></a></h1>
                   </div>
                 </div>
                 <div class="col-3 text-right">
@@ -188,7 +188,7 @@
               <div class="row">
               <div class="col-md-3 col-sm-12">
                 <center>
-                    <img src="<?php echo base_url() ?>assets-front/images/logo/BungaPlaza-Logo.jpeg" class="logo-footer" alt="logo"/>
+                    <img src="<?php echo base_url() ?>xfile/logo.png" class="logo-footer" alt="logo"/>
                   </center>
                   </div>
                 <div class="col-md-3 col-sm-12">
