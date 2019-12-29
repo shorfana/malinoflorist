@@ -48,7 +48,11 @@
 
     -->
   </head>
-  <body class="home creative-agency-home">
+  <?php if(isset($product)){ ?>
+    <body class="product single-product">
+  <?php }else{ ?>
+    <body class="home creative-agency-home">
+  <?php } ?>
     <div id="preloaderKDZ"></div>
     <div class="yolo-site">
       <header class="header yolo-header-style-1">
@@ -177,7 +181,7 @@
         <!-- Replace Body Disini -->
         <?php if(isset($content)){$this->load->view($content);} ?>
         <!-- Replace Body Disini -->
-        
+
         <div class="div-box mb" style="margin-top: 50px;">
           <div class="home-7-contact-me">
             <div class="container">

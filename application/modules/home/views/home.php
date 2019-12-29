@@ -18,7 +18,7 @@
 <div class="div-box">
   <div class="home-7-looking bg-base-2 color-fff font-24">
     <div class="container mt-20 mb-20">
-      <p class="mt-20 mb-20"><b>LOOKING FOR A QUALITY AND AFFORDABLE </b>PLANT?<a href="#" class="btn btn-14">GET A QUOTE</a></p>
+      <p class="mt-20 mb-20"><b>SAATNYA CIPTAKAN MOMENMU</b></p>
     </div>
   </div>
 </div>

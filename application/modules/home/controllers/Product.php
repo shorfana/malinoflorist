@@ -40,7 +40,8 @@
           'shipping' => $shipping,
           'bank' => $bank,
           'content'=>'home/product/detail',
-          'title'=>'Plaza Bunga Home'
+          'title'=>'Plaza Bunga Home',
+          'product'=>true
         );
         $this->template->load_front($data);
       }

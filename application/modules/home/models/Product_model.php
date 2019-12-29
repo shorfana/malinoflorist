@@ -51,8 +51,10 @@
        }
 
       function getProductBySlug($slug){
+        $this->db->select('product.*,category.name as category');
         $this->db->FROM('product');
-        $this->db->where('slug', $slug);
+        $this->db->where('product.slug', $slug);
+        $this->db->join('category', 'category.id = product.category_id', 'left');
         // $this->db->limit('4');
         return $this->db->get()->row();
       }
