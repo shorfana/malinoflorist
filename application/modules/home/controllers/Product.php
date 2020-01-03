@@ -47,11 +47,11 @@
       }
 
 
-      function sub_category($slug){
+      function sub_category($slug1,$slug2){
         $idSetting = 1;
         $minView = $this->Product_model->getminView($idSetting);
-        $contain_title = $this->Product_model->getSCTitle($slug);
-        $subcategory = $this->Product_model->getProductBySubCat($slug);
+        $contain_title = $this->Product_model->getSCTitle($slug2);
+        $subcategory = $this->Product_model->getProductBySubCat($slug1,$slug2);
         $shipping = getShipping();
         $bank = getBank();
         $data = array(

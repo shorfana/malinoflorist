@@ -16,7 +16,7 @@
       <div class="col-md-12">
         <div class="blog-wrap">
           <div class="blog-inner blog-style-grid blog-paging-all">
-            <article class="post">
+            <article class="post blog-article">
               <div class="post-item">
                 <div class="entry-wrap">
                   <div class="entry-thumbnail-wrap">

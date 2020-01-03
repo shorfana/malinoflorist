@@ -75,15 +75,26 @@
         $this->db->WHERE('category.slug',$slug);
         return $this->db->get()->result();
       }
-      function getProductBySubCat($slug){
-        $this->db->select('sub_category.slug');
+      function getProductBySubCat($slug1,$slug2){
+        $this->db->select('category.slug,sub_category.slug');
         $this->db->select('product.*');
         $this->db->select('DATEDIFF(CURDATE(),product.product_created) AS tanggal');
-        $this->db->FROM('sub_category,product');
+        $this->db->FROM('sub_category,category,product');
         $this->db->WHERE('sub_category.id=product.subcategory_id');
-        $this->db->WHERE('sub_category.slug',$slug);
+        $this->db->WHERE('category.id=product.category_id');
+        $this->db->WHERE('category.slug',$slug1);
+        $this->db->WHERE('sub_category.slug',$slug2);
         return $this->db->get()->result();
       }
+      // function getProductBySubCat($slug){
+      //   $this->db->select('sub_category.slug');
+      //   $this->db->select('product.*');
+      //   $this->db->select('DATEDIFF(CURDATE(),product.product_created) AS tanggal');
+      //   $this->db->FROM('sub_category,product');
+      //   $this->db->WHERE('sub_category.id=product.subcategory_id');
+      //   $this->db->WHERE('sub_category.slug',$slug);
+      //   return $this->db->get()->result();
+      // }
 
       function getWA($idSetting){
         $this->db->select('whatsapp');

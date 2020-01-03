@@ -13976,6 +13976,14 @@ body .yolo-site #example-wrapper .slider-1-content .btn-6:hover {
     padding: 0 15px
 }
 
+.blog-article{
+    width:100%;
+}
+
+.blog-margin{
+    margin-right: 20px;
+}
+
 .img-left img {
     width: 100%
 }

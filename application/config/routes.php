@@ -65,10 +65,9 @@ $query2 = $db->get('category');
 $result2 = $query2->result();
 foreach( $result1 as $row )
 {
-    $route[ $row->cat_slug.'/'.$row->sub_slug ]                 = "home/product/sub_category/".$row->sub_slug;
-    $route[ $row->cat_slug.'/'.$row->sub_slug.'/:any' ]         = "home/product/sub_category/".$row->sub_slug;
+    $route[ $row->cat_slug.'/'.$row->sub_slug ]                 = "home/product/sub_category/".$row->cat_slug.'/'.$row->sub_slug;
+    $route[ $row->cat_slug.'/'.$row->sub_slug.'/:any' ]         = "home/product/sub_category/".$row->cat_slug.'/'.$row->sub_slug;
 }
-
 foreach( $result2 as $row )
 {
     $route[ $row->slug ]                 = "home/product/category/".$row->slug;

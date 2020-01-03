@@ -75,7 +75,7 @@
                         <!-- <li class="entry-meta-comment"><a href="#"><i class="fa fa-comments-o p-color"></i> 0 Comment</a></li> -->
                       </ul>
                     </div>
-                    <div class="entry-excerpt">
+                    <div class="entry-excerpt blog-margin">
                       <p><?php $string = $b->text;
                             if (strlen($string) > 100) {
                               $trimstring =  substr_replace($string, "...", 100);
