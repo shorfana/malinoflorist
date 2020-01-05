@@ -53,7 +53,8 @@
                 redirect(base_url("admin"));
                 echo "berhasil login";
         	}else{
-            echo "Gagal Login";
+            // echo "Gagal Login";
+            echo "<script type='text/javascript'>alert('Username atau password Salah!!!'); document.location='".base_url()."login"."' </script>";
           }
         }
 
