@@ -210,7 +210,7 @@
                 </div>
                 <div class="col-md-3 col-sm-12">
                     <div class="home-6-contact-me-form">
-                      <h3>CV. Plaza Bunga</h3>
+                      <h3>Plaza Bunga</h3>
                       <p><?php echo getSetting()->address; ?>
                          <br>Telpon : <?php echo getSetting()->phone;?>
                          <br>Email : <?php echo getSetting()->email;?>
