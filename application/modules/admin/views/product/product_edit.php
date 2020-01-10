@@ -41,7 +41,7 @@
                       <label class="col-sm-3 col-form-label">Kategori</label>
                       <div class="col-sm-9">
                         <select class="form-control" name="category_id" id="id_category" required>
-                            <option value="<?php echo $dataedit->category_id ?>">Please Select</option>
+                            <option value="<?php echo $dataedit->category_id ?>"><?php echo $category_product->name ?></option>
                             <<?php foreach ($category_data as $d ): ?>
                               <option <?php echo $category_data_selected == $d->id ? 'selected="selected"' : '' ?>
                               value="<?php echo $d->id ?>"><?php echo $d->name ?></option>

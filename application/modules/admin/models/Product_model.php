@@ -190,9 +190,18 @@
         }
 
 
-        public function get_category(){
-            $query = $this->db->get('category');
+        public function get_category($id){
+          $query = $this->db->get_where('category', array('id !=' => $id));
+          //   // $this->db->get('category');
+          //   // $this->db->where('category_id', $id);
             return $query->result();
+        }
+
+        public function get_category_by_id($id){
+          $query = $this->db->get_where('category', array('id' => $id));
+          //   // $this->db->get('category');
+          //   // $this->db->where('category_id', $id);
+            return $query->row();
         }
 
         public function get_subcategory(){

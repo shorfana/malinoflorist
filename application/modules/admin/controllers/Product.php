@@ -101,9 +101,11 @@
         }
 
         public function edit($id){
-          $category_data = $this->Product_model->get_category();
-          $sub_category_data = $this->Product_model->get_subcategory();
           $dataedit=$this->Product_model->get_by_id($id);
+          $id = $dataedit->category_id;
+          $category_data = $this->Product_model->get_category($id);
+          $category_product = $this->Product_model->get_category_by_id($id);
+          $sub_category_data = $this->Product_model->get_subcategory();
            $data = array(
              'content'=>'admin/product/product_edit',
              'sidebar'=>'admin/sidebar',
@@ -112,6 +114,7 @@
              'js'=>'admin/product/js',
              'dataedit'=>$dataedit,
              'category_data' => $category_data,
+             'category_product' => $category_product,
              'sub_category_data' => $sub_category_data,
              'category_data_selected' => '',
              'sub_category_data_selected' => '',
