@@ -103,7 +103,7 @@
         public function edit($id){
           $dataedit=$this->Product_model->get_by_id($id);
           $id = $dataedit->category_id;
-          $category_data = $this->Product_model->get_category($id);
+          $category_data = $this->Product_model->get_category_id($id);
           $category_product = $this->Product_model->get_category_by_id($id);
           $sub_category_data = $this->Product_model->get_subcategory();
            $data = array(
