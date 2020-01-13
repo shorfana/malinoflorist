@@ -1,3 +1,7 @@
+<?php if($this->session->flashdata('message')) {
+      $flashMessage=$this->session->flashdata('message');
+    echo "<script>alert('$flashMessage')</script>";
+    } ?>
 <section class="card">
       <div class="card-header">
         <h4 class="card-title">Edit category</h4>

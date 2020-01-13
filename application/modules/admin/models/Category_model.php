@@ -41,6 +41,15 @@
             $this->db->where('slug',$slug);
             return $this->db->get()->num_rows();
         }
+
+        function prev_slug($pk)
+        {
+            $this->db->get($this->table);
+            $this->db->FROM($this->table);
+            $this->db->where('id',$pk);
+            return $this->db->get()->row();
+        }
+
         function check_row($slug)
         {
             $this->db->get($this->table);

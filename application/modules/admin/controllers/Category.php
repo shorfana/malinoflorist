@@ -106,74 +106,23 @@ public function create_action()
         } else {
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
-          $plain = substr($slug,0,strrpos($slug,"-"));
           $check_category = $this->Category_model->check_where_by_slug($slug);
-          $check_row = $this->Category_model->check_row($slug);
-
-          if (!empty($plain)) {
-            $slug_param = $plain;
-          }elseif (empty($plain)) {
-            $slug_param = $slug;
-          }
-          $get_category = $this->Category_model->get_where_by_slug($slug_param);
-          //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
-          if ($check_category<1) {
-            echo $name_value = $name;
-            echo $slug_value = $slug;
+          if ($check_category<1){
             $data = array(
-                'name' => $name_value,
-                'slug' => $slug_value,
-              );
-          //IF DATA INPUTED ALREADY ON DATABASE, AND THE DATA INPUTED NOT INCLUDE NUMBERING AT LAST TEXT
-          }elseif ($check_category==1 && !is_numeric(substr($slug, -1)) ) {
-            $number = 2;
-            echo $name_value = $name." ".$number;
-            echo $slug_value = slug($name_value);
-            $next_row = $this->Category_model->check_next_row($slug_value);
-            //IF THE NEXT ROW IS < 2
-            //THEN INSERT "SLUG TITLE - 2"
-              if ($next_row<1) {
-                $data = array(
-                    'name' => $name_value,
-                    'slug' => $slug_value,
-                  );
-              //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-            }elseif ($next_row>=1) {
-                $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
-                $get_category->category_number;
-                $next_num = $last_num+1;
-                $name = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
-                echo $name_value = $name." ".$next_num;
-                echo $slug_value = $name."-".$next_num;
-                $data = array(
-                    'name' => $name_value,
-                    'slug' => $slug_value,
-                  );
-              }
-
-          }
-          //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
-          //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-          elseif ($check_row>=1 && is_numeric(substr($slug, -1)) ) {
-            $last_num = substr(substr($get_category->slug,strrpos($get_category->slug,"-")),1);
-            $get_category->category_number;
-            $next_num = $last_num+1;
-            $name = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
-            echo $name_value = $name." ".$next_num;
-            echo $slug_value = $name."-".$next_num;
-            $data = array(
-                'name' => $name_value,
-                'slug' => $slug_value,
-              );
-          }
-
+              'name' => $name,
+              'slug' => $slug,
+            );
+            //echo $data['name'];die;
             $this->Category_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
+            $this->session->set_flashdata('message',$data['name'].' Berhasil Ditambahkan');
             redirect(site_url('admin/category'));
+          }else {
+            $message = "Maaf, Kategori Sudah Terdaftar";
+            $this->session->set_flashdata('message', $message);
+            redirect(site_url('admin/category/create'));die();
+          }
         }
-    }
-
-
+      }
 
 
     public function update_action()
@@ -183,21 +132,23 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->edit($this->input->post('id', TRUE));
         } else {
+          $pk = $this->input->post('id', TRUE);
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
           $check_category = $this->Category_model->check_where_by_slug($slug);
-          if ($check_category>1) {
-            $message = "Maaf, Sub category sudah terdaftar";
-            $this->session->set_flashdata('message', $message);
-            redirect(site_url('admin/category'));die();
-          }elseif ($check_category<=1){
+          $prev_slug = $this->Category_model->prev_slug($pk);
+          if ($check_category<1 || ($prev_slug->slug==$slug)){
             $data = array(
           		'name' => $name,
           		'slug' => $slug,
             );
             $this->Category_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            $this->session->set_flashdata('message', 'Data Berhasil Diubah');
             redirect(site_url('admin/category'));
+          }else {
+            $message = "Maaf, Kategori Sudah Terdaftar";
+            $this->session->set_flashdata('message', $message);
+            redirect(site_url('admin/category/edit/'.$pk));die();
           }
         }
     }
@@ -209,7 +160,7 @@ public function create_action()
         if ($row) {
           if ($check_sub_cat<1) {
             $this->Category_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', $row->name. ' Berhasil Dihapus');
             redirect(site_url('admin/category'));
           }elseif($check_sub_cat>=1) {
             $this->session->set_flashdata('message', 'Gagal Menghapus Karena Kategori Ini Masih Terikat Dengan Sub Kategori');
