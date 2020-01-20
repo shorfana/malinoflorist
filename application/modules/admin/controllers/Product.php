@@ -48,14 +48,20 @@
           $no = $_POST['start'];
           foreach ($list as $Product_model) {
               $no++;
+              // if ($Product_model->subcategory !=null) {
+              //   $subcategory = $Product_model->subcategory;
+              // }else{$subcategory = "-";}
               $row = array();
               $row[] = $no;
 							$row[] = $Product_model->name;
-              $row[] = $Product_model->slug;
+              //$row[] = $Product_model->slug;
 							$row[] = $Product_model->description;
 							$row[] = $Product_model->price;
 							$row[] = $Product_model->size;
-							// $row[] = $Product_model->image1;
+              // $row[] = $Product_model->category;
+              // $row[] = $subcategory;
+
+              // $row[] = $Product_model->image1;
 							// $row[] = $Product_model->image2;
 							// $row[] = $Product_model->image3;
 							// $row[] = $Product_model->image4;
@@ -135,91 +141,33 @@ public function create_action()
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
           $plain = substr($slug,0,strrpos($slug,"-"));
-
-          $check_unique = $this->Product_model->check_where_by_slug($slug);
-          $check_row = $this->Product_model->check_row($slug);
-
-          //CHECK IF SLUG IS 1 OR >1 WORDS
-          if (!empty($plain)) {
-            $slug_param = $plain;
-          }elseif (empty($plain)) {
-            $slug_param = $slug;
-          }
-          $get_slug = $this->Product_model->get_where_by_slug($slug_param);
-
+          $check_unique = $this->Product_model->check_unique_slug($slug);
           //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
           if ($check_unique<1) {
-            $slug_value = $slug;
-            $data = array(
-    					'name' => $name,
-              'slug' => $slug_value,
-              'description' => $this->input->post('description',TRUE),
-    					'price' => $this->input->post('price',TRUE),
-    					'size' => $this->input->post('size',TRUE),
-              'product_created' => date("Y-m-d"),
-    					'category_id' => $this->input->post('category_id',TRUE),
-    					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-            );
-            //IF DATA INPUTED ALREADY ON DATABASE, AND LAST CHAR IS NOT NUMBERING
-          }elseif ($check_unique>=1 && !is_numeric(str_replace("-","",strrchr($slug, "-"))) ) {
+            $final_slug = $slug;
+          //IF DATA INPUTED ALREADY ON DATABASE, AND LAST CHAR IS NOT NUMBERING
+          }elseif ($check_unique>=1) {
+            if (is_numeric(str_replace("-","",strrchr($slug, "-")))) {
+              $slug = substr($slug,0,strrpos($slug,"-"));
+            }
               $number = 1;
-              $name_value = $name." ".$number;
-              $slug_value = slug($name_value);
-              $next_row = $this->Product_model->check_next_row($slug_value);
-              //IF THE NEXT ROW IS < 1
-              //THEN INSERT "SLUG TITLE - 1"
-                if ($next_row<1) {
-                  $data = array(
-                    //'name' => $name_value,
-                    'name' => $name,
-                    'slug' => $slug_value,
-                    'description' => $this->input->post('description',TRUE),
-          					'price' => $this->input->post('price',TRUE),
-          					'size' => $this->input->post('size',TRUE),
-                    'product_created' => date("Y-m-d"),
-          					'category_id' => $this->input->post('category_id',TRUE),
-          					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                    );
-                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-                }elseif ($next_row>=1) {
-                    $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-                    $get_slug->category_number;
-                    $next_num = $last_num+1;
-                    $slug = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
-                    //$name_value = $name." ".$next_num;
-                    $slug_value = $slug."-".$next_num;
-                    $data = array(
-                      'name' => $name,
-                      'slug' => $slug_value,
-                      'description' => $this->input->post('description',TRUE),
-            					'price' => $this->input->post('price',TRUE),
-            					'size' => $this->input->post('size',TRUE),
-                      'product_created' => date("Y-m-d"),
-            					'category_id' => $this->input->post('category_id',TRUE),
-            					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                      );
-                  }
-            }
-            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
-            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-            elseif ($check_row>=1 && is_numeric(str_replace("-","",strrchr($slug, "-"))) ) {
-              $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-              $get_slug->category_number;
-              $next_num = $last_num+1;
-              $slug = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
-              //echo $name_value = $name." ".$next_num;
-              $slug_value = $slug."-".$next_num;
-              $data = array(
-                'name' => $name,
-                'slug' => $slug_value,
-                'description' => $this->input->post('description',TRUE),
-                'price' => $this->input->post('price',TRUE),
-                'size' => $this->input->post('size',TRUE),
-                'category_id' => $this->input->post('category_id',TRUE),
-                'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                );
-            }
-
+              do {
+                $slug_value = $slug."-".$number;
+                $number = $number + 1;
+                $next_row = $this->Product_model->check_loop_slug($slug_value);
+              } while ($next_row);
+              $final_slug = $slug_value;
+            }//echo $final_slug;die;
+        $data = array(
+          'name' => $name,
+          'slug' => $final_slug,
+          'description' => $this->input->post('description',TRUE),
+          'price' => $this->input->post('price',TRUE),
+          'size' => $this->input->post('size',TRUE),
+          'product_created' => date("Y-m-d"),
+          'category_id' => $this->input->post('category_id',TRUE),
+          'subcategory_id' => $this->input->post('subcategory_id',TRUE),
+          );
         $image1=upload('image1','product','image',TRUE);
         if($image1){
           //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
@@ -242,13 +190,10 @@ public function create_action()
         }
 
             $this->Product_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
+            $this->session->set_flashdata('message', $data['name'].' Berhasil Ditambahkan');
             redirect(site_url('admin/product'));
         }
     }
-
-
-
 
     public function update_action()
     {
@@ -260,89 +205,37 @@ public function create_action()
           $pk = $this->input->post('id', TRUE);
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
-          $plain = substr($slug,0,strrpos($slug,"-"));
-
-          $check_unique = $this->Product_model->check_where_by_slug($slug);
-          $prev_slug = $this->Product_model->prev_slug($pk);
-          $check_row = $this->Product_model->check_row($slug);
-          //CHECK IF SLUG IS 1 OR >1 WORDS
-          if (!empty($plain)) {
-            $slug_param = $plain;
-          }elseif (empty($plain)) {
-            $slug_param = $slug;
+          $check_unique = $this->Product_model->check_unique_slug($slug);
+          $prev_data = $this->Product_model->prev_data($pk);
+          //IF NAME NOT CHANGE WHEN UPDATING
+          if ($prev_data->name==$name) {
+            $final_slug = $prev_data->slug;
           }
-          $get_slug = $this->Product_model->get_where_by_slug($slug_param);
-
           //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
-          if (($check_unique<1) || ($prev_slug->slug==$slug )) {
-            $slug_value = $slug;
+          elseif ($check_unique<1) {
+            $final_slug = $slug;
+            //IF DATA INPUTED ALREADY ON DATABASE, AND LAST CHAR IS NOT NUMBERING
+          }elseif ($check_unique>=1) {
+            if (is_numeric(str_replace("-","",strrchr($slug, "-")))) {
+              $slug = substr($slug,0,strrpos($slug,"-"));
+            }
+              $number = 1;
+              do {
+                    $slug_value = $slug."-".$number;
+                    $number = $number + 1;
+                    $next_row = $this->Product_model->check_loop_slug($slug_value);
+              } while ($next_row);
+              $final_slug = $slug_value;
+            }$final_slug;
             $data = array(
-              'name' => $name,
-              'slug' => $slug_value,
+              'name' => $this->input->post('name',TRUE),
+              'slug' => $final_slug,
               'description' => $this->input->post('description',TRUE),
               'price' => $this->input->post('price',TRUE),
               'size' => $this->input->post('size',TRUE),
               'category_id' => $this->input->post('category_id',TRUE),
               'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-            );
-            //IF DATA INPUTED ALREADY ON DATABASE, AND LAST CHAR IS NOT NUMBERING
-          }elseif ($check_unique>=1 && !is_numeric(str_replace("-","",strrchr($slug, "-"))) ) {
-              $number = 1;
-              $name_value = $name." ".$number;
-              $slug_value = slug($name_value);
-              $next_row = $this->Product_model->check_next_row($slug_value);
-              //IF THE NEXT ROW IS < 1
-              //THEN INSERT "SLUG TITLE - 1"
-                if ($next_row<1) {
-                  $data = array(
-                    //'name' => $name_value,
-                    'name' => $name,
-                    'slug' => $slug_value,
-                    'description' => $this->input->post('description',TRUE),
-          					'price' => $this->input->post('price',TRUE),
-          					'size' => $this->input->post('size',TRUE),
-          					'category_id' => $this->input->post('category_id',TRUE),
-          					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                    );
-                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-                }elseif ($next_row>=1) {
-                    $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-                    $get_slug->category_number;
-                    $next_num = $last_num+1;
-                    $slug = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
-                    //$name_value = $name." ".$next_num;
-                    $slug_value = $slug."-".$next_num;
-                    $data = array(
-                      'name' => $name,
-                      'slug' => $slug_value,
-                      'description' => $this->input->post('description',TRUE),
-            					'price' => $this->input->post('price',TRUE),
-            					'size' => $this->input->post('size',TRUE),
-            					'category_id' => $this->input->post('category_id',TRUE),
-            					'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                      );
-                  }
-            }
-            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
-            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-            elseif ($check_row>=1 && is_numeric(str_replace("-","",strrchr($slug, "-"))) ) {
-              $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-              $get_slug->category_number;
-              $next_num = $last_num+1;
-              $slug = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
-              //echo $name_value = $name." ".$next_num;
-              $slug_value = $slug."-".$next_num;
-              $data = array(
-                'name' => $name,
-                'slug' => $slug_value,
-                'description' => $this->input->post('description',TRUE),
-                'price' => $this->input->post('price',TRUE),
-                'size' => $this->input->post('size',TRUE),
-                'category_id' => $this->input->post('category_id',TRUE),
-                'subcategory_id' => $this->input->post('subcategory_id',TRUE),
-                );
-            }
-
+              );
             $image1=upload('image1','product','image',TRUE);
             //var_dump($image1);die;
             if($image1){
@@ -367,9 +260,8 @@ public function create_action()
               //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
               $data['image4']=$image4['file_name'];
             }
-
                 $this->Product_model->update($this->input->post('id', TRUE), $data);
-                $this->session->set_flashdata('message', 'Update Record Success');
+                $this->session->set_flashdata('message',$data['name'].' Berhasil Diubah');
                 redirect(site_url('admin/product'));
 
       }
@@ -380,7 +272,7 @@ public function create_action()
 
         if ($row) {
             $this->Product_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', 'Data Berhasil Dihapus');
             redirect(site_url('admin/product'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

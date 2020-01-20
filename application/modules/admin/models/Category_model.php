@@ -80,6 +80,13 @@
             return $this->db->get()->num_rows();
         }
 
+        function check_product($id){
+            $this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->FROM('product');
+            $this->db->where('category_id',$id);
+            return $this->db->get()->num_rows();
+        }
 
         // get all
         function get_all()

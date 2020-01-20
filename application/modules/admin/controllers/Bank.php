@@ -118,7 +118,7 @@ public function create_action()
         }
 
             $this->Bank_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
+            $this->session->set_flashdata('message', 'Bank "'.$data['name'].'" Berhasil Ditambahkan');
             redirect(site_url('admin/bank'));
         }
     }
@@ -146,7 +146,7 @@ public function create_action()
         }
 
             $this->Bank_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            $this->session->set_flashdata('message', 'Data Bank Berhasil Diperbarui');
             redirect(site_url('admin/bank'));
         }
     }
@@ -157,7 +157,7 @@ public function create_action()
 
         if ($row) {
             $this->Bank_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', 'Data Bank Berhasil Dihapus');
             redirect(site_url('admin/bank'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

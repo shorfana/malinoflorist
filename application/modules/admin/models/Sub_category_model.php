@@ -38,14 +38,15 @@
         }
 
         // check if slug already used by another sub category
-        function check_where_by_slug($slug,$category_id)
+        function check_where_by_slug($name,$slug,$category_id)
         {
             $this->db->get($this->table);
             $this->db->select('*');
             $this->db->FROM($this->table);
             //$this->db->where('slug',$slug,'after');
-            $this->db->where('category_id',$category_id);
+            $this->db->where('name',$name);
             $this->db->where('slug',$slug);
+            $this->db->where('category_id',$category_id);
             return $this->db->get()->num_rows();
         }
         function get_selected($selected,$id){
@@ -94,6 +95,30 @@
             return $this->db->get()->row();
         }
 
+        function get_category($id){
+            //$this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->from('sub_category');
+            $this->db->where('id',$id);
+            return $this->db->get()->row();
+        }
+        function check_category($category_id){
+            //$this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->from('product');
+            $this->db->where('category_id',$category_id);
+//            $this->db->where('category_id',$category_id);
+            return $this->db->get()->num_rows();
+        }
+        function check_subcategory($id){
+            //$this->db->get($this->table);
+            $this->db->select('*');
+            $this->db->from('product');
+            $this->db->where('subcategory_id',$id);
+//            $this->db->where('category_id',$category_id);
+            return $this->db->get()->num_rows();
+        }
+
         function check_next_row($slug_value,$category_id)
         {
             $this->db->get($this->table);
@@ -114,9 +139,13 @@
 
         function get_field(){
           $table=$this->table;
-          $this->db->select('sub_category.*,category.name as category_name'); //ganti * untuk custom field yang ditampilkan pada table
-          $sql=$this->db->get('sub_category,category'); //ganti * untuk custom field yang ditampilkan pada table
+          $this->db->select($this->select); //ganti * untuk custom field yang ditampilkan pada table
+          $sql=$this->db->get($this->table); //ganti * untuk custom field yang ditampilkan pada table
           return $sql->list_fields();
+          // $table=$this->table;
+          // $this->db->select('sub_category.*,category.name as category_name'); //ganti * untuk custom field yang ditampilkan pada table
+          // $sql=$this->db->get('sub_category,category'); //ganti * untuk custom field yang ditampilkan pada table
+          // return $sql->list_fields();
         }
 
         // get data by id
@@ -149,11 +178,11 @@
         //Datatable
         private function _get_datatables_query()
           {
-              // $this->db->select($this->select);
-              // $this->db->from($this->table);
-              $this->db->select('sub_category.*,category.name as category_name');
-              $this->db->from('sub_category,category');
-              $this->db->WHERE('sub_category.category_id=category.id');
+              $this->db->select($this->select);
+              $this->db->from($this->table);
+              // $this->db->select('sub_category.*,category.name as category_name');
+              // $this->db->from('sub_category,category');
+              // $this->db->WHERE('sub_category.category_id=category.id');
               $i = 0;
 
               foreach ($this->column_search as $item) // loop column

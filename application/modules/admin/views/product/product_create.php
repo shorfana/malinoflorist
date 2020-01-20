@@ -11,7 +11,7 @@
                 <div class="form-group row">
                     <label class="col-sm-3 col-form-label">Nama Produk</label>
                     <div class="col-sm-9">
-                      <input type="text" name="name" class="form-control">
+                      <input type="text" name="name" class="form-control" autofocus>
                     </div>
                   </div>
                 <div class="form-group row">
@@ -48,7 +48,7 @@
                   <div class="form-group row">
                       <label class="col-sm-3 col-form-label">Sub Kategori</label>
                       <div class="col-sm-9">
-                        <select class="form-control" name="subcategory_id" id="id_subcategory">
+                        <select class="form-control" name="subcategory_id" id="id_subcategory" required>
                             <option value="">Please Select</option>
                             <?php foreach ($sub_category_data as $d ): ?>
                               <option <?php echo $sub_category_data_selected ? 'selected="selected"' : '' ?>

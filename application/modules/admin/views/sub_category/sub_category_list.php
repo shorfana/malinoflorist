@@ -23,7 +23,7 @@
                                            <th>No</th>
                                            <th>Nama Sub Kategori</th>
                                            <th>Slug</th>
-                                           <th>Nama Kategori</th>
+                                           <!-- <th>Nama Kategori</th> -->
                                            <th>aksi</th>
                                        </tr>
                                      </thead>

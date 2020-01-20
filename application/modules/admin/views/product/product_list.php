@@ -22,10 +22,11 @@
                                        <tr>
                                            <th>No</th>
                                            <th>Nama</th>
-                                           <th>Slug</th>
                                            <th>Deskripsi</th>
                                            <th>Harga</th>
                                            <th>Ukuran</th>
+                                           <!-- <th>Kategori</th>
+                                           <th>Sub Kategori</th> -->
                                            <th>aksi</th>
                                        </tr>
                                      </thead>

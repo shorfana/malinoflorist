@@ -52,7 +52,7 @@
               $row[] = $no;
 							$row[] = $Sub_category_model->name;
 							$row[] = $Sub_category_model->slug;
-							$row[] = $Sub_category_model->category_name;
+							//$row[] = $Sub_category_model->category_name;
 
               $row[] ="
               <a href='sub_category/edit/$Sub_category_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -117,7 +117,7 @@ public function create_action()
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
           $category_id = $this->input->post('category_id',TRUE);
-          $check_category = $this->Sub_category_model->check_where_by_slug($slug,$category_id);
+          $check_category = $this->Sub_category_model->check_where_by_slug($name,$slug,$category_id);
           if ($check_category<1){
             $data = array(
               'name' => $name,
@@ -146,16 +146,19 @@ public function create_action()
           $name = $this->input->post('name',TRUE);
           $slug = slug($this->input->post('name',TRUE));
           $category_id = $this->input->post('category_id',TRUE);
-          $check_category = $this->Sub_category_model->check_where_by_slug($slug,$category_id);
+          $check_category = $this->Sub_category_model->check_where_by_slug($name,$slug,$category_id);
           $prev_data = $this->Sub_category_model->prev_data($pk);
-          if ($check_category<1 && ($prev_data->slug==$slug && $prev_data->category_id==$category_id)){
+          if ($prev_data->name==$name && $prev_data->slug==$slug && $prev_data->category_id==$category_id) {
+            $this->session->set_flashdata('message', 'Data Tidak Jadi Diubah');
+            redirect(site_url('admin/sub_category'));
+          }elseif ($check_category<1){
             $data = array(
           		'name' => $name,
           		'slug' => $slug,
           		'category_id' => $category_id,
             );
             $this->Sub_category_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Data Berhasil Diubah');
+            $this->session->set_flashdata('message', 'Data '.$name.' Berhasil Diubah');
             redirect(site_url('admin/sub_category'));
           }else{
             $message = "Maaf, Sub category Sudah Terdaftar";
@@ -167,14 +170,22 @@ public function create_action()
     public function delete($id)
     {
         $row = $this->Sub_category_model->get_by_id($id);
-
+        $get_category = $this->Sub_category_model->get_category($id);
+        $category_id = $get_category->category_id;
+        $check_subcategory = $this->Sub_category_model->check_subcategory($id);
+        $check_category = $this->Sub_category_model->check_category($category_id);
         if ($row) {
+          if ($check_subcategory<1) {
             $this->Sub_category_model->delete($id);
             $this->session->set_flashdata('message', $row->name.' Berhasil Dihapus');
             redirect(site_url('admin/sub_category'));
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
+          }elseif ($check_subcategory>=1) {
+            $this->session->set_flashdata('message', 'Gagal!! Masih Ada Produk Pada Subkategori Ini');
             redirect(site_url('admin/sub_category'));
+          }else {
+              $this->session->set_flashdata('message', 'Record Not Found');
+              redirect(site_url('admin/sub_category'));
+          }
         }
     }
 

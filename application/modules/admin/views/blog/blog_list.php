@@ -22,7 +22,7 @@
                                        <tr>
                                            <th>No</th>
                                            <th>Nama Blog</th>
-                                           <th>Teks</th>
+                                           <!-- <th>Teks</th> -->
                                            <th>Tanggal Dibuat</th>
                                            <th>Tanggal Diupdate</th>
                                            <th>Aksi</th>
