@@ -14,7 +14,7 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">name</label>
               <div class="col-sm-10">
-                <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
+                <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>" autofocus>
               </div>
               </div>
 						<div class="form-group row">
@@ -26,7 +26,7 @@
 						<div class="form-group row">
               <label for="example-text-input" class="col-sm-2 col-form-label">password</label>
               <div class="col-sm-10">
-                <input type="text" name="password" class="form-control" value="<?php echo $dataedit->password?>">
+                <input type="text" name="password" class="form-control" required>
               </div>
               </div>
 						<div class="form-group row">
@@ -47,6 +47,8 @@
         <div class="col-12">
           <button type="submit" class="btn btn-primary mr-1 mb-1 waves-effect
            waves-light float-right">Simpan</button>
+           <a href="<?php echo base_url().'admin/user'?>" type="submit" class="btn btn-primary mr-1 mb-1 waves-effect
+            waves-light float-right">Kembali</a>
         </div>
       </form>
       </div>
