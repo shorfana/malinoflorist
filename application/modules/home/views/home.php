@@ -45,10 +45,8 @@
                       <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                     </div>
                     <div class="product-actions">
-                      <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                        <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                      </div>
-                      <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+
+                      <div class="add-to-cart-wrap"><a href="<?php echo base_url()?>product/<?php echo $k->slug?>" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div>
                     </div>
                   </div>
                 </div>
@@ -96,10 +94,8 @@
                        <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                      </div>
                      <div class="product-actions">
-                       <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                         <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                       </div>
-                       <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+
+                       <div class="add-to-cart-wrap"><a href="<?php echo base_url()?>product/<?php echo $k->slug?>" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div>
                      </div>
                    </div>
                  </div>
@@ -134,10 +130,8 @@
                       <span class="price"><span class="product-begreen-price-amount amount"><span class="product-begreen-price-currencysymbol">Rp </span><?php echo number_format($k->price) ?></span></span>
                     </div>
                     <div class="product-actions">
-                      <div class="yith-wcwl-add-to-wishlist add-to-wishlist-17">
-                        <div class="yith-wcwl-add-button show"><a href="#" class="add_to_wishlist"><i class="fa fa-heart-o"></i> Add to Wishlist</a></div>
-                      </div>
-                      <div class="add-to-cart-wrap"><a href="#" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div><a href="#" class="product-quick-view"><i class="fa fa-search"></i>Quick view</a>
+
+                      <div class="add-to-cart-wrap"><a href="<?php echo base_url()?>product/<?php echo $k->slug?>" class="add_to_cart_button"><i class="fa fa-cart-plus"></i> Add to cart</a></div>
                     </div>
                   </div>
                 </div>
