@@ -16,7 +16,7 @@
     						<div class="form-group row">
                   <label for="example-text-input" class="col-sm-3 col-form-label">Nama</label>
                   <div class="col-sm-9">
-                    <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
+                    <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>" autofocus>
                   </div>
                   </div>
     						<div class="form-group row">

@@ -105,14 +105,12 @@ public function create_action()
             $data = array(
 					'name' => $this->input->post('name',TRUE),
 					'username' => $this->input->post('username',TRUE),
-					'password' => $this->input->post('password',TRUE),
+					'password' => sha1($this->input->post('password',TRUE)),
 					'email' => $this->input->post('email',TRUE),
 					'phone' => $this->input->post('phone',TRUE),
-
 );
-
             $this->User_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
+            $this->session->set_flashdata('message', 'User Baru Berhasil Ditambahkan');
             redirect(site_url('admin/user'));
         }
     }
@@ -130,14 +128,14 @@ public function create_action()
             $data = array(
 					'name' => $this->input->post('name',TRUE),
 					'username' => $this->input->post('username',TRUE),
-					'password' => $this->input->post('password',TRUE),
+					'password' => sha1($this->input->post('password',TRUE)),
 					'email' => $this->input->post('email',TRUE),
 					'phone' => $this->input->post('phone',TRUE),
 
 );
 
             $this->User_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            $this->session->set_flashdata('message', 'Data User Berhasil Diubah');
             redirect(site_url('admin/user'));
         }
     }
@@ -148,7 +146,7 @@ public function create_action()
 
         if ($row) {
             $this->User_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', 'Data User Berhasil Dihapus');
             redirect(site_url('admin/user'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

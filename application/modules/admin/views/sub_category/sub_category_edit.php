@@ -1,4 +1,8 @@
-<section class="card">
+<?php if($this->session->flashdata('message')) {
+      $flashMessage=$this->session->flashdata('message');
+    echo "<script>alert('$flashMessage')</script>";
+    } ?>
+    <section class="card">
       <div class="card-header">
         <h4 class="card-title">Edit sub_category</h4>
       </div>
@@ -17,17 +21,18 @@
                 <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
               </div>
               </div>
-              <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Pilih Kategori</label>
-                <div class="col-sm-10">
-                  <select class="form-control" name="category_id" id="category_id">
-                      <option value="" selected>Please Select</option>
-                      <?php foreach ($data_category as $d ): ?>
-                        <option value="<?php echo $d->id ?>"><?php echo $d->name ?></option>
-                      <?php endforeach; ?>
-  							    </select>
-                </div>
+            <div class="form-group row">
+              <label class="col-sm-2 col-form-label">Pilih Kategori</label>
+              <div class="col-sm-10">
+                <select class="form-control" name="category_id" id="category_id">
+                  <?php
+                     echo "<option value='".$selected->category_id."'>".$selected->category_name."</option>";
+                     foreach ($not_selected as $n ):?>
+                      <option value=<?php echo $n->id?>><?php echo $n->name?></option>
+                  <?php endforeach;?>
+							    </select>
               </div>
+            </div>
 
         </div>
         <input type="hidden" id="deleteFiles" name="deleteFiles">

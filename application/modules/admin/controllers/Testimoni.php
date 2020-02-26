@@ -119,6 +119,7 @@ public function create_action()
 
         );
         $image=upload('image','testimoni','image',TRUE);
+        //var_dump($image['file_name']);die;
         if($image){
           //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
           $data['image']=$image['file_name'];
@@ -131,9 +132,6 @@ public function create_action()
         }
     }
 
-
-
-
     public function update_action()
     {
         $this->_rules();
@@ -142,7 +140,6 @@ public function create_action()
             $this->edit($this->input->post('id', TRUE));
         } else {
             $data = array(
-					'image' => $this->input->post('image',TRUE),
 					'name' => $this->input->post('name',TRUE),
 					'title' => $this->input->post('title',TRUE),
 					'description' => $this->input->post('description',TRUE),
@@ -153,8 +150,6 @@ public function create_action()
         if($image){
           //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
           $data['image']=$image['file_name'];
-        }elseif(empty($image)){
-          $data['image']=null;
         }
             $this->Testimoni_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');

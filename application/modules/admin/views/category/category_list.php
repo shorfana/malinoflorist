@@ -7,7 +7,7 @@
              <div class="col-12">
                  <div class="card">
                      <div class="card-header">
-                         <h4 class="card-title">Data Kategori</h4>
+                         <h4 class="card-title">Data kategori</h4>
       		    		<a href="<?= site_url($module.'/category/create') ?>"><button type="button" class="btn btn-primary round waves-effect waves-light">
       	               	 Tambah Data
       	              	</button>

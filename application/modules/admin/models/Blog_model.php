@@ -7,7 +7,7 @@
     {
         public $table = 'blog';
         public $id = 'id';
-        public $order = array('id' => 'asc');
+        public $order = array('id' => 'desc');
         public $select='*';
 
         function __construct()
@@ -17,60 +17,45 @@
             $this->column_search=[];
             $this->column_order[]=null;
 							$this->column_order[]='title';
+              $this->column_order[]='created_on';
+              $this->column_order[]='updated_on';
               $this->column_order[]='slug';
 							$this->column_order[]='text';
 							$this->column_order[]='image';
 							$this->column_order[]='slug';
-							$this->column_order[]='created_on';
-							$this->column_order[]='updated_on';
 							$this->column_order[]='user_id';
 							$this->column_search[]='title';
+              $this->column_search[]='created_on';
+              $this->column_search[]='updated_on';
               $this->column_search[]='slug';
 							$this->column_search[]='text';
 							$this->column_search[]='image';
 							$this->column_search[]='slug';
-							$this->column_search[]='created_on';
-							$this->column_search[]='updated_on';
 							$this->column_search[]='user_id';
 
         }
 
         // check if slug already used by another sub category
-        function check_where_by_slug($slug)
+        function check_unique_slug($slug)
         {
             $this->db->get($this->table);
             $this->db->FROM($this->table);
             $this->db->where('slug',$slug);
             return $this->db->get()->num_rows();
         }
-        function check_row($slug)
+        function check_loop_slug($slug_value)
         {
             $this->db->get($this->table);
-            $this->db->select('*');
-            $this->db->FROM($this->table);
-            $this->db->like('slug',$slug,'after');
-            return $this->db->get()->num_rows();
-        }
-        //GET DATA IF THERE IS MORE THAN 1 SAME ITEM
-        function get_where_by_slug($slug_param)
-        {
-            $this->db->get($this->table);
-            $this->db->select('*');
-            $this->db->select('SUBSTRING_INDEX(TRIM(slug), "-", -1) AS "category_number"');
-            $this->db->FROM($this->table);
-            $this->db->where('SUBSTRING_INDEX(TRIM(slug), "-", -1) REGEXP "[[:digit:]]+"');
-            $this->db->like('slug',$slug_param,'after');
-            $this->db->order_by('CAST(category_number as UNSIGNED)', 'DESC');
-            return $this->db->get()->row();
-        }
-
-        function check_next_row($slug_value)
-        {
-            $this->db->get($this->table);
-            $this->db->select('*');
             $this->db->FROM($this->table);
             $this->db->where('slug',$slug_value);
             return $this->db->get()->num_rows();
+        }
+        function prev_data($pk)
+        {
+            $this->db->get($this->table);
+            $this->db->FROM($this->table);
+            $this->db->where('id',$pk);
+            return $this->db->get()->row();
         }
 
         // get all

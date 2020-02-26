@@ -48,15 +48,17 @@
           $no = $_POST['start'];
           foreach ($list as $Blog_model) {
               $no++;
+              $y = date('Y',strtotime($Blog_model->updated_on));
+              if ($y >2000) {
+                $year = $Blog_model->updated_on;
+              }else{$year = "-";}
               $row = array();
               $row[] = $no;
 							$row[] = $Blog_model->title;
-              //$row[] = $Blog_model->slug;
-							$row[] = substr_replace($Blog_model->text,"...",35);
-							// $row[] = $Blog_model->image;
-							$row[] = $Blog_model->created_on;
-							$row[] = $Blog_model->updated_on;
-							// $row[] = $Blog_model->user_id;
+//              $row[] = substr_replace($text,"...",35);
+              $row[] = $Blog_model->created_on;
+							$row[] = $year;
+	//						$row[] = $Blog_model->user_id;
 
               $row[] ="
               <a href='blog/edit/$Blog_model->id'><i class='m-1 feather icon-edit-2'></i></a>
@@ -115,94 +117,42 @@ public function create_action()
         } else {
           $title = $this->input->post('title',TRUE);
           $slug = slug($this->input->post('title',TRUE));
-          $plain = substr($slug,0,strrpos($slug,"-"));
-          $created_on = date("Y-m-d h:i:s");
-          $check_unique = $this->Blog_model->check_where_by_slug($slug);
-          $check_row = $this->Blog_model->check_row($slug);
-
-          if (!empty($plain)) {
-            $slug_param = $plain;
-          }elseif (empty($plain)) {
-            $slug_param = $slug;
-          }
-          $get_slug = $this->Blog_model->get_where_by_slug($slug_param);
-          //IF THIS IS THE FIRST SLUG INPUTED ON DATABASE
+          $created_on = date("Y-m-d H:i:s");
+          $check_unique = $this->Blog_model->check_unique_slug($slug);
           if ($check_unique<1) {
-            $title_value = $title;
-            $slug_value = $slug;
-            $data = array(
-    					'title' => $title_value,
-              'slug' => $slug_value,
-              'text' => $this->input->post('text',TRUE),
-    					'created_on' => $created_on,
-    					//'updated_on' => $this->input->post('updated_on',TRUE),
-    					'user_id' => $this->session->userdata['id_user'],
-            );
-          }elseif ($check_unique==1 && !is_numeric(substr($slug, -1)) ) {
-              $number = 2;
-              $title_value = $title." ".$number;
-              $slug_value = slug($title_value);
-              $next_row = $this->Blog_model->check_next_row($slug_value);
-              //IF THE NEXT ROW IS < 2
-              //THEN INSERT "SLUG TITLE - 2"
-                if ($next_row<1) {
-                  $data = array(
-                    'title' => $title_value,
-                    'slug' => $slug_value,
-                    'text' => $this->input->post('text',TRUE),
-          					'created_on' => $created_on,
-          					//'updated_on' => $this->input->post('updated_on',TRUE),
-          					'user_id' => $this->session->userdata['id_user'],
-                    );
-                //ELSE, INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-              }elseif ($next_row>=1) {
-                  $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-                  $get_slug->category_number;
-                  $next_num = $last_num+1;
-                  $title = substr($get_slug->slug,0,strrpos($get_slug->slug,"-"));
-                  $title_value = $title." ".$next_num;
-                  $slug_value = $title."-".$next_num;
-                  $data = array(
-                    'title' => $title_value,
-                    'slug' => $slug_value,
-                    'text' => $this->input->post('text',TRUE),
-          					'created_on' => $created_on,
-          					//'updated_on' => $this->input->post('updated_on',TRUE),
-          					'user_id' => $this->session->userdata['id_user'],
-                    );
-                }
+            $final_slug = $slug;
+          }elseif ($check_unique>=1) {
+            if (is_numeric(str_replace("-","",strrchr($slug, "-")))) {
+              $slug = substr($slug,0,strrpos($slug,"-"));
             }
-            //IF THE INPUTED DATA LIKE% "SLUG TITLE" ON DATABASE, AND LAST CHARACTER OF INPUTED DATA IS NUMBERING
-            //THEN INSERT SLUG NUMBER AFTER SORTING THE SLUG NUMBER FROM SMALL TO BIG, THAN THE BIG ONE +1
-            elseif ($check_row>=1 && is_numeric(substr($slug, -1)) ) {
-              $last_num = substr(substr($get_slug->slug,strrpos($get_slug->slug,"-")),1);
-              $get_slug->category_number;
-              $next_num = $last_num+1;
-              $title = substr($get_category->slug,0,strrpos($get_category->slug,"-"));
-              $title_value = $title." ".$next_num;
-              $slug_value = $title."-".$next_num;
-              $data = array(
-                'title' => $title_value,
-                'slug' => $slug_value,
-                'text' => $this->input->post('text',TRUE),
-      					'created_on' => $created_on,
-      					//'updated_on' => $this->input->post('updated_on',TRUE),
-      					'user_id' => $this->session->userdata['id_user'],
-                );
-            }
-            $image=upload('image','blog','image',TRUE);
-            if($image){
-              //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
-              $data['image']=$image['file_name'];
-            }
-            $this->Blog_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('admin/blog'));
+              $number = 1;
+              do  {
+                    $slug_value = $slug."-".$number;
+                    $number = $number + 1;
+                    $next_row = $this->Blog_model->check_loop_slug($slug_value);
+                  }
+              while ($next_row);
+              $final_slug = $slug_value;
+          }
+          $data = array(
+            'title' => $title,
+            'slug' => $final_slug,
+            'text' => $this->input->post('text',TRUE),
+            'created_on' => $created_on,
+            'user_id' => $this->session->userdata['id_user'],
+          );
+
+          $image=upload('image','blog','image',TRUE);
+          if($image){
+            //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
+            $data['image']=$image['file_name'];
+          }
+          //var_dump($data);die;
+          $this->Blog_model->insert($data);
+          $this->session->set_flashdata('message', 'Data "'.$data['title'].'" Berhasil Ditambah');
+          redirect(site_url('admin/blog'));
         }
     }
-
-
-
 
     public function update_action()
     {
@@ -211,47 +161,56 @@ public function create_action()
         if ($this->form_validation->run() == FALSE) {
             $this->edit($this->input->post('id', TRUE));
         } else {
+            $pk = $this->input->post('id',TRUE);
             $title = $this->input->post('title',TRUE);
             $slug = slug($this->input->post('title',TRUE));
-            $updated_on = date("Y-m-d h:i:s");
-            $check_unique = $this->Blog_model->check_where_by_slug($slug);
-            //var_dump($check_unique);die();
-
-            if ($check_unique>1) {
-                $message = "Maaf, Category sudah terdaftar";
-                $this->session->set_flashdata('message', $message);
-                redirect(site_url('admin/blog'));die();
-            }elseif ($check_unique<=1){
+            $updated_on = date("Y-m-d H:i:s");
+            $check_unique = $this->Blog_model->check_unique_slug($slug);
+            $prev_data = $this->Blog_model->prev_data($pk);
+            if ($prev_data->title==$title) {
+              $final_slug = $prev_data->slug;
+            }elseif ($check_unique<1) {
+              $final_slug = $slug;
+            }elseif ($check_unique>=1) {
+              if (is_numeric(str_replace("-","",strrchr($slug, "-")))) {
+                $slug = substr($slug,0,strrpos($slug,"-"));
+              }
+              $number = 1;
+              do  {
+                    $slug_value = $slug."-".$number;
+                    $number = $number + 1;
+                    $next_row = $this->Blog_model->check_loop_slug($slug_value);
+                  }
+              while ($next_row);
+              $final_slug = $slug_value;
+            }$final_slug;
               $data = array(
                 'title' => $title,
                 'slug' => $slug,
-      					'text' => $this->input->post('text',TRUE),
-      					// 'created_on' => $this->input->post('created_on',TRUE),
-      					'updated_on' => $updated_on,
-      					'user_id' => $this->session->userdata['id_user'],
+                'text' => $this->input->post('text',TRUE),
+                'updated_on' => $updated_on,
+                'user_id' => $this->session->userdata['id_user'],
               );
-              //var_dump($data);
+              //var_dump($data);die;
               $image=upload('image','blog','image',TRUE);
               if($image){
                 //$photo['file_name']; //Untuk mengambil nama file, dan masukan ke database
                 $data['image']=$image['file_name'];
-              }elseif(empty($image)){
-                $data['image']=null;
               }
 
               $this->Blog_model->update($this->input->post('id', TRUE), $data);
-              $this->session->set_flashdata('message', 'Update Record Success');
+              $this->session->set_flashdata('message', 'Data Blog Berhasil Diperbarui');
               redirect(site_url('admin/blog'));
             }
         }
-    }
+
     public function delete($id)
     {
         $row = $this->Blog_model->get_by_id($id);
 
         if ($row) {
             $this->Blog_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', 'Data Blog Berhasil Dihapus');
             redirect(site_url('admin/blog'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');

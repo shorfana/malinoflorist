@@ -120,7 +120,7 @@ public function create_action()
           }
 
             $this->Shipping_model->insert($data);
-            $this->session->set_flashdata('message', 'Create Record Success');
+            $this->session->set_flashdata('message', 'Pengiriman "'.$data['name'].'" Berhasil Disimpan');
             redirect(site_url('admin/shipping'));
         }
     }
@@ -149,7 +149,7 @@ public function create_action()
         }
 
             $this->Shipping_model->update($this->input->post('id', TRUE), $data);
-            $this->session->set_flashdata('message', 'Update Record Success');
+            $this->session->set_flashdata('message', 'Data Pengiriman Berhasil Diperbarui');
             redirect(site_url('admin/shipping'));
         }
     }
@@ -160,7 +160,7 @@ public function create_action()
 
         if ($row) {
             $this->Shipping_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
+            $this->session->set_flashdata('message', 'Data Pengiriman Berhasil Dihapus');
             redirect(site_url('admin/shipping'));
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
