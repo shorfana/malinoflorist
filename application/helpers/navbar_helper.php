@@ -7,6 +7,7 @@ function getCatOnly(){
   $ci->db->FROM('category');
   $ci->db->join('sub_category', 'category.id=sub_category.category_id', 'left outer');
   $ci->db->where('sub_category.category_id',null);
+  $ci->db->where('category.active', 1);
   return $ci->db->get()->result();
 }
 function getCatWithSub(){
@@ -15,6 +16,7 @@ function getCatWithSub(){
   $ci->db->distinct();
   $ci->db->select('category.*');
   $ci->db->FROM('category');
+  $ci->db->where('category.active', 1);
   $ci->db->join('sub_category', 'category.id=sub_category.category_id', 'inner');
   return $ci->db->get()->result();
 }

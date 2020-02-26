@@ -21,6 +21,15 @@
                 <input type="text" name="name" class="form-control" value="<?php echo $dataedit->name?>">
               </div>
               </div>
+              <div class="form-group row">
+                <label for="example-text-input" class="col-sm-2 col-form-label">Status</label>
+                <div class="col-sm-10">
+                  <select class="form-control" name="active">
+                    <option value="0" <?php if($dataedit->active==0){echo "selected";} ?>>Tidak Aktif</option>
+                    <option value="1" <?php if($dataedit->active==1){echo "selected";} ?>>Aktif</option>
+                  </select>
+                </div>
+                </div>
         </div>
         <input type="hidden" id="deleteFiles" name="deleteFiles">
         <div class="col-12">

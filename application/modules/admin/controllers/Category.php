@@ -141,6 +141,7 @@ public function create_action()
             $data = array(
           		'name' => $name,
           		'slug' => $slug,
+              'active'=>$this->input->post('active')
             );
             $this->Category_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Data Berhasil Diubah');

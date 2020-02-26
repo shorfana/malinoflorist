@@ -111,7 +111,7 @@
     </div>
   </div>
 </div>
-<div class="div-box" style="margin-top: 25px;">
+<!-- <div class="div-box" style="margin-top: 25px;">
   <div class="home-2-outdoor">
     <div class="container">
       <div class="row">
@@ -155,7 +155,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 <div class="div-box mt mb">
   <div class="home-3-our-services">
     <div class="container">
@@ -206,7 +206,7 @@
     </div>
   </div>
 </div>
-
+<?php if(sizeof($testimoni)!=0){ ?>
 <div class="div-box testimonial-carousel mt mb">
   <div class="container">
     <h2 class="title-style title-style-1 text-center mb"><span class="title-left">Test</span><span class="title-right">imonials</span></h2>
@@ -217,8 +217,8 @@
             <div class="testimonial-item">
               <div class="testimonial-image">
                 <?php if ($t->image!=null) {
-                  echo '<img src='.base_url().'xfile/testimoni/'.$t->image.' alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>';
-                }else{echo '<img src='.base_url().'xfile/no-pic.jpg alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image"/>';
+                  echo '<img src='.base_url().'xfile/testimoni/'.$t->image.' alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit:cover;height:100%"/>';
+                }else{echo '<img src='.base_url().'xfile/no-pic.jpg alt="testimonial-Img2" width="345" height="345" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" style="object-fit:cover;height:100%"/>';
                 }?>
               </div>
               <div class="testimonial-content"><i class="fa fa-quote-right"></i>
@@ -233,6 +233,7 @@
     </div>
   </div>
 </div>
+<?php } ?>
 <div class="div-box">
     <div class="slider-clients">
       <div class="container">
