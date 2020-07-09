@@ -8,7 +8,7 @@
     <meta name="description" content="Vuesax admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuesax admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Malino FLorist | Login</title>
+    <title>Plaza Bunga | Login</title>
     <link rel="apple-touch-icon" href="<?php base_url() ?>assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="<?php base_url() ?>assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600" rel="stylesheet">
@@ -59,7 +59,7 @@
                                 <h4 class="mb-0">Login</h4>
                             </div>
                         </div>
-                        <p class="px-2">Welcome back, please login to your account.</p>
+                        <p class="px-2">Selamat datang di Plaza Bunga, silakan login dengan akun anda.</p>
                         <div class="card-content">
                             <div class="card-body pt-1">
                                 <form action="<?php base_url() ?>login/login_act" method="POST">
@@ -78,38 +78,12 @@
                                         </div>
                                         <label for="user-password">Password</label>
                                     </fieldset>
-                                    <div class="form-group d-flex justify-content-between align-items-center">
-                                        <div class="text-left">
-                                            <fieldset class="checkbox">
-                                              <div class="vs-checkbox-con vs-checkbox-primary">
-                                                <input type="checkbox">
-                                                <span class="vs-checkbox">
-                                                  <span class="vs-checkbox--check">
-                                                    <i class="vs-icon feather icon-check"></i>
-                                                  </span>
-                                                </span>
-                                                <span class="">Remember me</span>
-                                              </div>
-                                            </fieldset>
-                                        </div>
-                                        <div class="text-right"><a href="auth-forgot-password.html" class="card-link">Forgot Password?</a></div>
-                                    </div>
-                                    <a href="auth-register.html" class="btn btn-outline-primary float-left btn-inline">Register</a>
-                                    <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
+                                                                       <button type="submit" class="btn btn-primary float-right btn-inline">Login</button>
                                 </form>
                             </div>
                         </div>
-                        <div class="login-footer">
-                          <div class="divider">
-                            <div class="divider-text">OR</div>
-                          </div>
-                          <div class="footer-btn d-inline">
-                              <a href="#" class="btn btn-facebook"><span class="fa fa-facebook"></span></a>
-                              <a href="#" class="btn btn-twitter white"><span class="fa fa-twitter"></span></a>
-                              <a href="#" class="btn btn-google"><span class="fa fa-google"></span></a>
-                              <a href="#" class="btn btn-github"><span class="fa fa-github-alt"></span></a>
-                          </div>
-                        </div>
+                        <br>
+                        
                     </div>
                 </div>
             </div>
